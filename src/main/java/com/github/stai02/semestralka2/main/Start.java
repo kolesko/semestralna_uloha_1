@@ -1,6 +1,8 @@
 package com.github.stai02.semestralka2.main;
 
 import com.github.stai02.semestralka2.logic.*;
+import com.github.stai02.semestralka2.ui.HomeController1;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

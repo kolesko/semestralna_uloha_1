@@ -20,8 +20,4 @@ public class Cas {
 		return 0;
 	}
 
-	public static void main(String[] args) {
-		main.java.com.github.stal04.logic
-	}
-
 }

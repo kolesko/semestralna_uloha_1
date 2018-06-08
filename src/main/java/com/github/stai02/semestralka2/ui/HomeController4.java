@@ -1,4 +1,4 @@
-package com.github.stal04.ui;
+package com.github.stai02.semestralka2.ui;
 
 public class HomeController4 {
 

@@ -1,6 +1,6 @@
 package com.github.stai02.semestralka2.ui;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
@@ -12,6 +12,8 @@ import javafx.scene.layout.GridPane;
 public class HomeController1 extends GridPane {
 		
 	@FXML
+	private TextField brand;
+	@FXML
 	private TextField clientid;
 	@FXML
 	private TextField name;
@@ -21,8 +23,6 @@ public class HomeController1 extends GridPane {
 	private TextField telephone;
 	@FXML
 	private TextField carid;
-	@FXML
-	private TextField brand;
 	@FXML
 	private TextField license;
 	@FXML
@@ -35,20 +35,17 @@ public class HomeController1 extends GridPane {
 	private TextField timefrom;
 	@FXML
 	private TextField placefrom;
-	@FXML
-	private TextField brand;
-	@FXML
-	private Button edit;
-	@FXML
-	private Button save;
+
+	@FXML public Button edit;
+	@FXML public Button save;
 	
 	public void initialize() {
-		save.setEditable(true); 
+		save.setDisable(true); 
 	}
 
-	public String vypis() {
+	public void vypis() {
 		String idcko = carid.getText();
-		System.out.println(idcko);
+		surname.setPromptText("Lenka");
 	}
 	
 	/*public void addCar() {
