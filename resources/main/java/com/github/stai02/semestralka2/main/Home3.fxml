@@ -48,12 +48,12 @@
       </HBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
          <children>
-            <TextField editable="false" promptText="Name">
+            <TextField fx:id="driverName" editable="false" promptText="Name">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField editable="false" promptText="Surname">
+            <TextField fx:id="driverSurname" editable="false" promptText="Surname">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
@@ -64,12 +64,12 @@
          <children>
             <VBox prefHeight="215.0" prefWidth="197.0">
                <children>
-                  <TextField editable="false" promptText="Telephone">
+                  <TextField fx:id="driverTelephone" editable="false" promptText="Telephone">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField editable="false" promptText="Drivers license">
+                  <TextField fx:id="driverLicense" editable="false" promptText="Drivers license">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -79,15 +79,15 @@
             <Region prefHeight="215.0" prefWidth="50.0" />
             <VBox prefHeight="215.0" prefWidth="206.0">
                <children>
-                  <TextField editable="false" promptText="ID">
+                  <TextField fx:id="driverID" editable="false" promptText="ID">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <MenuButton mnemonicParsing="false" prefHeight="26.0" prefWidth="244.0" text="Region">
+                  <MenuButton fx:id="driverRegion" mnemonicParsing="false" prefHeight="26.0" prefWidth="244.0" text="Region">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                      <MenuItem mnemonicParsing="false" text="Praha" />
+                      <MenuItem mnemonicParsing="false" text="Brno" />
                     </items>
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -114,7 +114,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Region prefHeight="200.0" prefWidth="200.0" />
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="66.0" prefWidth="100.0" text="Delete" />
+                  <Button fx:id="driverDelete" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="66.0" prefWidth="100.0" text="Delete" />
                   <Region prefHeight="200.0" prefWidth="200.0" />
                </children>
             </HBox>
@@ -127,7 +127,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Region prefHeight="200.0" prefWidth="200.0" />
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="66.0" prefWidth="100.0" text="Edit" />
+                  <Button fx:id="driverEdit" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="66.0" prefWidth="100.0" text="Edit" />
                   <Region prefHeight="200.0" prefWidth="200.0" />
                </children>
             </HBox>
@@ -140,7 +140,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Region prefHeight="200.0" prefWidth="200.0" />
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="66.0" prefWidth="100.0" text="Save" />
+                  <Button fx:id="driverSave" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="66.0" prefWidth="100.0" text="Save" />
                   <Region prefHeight="200.0" prefWidth="200.0" />
                </children>
             </HBox>
