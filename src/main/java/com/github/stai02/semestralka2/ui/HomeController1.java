@@ -1,7 +1,12 @@
 package com.github.stai02.semestralka2.ui;
+import java.util.Optional;
+
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.CheckBox;
@@ -39,6 +44,7 @@ public class HomeController1 extends GridPane {
 	private TextField placefrom;
 
 	@FXML public Button edit;
+	@FXML public Button bdelete;
 	@FXML public Button save;
 	@FXML private DatePicker date;
 	@FXML private CheckBox driving;
@@ -47,11 +53,13 @@ public class HomeController1 extends GridPane {
 	
 	public void initialize() {
 		editOrder(); 
+		bdelete.setDisable(true);
 	}
 
 	public void editOrder() {
 		save.setDisable(false);
 		edit.setDisable(true);
+		bdelete.setDisable(false);
 		name.mouseTransparentProperty().set(false);;
 		surname.mouseTransparentProperty().set(false);
 		model.mouseTransparentProperty().set(false);
@@ -73,6 +81,7 @@ public class HomeController1 extends GridPane {
 	public void saveOrder() {
 		save.setDisable(true);
 		edit.setDisable(false);
+		bdelete.setDisable(true);
 		name.mouseTransparentProperty().set(true);
 		surname.mouseTransparentProperty().set(true);
 		model.mouseTransparentProperty().set(true);
@@ -91,7 +100,15 @@ public class HomeController1 extends GridPane {
 		driverBox.setDisable(true);
 	}
 	
-	
+	public void delete() { 
+		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to delete data?");
+		al.setHeaderText("Ending");
+		Optional<ButtonType> result = al.showAndWait();
+		if (result.get() == ButtonType.OK) {
+			System.exit(0);
+		}
+		al.close();
+	}
 	
     
 	/*public void addCar() {
