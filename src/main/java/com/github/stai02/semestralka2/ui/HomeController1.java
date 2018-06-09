@@ -56,6 +56,10 @@ public class HomeController1 extends GridPane {
 		bdelete.setDisable(true);
 	}
 
+	public void insertOrder() {
+		name.getText();
+	}
+	
 	public void editOrder() {
 		save.setDisable(false);
 		edit.setDisable(true);
