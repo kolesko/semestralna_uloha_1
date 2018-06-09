@@ -4,8 +4,8 @@ import java.util.Optional;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
@@ -28,7 +28,7 @@ public class HomeController5 {
 	
 	
 	public void inicializuj() {
-		edit.setDisable(true);
+     edit.setDisable(true);
 	}
 	
 	public void delete() { 

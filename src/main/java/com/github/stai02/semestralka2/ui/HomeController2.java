@@ -1,5 +1,4 @@
 package com.github.stai02.semestralka2.ui;
-import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,15 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 
-import java.util.List;
-import java.util.ArrayList;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
@@ -53,12 +48,12 @@ public class HomeController2 extends GridPane{
 	          	case "driver" : {
 	          		try {
 						Connection conn = dbConnection();
-						String query = "select id, name from drivers";
+						String query = "select driverid from drivers";
 						PreparedStatement pst = conn.prepareStatement(query);
 						ResultSet rs = pst.executeQuery();
 						select.getItems().clear();
 						while(rs.next()) {
-							select.getItems().add(rs.getString("name")+","+rs.getInt("id"));
+							select.getItems().add(rs.getString("driverid"));
 						}
 						conn.close();
 					} catch (ClassNotFoundException e) {
