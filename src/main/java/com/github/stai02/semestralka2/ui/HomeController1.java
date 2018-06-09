@@ -123,8 +123,6 @@ public class HomeController1 extends GridPane {
 		clientid.mouseTransparentProperty().set(true);
 		placefrom.mouseTransparentProperty().set(true);
 		placeto.mouseTransparentProperty().set(true);
-		timefrom.mouseTransparentProperty().set(true);
-		timeto.mouseTransparentProperty().set(true);
 		license.mouseTransparentProperty().set(true);
 		date.setDisable(true);
 		edit.requestFocus();

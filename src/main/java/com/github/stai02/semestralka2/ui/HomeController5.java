@@ -23,8 +23,8 @@ public class HomeController5 {
 	private Button delete;
 	
 	
-	public void inicializuj() {
-     edit.setDisable(true);
-	}
+//	public void inicializuj() {
+//     edit.setDisable(true);
+//	}
 
 }
