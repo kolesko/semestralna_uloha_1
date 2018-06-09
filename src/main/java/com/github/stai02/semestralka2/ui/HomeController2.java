@@ -109,10 +109,8 @@ public class HomeController2 extends GridPane{
 			stage.setTitle("Insert driver");
 			stage.setScene(new Scene(root1));  
 			stage.show();
-			HomeController3 c3 = fxmlLoader.getController();
-			c3.inicializuj();
 	} catch (Exception e){
-		System.out.println("New window can´t be loaded.");
+		System.out.println("New window can´t be loaded. " + e);
 	}
 }
 	public void showOrders() {
