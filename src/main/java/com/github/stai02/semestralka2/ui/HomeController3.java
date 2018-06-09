@@ -1,44 +1,55 @@
 package com.github.stai02.semestralka2.ui;
 import java.util.Optional;
 import java.sql.*;
+import com.github.stai02.semestralka2.logic.*;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextField;
 
 /**
  * @author Ivana Stanová
  *
  */
-public class HomeController3 extends GridPane {
-		
-	
-	@FXML
-	private TextField name;
-	@FXML
-	private TextField surname;
-	@FXML
-	private TextField telephone;
-	@FXML
-	private TextField license;
-	@FXML
-	private TextField driverid;
 
-	@FXML public Button bedit;
-	@FXML public Button bsave;
-	@FXML public Button bdelete;
-	@FXML private MenuButton region;
+public class HomeController3 extends GridPane {
 	
+	@FXML public TextField driverName;
+	@FXML public TextField driverSurname;
+	@FXML public TextField driverTelephone;
+	@FXML public TextField driverLicense;
+	@FXML public TextField driverID;
+	@FXML public Button driverSave;
+	@FXML public Button driverDelete;
+	@FXML public Button driverEdit;
+	@FXML public MenuButton driverRegion;
 	
+	@FXML public void driverSetName() {
+		driverSetName(driverName.getText());
+	}
 	
+	@FXML public void driverSetSurname() {
+		driverSetSurname(driverSurname.getText());
+	}
+
+
+	public void inicializuj() {
+	driverName.setDisable(false);
+	driverSurname.setEditable(true);
+	driverTelephone.setEditable(true);
+	driverLicense.setEditable(true);
+  edit();  
+	}
+	
+
 	public void initialize() {
 		edit(); 
 		bdelete.setDisable(true);
@@ -62,15 +73,15 @@ public class HomeController3 extends GridPane {
        }
        return connection;
    }
-	
+  
 	public void edit() {
-		bsave.setDisable(false);
-		bedit.setDisable(true);
-		bdelete.setDisable(false);
-		region.setDisable(false);
-		name.mouseTransparentProperty().set(false);
-		surname.mouseTransparentProperty().set(false);
-		driverid.mouseTransparentProperty().set(false);
+		driverSave.setDisable(false);
+		driverEdit.setDisable(true);
+		driverDelete.setDisable(false);
+		driverRegion.setDisable(false);
+		driverName.mouseTransparentProperty().set(false);
+		driverSurname.mouseTransparentProperty().set(false);
+		driverID.mouseTransparentProperty().set(false);
 		
 	}
 	
