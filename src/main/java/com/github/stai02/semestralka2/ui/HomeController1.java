@@ -73,8 +73,8 @@ public class HomeController1 extends GridPane {
 		clientid.mouseTransparentProperty().set(false);
 		placefrom.mouseTransparentProperty().set(false);
 		placeto.mouseTransparentProperty().set(false);
-		timefrom.mouseTransparentProperty().set(false);
-		timeto.mouseTransparentProperty().set(false);
+		/*timefrom.mouseTransparentProperty().set(false);
+		timeto.mouseTransparentProperty().set(false);*/
 		license.mouseTransparentProperty().set(false);
 		driving.setDisable(false);
 		date.setDisable(false);

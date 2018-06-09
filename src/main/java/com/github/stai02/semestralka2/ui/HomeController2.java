@@ -98,7 +98,7 @@ public class HomeController2 extends GridPane{
 			stage.setScene(new Scene(root));  
 			stage.show();
 	} catch (Exception e){
-		System.out.println("New window can´t be loaded. " + e);
+		System.out.println("New window can´t be loaded.");
 	}
 }
 	public void insertDriver() {
@@ -110,7 +110,7 @@ public class HomeController2 extends GridPane{
 			stage.setScene(new Scene(root1));  
 			stage.show();
 	} catch (Exception e){
-		System.out.println("New window can´t be loaded. " + e);
+		System.out.println("New window can´t be loaded.");
 	}
 }
 	public void showOrders() {
