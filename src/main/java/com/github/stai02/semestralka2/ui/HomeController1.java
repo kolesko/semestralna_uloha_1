@@ -4,6 +4,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.MenuButton;
 
 /**
  * @author Ivana Stanová
@@ -39,6 +41,9 @@ public class HomeController1 extends GridPane {
 	@FXML public Button edit;
 	@FXML public Button save;
 	@FXML private DatePicker date;
+	@FXML private CheckBox driving;
+	@FXML private MenuButton driverBox;
+	
 	
 	public void initialize() {
 		editOrder(); 
@@ -59,6 +64,10 @@ public class HomeController1 extends GridPane {
 		timefrom.mouseTransparentProperty().set(false);
 		timeto.mouseTransparentProperty().set(false);
 		license.mouseTransparentProperty().set(false);
+		driving.setDisable(false);
+		date.setDisable(false);
+		driverBox.setDisable(false);
+		
 	}
 	
 	public void saveOrder() {
@@ -77,6 +86,9 @@ public class HomeController1 extends GridPane {
 		timeto.mouseTransparentProperty().set(true);
 		license.mouseTransparentProperty().set(true);
 		date.setDisable(true);
+		edit.requestFocus();
+		driving.setDisable(true);
+		driverBox.setDisable(true);
 	}
 	
 	

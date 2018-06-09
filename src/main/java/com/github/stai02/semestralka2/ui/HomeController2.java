@@ -29,12 +29,12 @@ public class HomeController2 extends GridPane{
 	@FXML public Button show;
 	@FXML public ChoiceBox choice;
 	
-	public static final ObservableList<String> IMPORTVARIABLES = FXCollections.observableArrayList("car","driver","order","client");
+	ObservableList<String> choiceBoxItems = FXCollections.observableArrayList("car","driver","order","client");
 	
 	
 	public void initialize() {
 		show.setDisable(false); 
-		choice.getItems().addAll("car","driver");
+		choice.setItems(choiceBoxItems);
 		choice.setTooltip(new Tooltip("Select what you want to find"));
 	
     };
