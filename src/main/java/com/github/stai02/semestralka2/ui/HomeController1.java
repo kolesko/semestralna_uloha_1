@@ -43,9 +43,38 @@ public class HomeController1 extends GridPane {
 		save.setDisable(true); 
 	}
 
-	public void vypis() {
-		String idcko = carid.getText();
-		surname.setPromptText("Lenka");
+	public void editOrder() {
+		save.setDisable(false);
+		edit.setDisable(true);
+		name.mouseTransparentProperty().set(false);;
+		surname.mouseTransparentProperty().set(false);
+		model.mouseTransparentProperty().set(false);
+		brand.mouseTransparentProperty().set(false);
+		telephone.mouseTransparentProperty().set(false);
+		carid.mouseTransparentProperty().set(false);
+		clientid.mouseTransparentProperty().set(false);
+		placefrom.mouseTransparentProperty().set(false);
+		placeto.mouseTransparentProperty().set(false);
+		timefrom.mouseTransparentProperty().set(false);
+		timeto.mouseTransparentProperty().set(false);
+		license.mouseTransparentProperty().set(false);
+	}
+	
+	public void saveOrder() {
+		save.setDisable(true);
+		edit.setDisable(false);
+		name.mouseTransparentProperty().set(true);
+		surname.mouseTransparentProperty().set(true);
+		model.mouseTransparentProperty().set(true);
+		brand.mouseTransparentProperty().set(true);
+		telephone.mouseTransparentProperty().set(true);
+		carid.mouseTransparentProperty().set(true);
+		clientid.mouseTransparentProperty().set(true);
+		placefrom.mouseTransparentProperty().set(true);
+		placeto.mouseTransparentProperty().set(true);
+		timefrom.mouseTransparentProperty().set(true);
+		timeto.mouseTransparentProperty().set(true);
+		license.mouseTransparentProperty().set(true);
 	}
 	
 	/*public void addCar() {
