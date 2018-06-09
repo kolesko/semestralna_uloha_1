@@ -4,7 +4,7 @@ import java.awt.event.WindowEvent;
 
 import com.github.stai02.semestralka2.logic.*;
 import com.github.stai02.semestralka2.ui.HomeController2;
-import com.github.stai02.semestralka2.ui.StackPane;
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
