@@ -31,7 +31,7 @@
             <VBox prefHeight="101.0" prefWidth="170.0">
                <children>
                   <Region prefHeight="0.0" prefWidth="168.0" />
-                  <Button minHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#vlozOrder" prefHeight="80.0" prefWidth="167.0" text="Insert order" />
+                  <Button fx:id="border" minHeight="-Infinity" mnemonicParsing="false" onAction="#insertOrder" prefHeight="80.0" prefWidth="167.0" text="Insert order" />
                </children>
             </VBox>
             <Region prefHeight="101.0" prefWidth="45.0" HBox.hgrow="ALWAYS" />
@@ -43,7 +43,7 @@
             <VBox prefHeight="101.0" prefWidth="169.0">
                <children>
                   <Region prefHeight="2.0" prefWidth="168.0" />
-                  <Button minHeight="-Infinity" mnemonicParsing="false" prefHeight="80.0" prefWidth="167.0" text="Insert driver" />
+                  <Button fx:id="bdriver" minHeight="-Infinity" mnemonicParsing="false" onAction="#insertDriver" prefHeight="80.0" prefWidth="167.0" text="Insert driver" />
                   <Region prefHeight="0.0" prefWidth="111.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
@@ -67,7 +67,7 @@
             <VBox prefHeight="100.0" prefWidth="171.0">
                <children>
                   <Region prefHeight="1.0" prefWidth="169.0" />
-                  <Button minHeight="-Infinity" mnemonicParsing="false" prefHeight="80.0" prefWidth="167.0" text="Orders" />
+                  <Button fx:id="borders" minHeight="-Infinity" mnemonicParsing="false" onAction="#showOrders" prefHeight="80.0" prefWidth="167.0" text="Orders" />
                   <Region prefHeight="0.0" prefWidth="111.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
@@ -80,7 +80,7 @@
             <VBox prefHeight="100.0" prefWidth="209.0">
                <children>
                   <Region prefHeight="45.0" prefWidth="136.0" />
-                  <Button fx:id="end" minHeight="-Infinity" mnemonicParsing="false" prefHeight="39.0" prefWidth="212.0" text="End" />
+                  <Button fx:id="end" minHeight="-Infinity" mnemonicParsing="false" onAction="#koniec" prefHeight="39.0" prefWidth="212.0" text="End" />
                   <Region prefHeight="13.0" prefWidth="173.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
@@ -149,7 +149,7 @@
             <VBox prefHeight="100.0" prefWidth="211.0">
                <children>
                   <Region prefHeight="45.0" prefWidth="136.0" />
-                  <Button fx:id="show" minHeight="-Infinity" mnemonicParsing="false" prefHeight="39.0" prefWidth="212.0" text="Show" />
+                  <Button fx:id="show" minHeight="-Infinity" mnemonicParsing="false" onAction="#showResults" prefHeight="39.0" prefWidth="212.0" text="Show" />
                   <Region prefHeight="13.0" prefWidth="173.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>

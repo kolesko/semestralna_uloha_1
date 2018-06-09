@@ -1,8 +1,18 @@
 package com.github.stai02.semestralka2.ui;
+import java.awt.event.ActionEvent;
+import java.util.Optional;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class HomeController2 extends GridPane{
 
@@ -13,12 +23,68 @@ public class HomeController2 extends GridPane{
 	@FXML public Button show;
 	
 	public void initialize() {
-		show.setDisable(true); 
-	}
+		show.setDisable(false); 
 	
-	public void vlozOrder() {
-		
-		
+    };
+	
+	public void insertOrder() {
+		try{
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home1.fxml"));
+			Parent root1 = (Parent) fxmlLoader.load();
+			Stage stage = new Stage();
+			stage.setTitle("Insert order");
+			stage.setScene(new Scene(root1));  
+			stage.show();
+	} catch (Exception e){
+		System.out.println("New window can´t be loaded.");
+	}
+}
+	public void insertDriver() {
+		try{
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home3.fxml"));
+			Parent root1 = (Parent) fxmlLoader.load();
+			Stage stage = new Stage();
+			stage.setScene(new Scene(root1));  
+			stage.show();
+	} catch (Exception e){
+		System.out.println("New window can´t be loaded.");
+	}
+}
+	public void showOrders() {
+		try{
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home6.fxml"));
+			Parent root1 = (Parent) fxmlLoader.load();
+			Stage stage = new Stage();
+			stage.setScene(new Scene(root1));  
+			stage.show();
+	} catch (Exception e){
+		System.out.println("New window can´t be loaded.");
+	}
+}
+	
+	public void showResults() {
+		try{
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home7.fxml"));
+			Parent root1 = (Parent) fxmlLoader.load();
+			Stage stage = new Stage();
+			stage.setScene(new Scene(root1));  
+			stage.show();
+	} catch (Exception e){
+		System.out.println("New window can´t be loaded.");
+	}
+}
+	
+	
+	
+	
+	public void koniec() {
+		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to close the application?");
+		al.setHeaderText("Ending");
+		Optional<ButtonType> result = al.showAndWait();
+		if (result.get() == ButtonType.OK) {
+			System.exit(0);
+		}
+		al.close();
 	}
 	
 

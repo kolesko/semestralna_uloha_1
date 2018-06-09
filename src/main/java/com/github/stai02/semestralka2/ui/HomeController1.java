@@ -3,7 +3,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-
+import javafx.scene.control.DatePicker;
 
 /**
  * @author Ivana Stanová
@@ -38,9 +38,10 @@ public class HomeController1 extends GridPane {
 
 	@FXML public Button edit;
 	@FXML public Button save;
+	@FXML private DatePicker date;
 	
 	public void initialize() {
-		save.setDisable(true); 
+		editOrder(); 
 	}
 
 	public void editOrder() {
@@ -75,8 +76,12 @@ public class HomeController1 extends GridPane {
 		timefrom.mouseTransparentProperty().set(true);
 		timeto.mouseTransparentProperty().set(true);
 		license.mouseTransparentProperty().set(true);
+		date.setDisable(true);
 	}
 	
+	
+	
+    
 	/*public void addCar() {
 		Auto auto = new Auto(carid.getText(),license.getText(),brand.getText(),model.getText());
 	}
