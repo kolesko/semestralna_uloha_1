@@ -57,7 +57,7 @@ public class HomeController1 extends GridPane {
 	}
 
 	public void insertOrder() {
-		name.getText();
+		//name.getText();
 	}
 	
 	public void editOrder() {

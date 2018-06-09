@@ -22,12 +22,13 @@ import javafx.stage.Stage;
  */
 public class Start extends Application {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
 		launch(args);
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass()
 				.getResource("Home2.fxml"));
