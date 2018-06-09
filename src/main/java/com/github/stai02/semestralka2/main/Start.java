@@ -1,10 +1,16 @@
 package com.github.stai02.semestralka2.main;
 
+import java.awt.event.WindowEvent;
+
 import com.github.stai02.semestralka2.logic.*;
+import com.github.stai02.semestralka2.ui.HomeController2;
+
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /****************************************************
@@ -24,13 +30,13 @@ public class Start extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass()
-				.getResource("Home1.fxml"));
+				.getResource("Home2.fxml"));
 		Parent root = loader.load();
-		HomeController1 c = loader.getController();
+		HomeController2 c = loader.getController();
 		
 		c.initialize();
-		
-		primaryStage.setTitle("Prihlásenie");
+		primaryStage.setResizable(true);
+		primaryStage.setTitle("Main screen");
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
 		

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
@@ -16,39 +17,25 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity"
-	maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-	prefHeight="500.0" prefWidth="600.0"
-	xmlns="http://javafx.com/javafx/9.0.1"
-	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="com.github.stai02.semestralka2.ui.HomeController1">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stai02.semestralka2.ui.HomeController1">
 	<columnConstraints>
-		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-			prefWidth="100.0" />
-		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-			prefWidth="100.0" />
-		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-			prefWidth="100.0" />
+		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
 	</columnConstraints>
 	<rowConstraints>
-		<RowConstraints maxHeight="229.59998168945313"
-			minHeight="10.0" prefHeight="59.20000305175782" vgrow="SOMETIMES" />
-		<RowConstraints maxHeight="321.4000122070312"
-			minHeight="10.0" prefHeight="214.4000061035156" vgrow="SOMETIMES" />
-		<RowConstraints maxHeight="319.19997253417966"
-			minHeight="10.0" prefHeight="226.39999389648438" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="229.59998168945313" minHeight="10.0" prefHeight="59.20000305175782" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="321.4000122070312" minHeight="10.0" prefHeight="214.4000061035156" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="319.19997253417966" minHeight="10.0" prefHeight="226.39999389648438" vgrow="SOMETIMES" />
 	</rowConstraints>
 	<children>
-		<HBox prefHeight="100.0" prefWidth="200.0"
-			GridPane.columnSpan="3">
+		<HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3">
 			<children>
-				<Region prefHeight="200.0" prefWidth="200.0"
-					HBox.hgrow="ALWAYS" />
+				<Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
 				<VBox prefHeight="200.0" prefWidth="100.0">
 					<children>
 						<Region prefHeight="200.0" prefWidth="200.0" />
-						<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order"
-							textAlignment="CENTER" textOrigin="CENTER">
+						<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order" textAlignment="CENTER" textOrigin="CENTER">
 							<font>
 								<Font size="42.0" />
 							</font>
@@ -56,8 +43,7 @@
 						<Region prefHeight="200.0" prefWidth="200.0" />
 					</children>
 				</VBox>
-				<Region prefHeight="200.0" prefWidth="200.0"
-					HBox.hgrow="ALWAYS" />
+				<Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
 			</children>
 		</HBox>
 		<VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
@@ -67,31 +53,29 @@
 						<Insets left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</Label>
-				<TextField fx:id="name" promptText="Name">
+				<TextField fx:id="name" mouseTransparent="true" promptText="Name">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</TextField>
-				<TextField fx:id="surname" promptText="Surname">
+				<TextField fx:id="surname" mouseTransparent="true" promptText="Surname">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</TextField>
-				<TextField fx:id="telephone" promptText="Telephone">
+				<TextField fx:id="telephone" mouseTransparent="true" promptText="Telephone">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</TextField>
-				<TextField fx:id="clientid" promptText="ID">
+				<TextField fx:id="clientid" mouseTransparent="true" promptText="ID">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</TextField>
 			</children>
 		</VBox>
-		<HBox prefHeight="206.0" prefWidth="400.0"
-			GridPane.columnIndex="1" GridPane.columnSpan="2"
-			GridPane.rowIndex="1">
+		<HBox prefHeight="206.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
 			<children>
 				<VBox prefHeight="215.0" prefWidth="197.0">
 					<children>
@@ -100,24 +84,22 @@
 								<Insets left="10.0" right="10.0" top="10.0" />
 							</VBox.margin>
 						</Label>
-						<DatePicker>
+						<DatePicker fx:id="date">
 							<VBox.margin>
 								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 							</VBox.margin>
 						</DatePicker>
-						<TextField fx:id="timefrom" prefHeight="25.6"
-							prefWidth="146.0" promptText="Time from">
+						<TextField fx:id="timefrom" mouseTransparent="true" prefHeight="25.6" prefWidth="146.0" promptText="Time from">
 							<VBox.margin>
 								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 							</VBox.margin>
 						</TextField>
-						<TextField fx:id="placefrom" promptText="From (place)">
+						<TextField fx:id="placefrom" mouseTransparent="true" promptText="From (place)">
 							<VBox.margin>
 								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 							</VBox.margin>
 						</TextField>
-						<MenuButton mnemonicParsing="false" prefHeight="25.6"
-							prefWidth="186.0" text="Driver">
+						<MenuButton fx:id="driverBox" mnemonicParsing="false" prefHeight="25.6" prefWidth="186.0" text="Driver">
 							<items>
 								<MenuItem mnemonicParsing="false" text="Action 1" />
 								<MenuItem mnemonicParsing="false" text="Action 2" />
@@ -131,23 +113,31 @@
 				<Region prefHeight="215.0" prefWidth="50.0" />
 				<VBox prefHeight="215.0" prefWidth="206.0">
 					<children>
-						<Region prefHeight="73.0" prefWidth="189.0" />
-						<TextField fx:id="timeto" prefHeight="26.0"
-							prefWidth="118.0" promptText="Time to">
+						<Region prefHeight="74.0" prefWidth="189.0" />
+						<TextField fx:id="timeto" mouseTransparent="true" prefHeight="26.0" prefWidth="118.0" promptText="Time to">
 							<VBox.margin>
 								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 							</VBox.margin>
 						</TextField>
-						<TextField fx:id="placeto" promptText="To (place)">
+						<TextField fx:id="placeto" mouseTransparent="true" promptText="To (place)">
 							<VBox.margin>
 								<Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
 							</VBox.margin>
 						</TextField>
-						<TextField promptText="Type of service">
-							<VBox.margin>
-								<Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
-							</VBox.margin>
-						</TextField>
+                  <HBox prefHeight="49.0" prefWidth="189.0">
+                     <children>
+                        <CheckBox fx:id="driving" mnemonicParsing="false" prefHeight="0.0" prefWidth="22.0">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                        <Label text="Driving a person">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
 					</children>
 				</VBox>
 			</children>
@@ -159,31 +149,29 @@
 						<Insets left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</Label>
-				<TextField fx:id="brand" promptText="Brand">
+				<TextField fx:id="brand" mouseTransparent="true" promptText="Brand">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</TextField>
-				<TextField fx:id="model" promptText="Model">
+				<TextField fx:id="model" mouseTransparent="true" promptText="Model">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</TextField>
-				<TextField fx:id="license" promptText="Type of license">
+				<TextField fx:id="license" mouseTransparent="true" promptText="Type of license">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</TextField>
-				<TextField fx:id="carid" promptText="ID">
+				<TextField fx:id="carid" mouseTransparent="true" promptText="ID">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</TextField>
 			</children>
 		</VBox>
-		<HBox prefHeight="100.0" prefWidth="200.0"
-			GridPane.columnIndex="1" GridPane.columnSpan="2"
-			GridPane.rowIndex="2">
+		<HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
 			<children>
 				<VBox prefHeight="226.0" prefWidth="200.0">
 					<children>
@@ -192,15 +180,12 @@
 								<Insets left="10.0" right="10.0" top="10.0" />
 							</VBox.margin>
 						</Label>
-						<Button cancelButton="true" disable="true"
-							minWidth="-Infinity" mnemonicParsing="false" prefHeight="66.0"
-							prefWidth="100.0" text="Open">
+						<Button cancelButton="true" disable="true" minWidth="-Infinity" mnemonicParsing="false" prefHeight="66.0" prefWidth="100.0" text="Open">
 							<VBox.margin>
 								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 							</VBox.margin>
 						</Button>
-						<Button fx:id="edit" mnemonicParsing="false"
-							onAction="#vypis" prefHeight="66.0" prefWidth="100.0" text="Edit">
+						<Button fx:id="edit" mnemonicParsing="false" onAction="#editOrder" prefHeight="66.0" prefWidth="100.0" text="Edit">
 							<VBox.margin>
 								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 							</VBox.margin>
@@ -210,15 +195,12 @@
 				<VBox prefHeight="226.0" prefWidth="201.0">
 					<children>
 						<Region prefHeight="29.0" prefWidth="126.0" />
-						<Button cancelButton="true" disable="true"
-							minWidth="-Infinity" mnemonicParsing="false" prefHeight="66.0"
-							prefWidth="100.0" text="Approved">
+						<Button cancelButton="true" disable="true" minWidth="-Infinity" mnemonicParsing="false" prefHeight="66.0" prefWidth="100.0" text="Approved">
 							<VBox.margin>
 								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 							</VBox.margin>
 						</Button>
-						<Button fx:id="save" disable="true" mnemonicParsing="false"
-							prefHeight="66.0" prefWidth="100.0" text="Save">
+						<Button fx:id="save" disable="true" mnemonicParsing="false" onAction="#saveOrder" prefHeight="66.0" prefWidth="100.0" text="Save">
 							<VBox.margin>
 								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 							</VBox.margin>
@@ -229,15 +211,12 @@
 					<children>
 						<Region prefHeight="11.0" prefWidth="170.0" />
 						<Region prefHeight="17.0" prefWidth="150.0" />
-						<Button cancelButton="true" disable="true"
-							mnemonicParsing="false" prefHeight="66.0" prefWidth="100.0"
-							text="Closed">
+						<Button cancelButton="true" disable="true" mnemonicParsing="false" prefHeight="66.0" prefWidth="100.0" text="Closed">
 							<VBox.margin>
 								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 							</VBox.margin>
 						</Button>
-						<Button disable="true" mnemonicParsing="false"
-							prefHeight="66.0" prefWidth="100.0" text="Delete">
+						<Button fx:id="bdelete" disable="true" mnemonicParsing="false" onAction="#delete" prefHeight="66.0" prefWidth="100.0" text="Delete">
 							<VBox.margin>
 								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 							</VBox.margin>
