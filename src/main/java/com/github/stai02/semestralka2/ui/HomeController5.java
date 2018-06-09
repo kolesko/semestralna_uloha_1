@@ -27,11 +27,6 @@ public class HomeController5 {
 	private Button delete;
 	
 	
-<<<<<<< HEAD
-//	public void inicializuj() {
-//     edit.setDisable(true);
-//	}
-=======
 	public void inicializuj() {
      edit.setDisable(true);
 	}
@@ -45,6 +40,4 @@ public class HomeController5 {
 		}
 		al.close();
 	}
->>>>>>> branch 'dev' of https://github.com/kolesko/semestralna_uloha_2
-
 }
