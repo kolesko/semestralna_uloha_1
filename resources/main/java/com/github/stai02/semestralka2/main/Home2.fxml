@@ -110,7 +110,7 @@
             <VBox prefHeight="101.0" prefWidth="197.0">
                <children>
                   <Region prefHeight="35.0" prefWidth="164.0" />
-                  <ChoiceBox prefHeight="44.0" prefWidth="154.0" />
+                  <ChoiceBox fx:id="choice" accessibleRole="MENU_ITEM" prefHeight="44.0" prefWidth="154.0" />
                   <Region prefHeight="4.0" prefWidth="132.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
