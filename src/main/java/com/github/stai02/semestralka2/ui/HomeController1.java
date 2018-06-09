@@ -10,6 +10,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
 
 /**
@@ -35,11 +37,19 @@ public class HomeController1 extends GridPane {
 	@FXML
 	private TextField model;
 	@FXML
-	private TextField timeto;
+	private ComboBox hourFrom;
 	@FXML
 	private TextField placeto;
 	@FXML
-	private TextField timefrom;
+	private ComboBox daytime1;
+	@FXML
+	private ComboBox daytime2;
+	@FXML
+	private ComboBox minuteFrom;
+	@FXML
+	private ComboBox hourTo;
+	@FXML
+	private ComboBox minuteTo;
 	@FXML
 	private TextField placefrom;
 
@@ -54,6 +64,26 @@ public class HomeController1 extends GridPane {
 	public void initialize() {
 		editOrder(); 
 		bdelete.setDisable(true);
+		
+		hourFrom.getItems().removeAll(hourFrom.getItems());
+		hourFrom.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12");
+		hourFrom.getSelectionModel().select("01");
+	//	hourFrom.setPromptText(hourFrom.getSelectionModel().getSelectedItem().toString());
+		
+		minuteFrom.getItems().removeAll(hourFrom.getItems());
+		minuteFrom.getItems().addAll("00","15","30","45");
+		minuteFrom.getSelectionModel().select("00");
+		
+		hourTo.getItems().removeAll(hourFrom.getItems());
+		hourTo.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12");
+		hourTo.getSelectionModel().select("01");
+		
+		minuteTo.getItems().removeAll(hourFrom.getItems());
+		minuteTo.getItems().addAll("00","15","30","45");
+		minuteTo.getSelectionModel().select("00");
+		
+		daytime1.getItems().addAll("AM","PM");
+		daytime2.getItems().addAll("AM","PM");
 	}
 
 	public void insertOrder() {
@@ -73,8 +103,6 @@ public class HomeController1 extends GridPane {
 		clientid.mouseTransparentProperty().set(false);
 		placefrom.mouseTransparentProperty().set(false);
 		placeto.mouseTransparentProperty().set(false);
-		timefrom.mouseTransparentProperty().set(false);
-		timeto.mouseTransparentProperty().set(false);
 		license.mouseTransparentProperty().set(false);
 		driving.setDisable(false);
 		date.setDisable(false);
