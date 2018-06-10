@@ -312,7 +312,7 @@ public class HomeController1 extends GridPane {
 	public void editOrder() {
 		save.setDisable(false);
 		edit.setDisable(true);
-		bdelete.setDisable(false);
+		bdelete.setDisable(true);
 		name.mouseTransparentProperty().set(false);;
 		surname.mouseTransparentProperty().set(false);
 		model.mouseTransparentProperty().set(false);
@@ -472,6 +472,7 @@ public class HomeController1 extends GridPane {
 				}
 				rs = pst2.executeQuery();
 				int carid = 0;
+				String licenseC = "";
 				while (rs.next()) {
 					carid = rs.getInt("id");
 					licenseC = rs.getString("license");
@@ -486,10 +487,10 @@ public class HomeController1 extends GridPane {
 				int driverid = 0;
 				while (rs.next()) {
 					driverid = rs.getInt("id");
-					license = rs.getString("license");
+					license.setText(rs.getString("license"));
 				}
 				pst2.close();
-				if (license.equals(licenseC)) {
+				if (license.getText().equals(licenseC)) {
 					pst.setInt(9,driverid);
 					pst.execute();
 					pst.close();
@@ -497,11 +498,11 @@ public class HomeController1 extends GridPane {
 					return true;
 				}
 				else {
-					System.out.println("error");
 					Alert al = new Alert(AlertType.INFORMATION, "Car license and driver license do not match, you should change driver.");
 					al.setHeaderText("Alert");
 					Optional<ButtonType> result = al.showAndWait();
-					al.close();				
+					al.close();	
+					editOrder();
 					return false;
 				}
 			} catch (SQLException e) {
@@ -511,5 +512,6 @@ public class HomeController1 extends GridPane {
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 }
