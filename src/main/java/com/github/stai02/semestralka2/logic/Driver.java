@@ -4,12 +4,10 @@ import java.util.ArrayList;
 
 
 /**
- * The Class Driver - trieda vodičov/poskytovateľov odvozu, subclass of Person
+ * The Class Driver - contains driver-specific details, subclass of Person
  * 
- * Táto trieda je tvorená základnými metódami get a set.
- *
- * @author Lenka Šťastná
- * @version pro školní rok 2017/2018
+ * @author Lenka Šťastná, Matej Kolesár, Julia Loseeva, Ivana Stanová
+ * @version June 2018
  */
 
 public class Driver extends Person {
@@ -18,15 +16,18 @@ public class Driver extends Person {
 	private char type;
 
 	/** The the driver's disposable time. */
-	private Rozvrh disposableTime;
+	private Timetable disposableTime;
 
 	//TODO
 	/** The list of orders assigned to this driver. */
-	private ArrayList<Order> order;
+	private ArrayList<Order> orders;
 
-	/** The rozvrh. */
-	private Rozvrh rozvrh;
+	/** The timetable. */
+	private Timetable timetable;
 
+	
+	//public Driver(int ID, String name, String);
+	
 	/**
 	 * Gets the type of driving license.
 	 *
@@ -41,7 +42,7 @@ public class Driver extends Person {
 	 *
 	 * @return the disposable time
 	 */
-	public Rozvrh getDisposableTime() {
+	public Timetable getDisposableTime() {
 		return this.disposableTime;
 	}
 	
@@ -50,8 +51,8 @@ public class Driver extends Person {
 	 * 
 	 * @return timetable
 	 */
-	public Rozvrh getRozvrh() {
-		return rozvrh;
+	public Timetable getTimetable() {
+		return timetable;
 	}
 
 	/**
@@ -68,17 +69,17 @@ public class Driver extends Person {
 	 *
 	 * @param disposableTime the new disposable time
 	 */
-	public void getDisposableTime(Rozvrh disposableTime) {
+	public void getDisposableTime(Timetable disposableTime) {
 		this.disposableTime = disposableTime;
 	}
 	
 	/**
 	 * Sets the driver's timetable
 	 * 
-	 * @param rozvrh the new timetable
+	 * @param timetable the new timetable
 	 */
-	public void setRozvrh(Rozvrh rozvrh) {
-		this.rozvrh = rozvrh;
+	public void setTimetable(Timetable timetable) {
+		this.timetable = timetable;
 	}
 	
 	//TODO list of orders assigned to the driver
@@ -89,7 +90,17 @@ public class Driver extends Person {
 	 * @return the orders
 	 */
 	public ArrayList<Order> getObjednavky(String name) {
-		return null;
+		return orders;
+	}
+	
+	//TODO
+	/**
+	 * Sets the list of orders assigned to the driver.
+	 *
+	 * @param orders the new list of orders
+	 */
+	public void setObjednavky(ArrayList<Order> orders) {
+		this.orders=orders;
 	}
 	
 }

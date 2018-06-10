@@ -14,11 +14,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
 
-
 /**
  * The Class HomeController1. Control Home1, scene for insert order.
  *
- * @author Ivana Stanová
+ * @author Lenka Šťastná, Julia Loseeva, Matej Kolesár, Ivana Stanová
  */
 public class HomeController1 extends GridPane {
 		

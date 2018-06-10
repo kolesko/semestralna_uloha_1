@@ -13,8 +13,8 @@ public class Den {
 
 	
 
-	/** The rozvrh. */
-	private Collection<Rozvrh> rozvrh;
+	/** The timetable. */
+	private Collection<Timetable> timetable;
 
 	/** The cas. */
 	private Collection<Cas> cas;

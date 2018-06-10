@@ -1,6 +1,5 @@
 package com.github.stai02.semestralka2.logic;
 
-// TODO: Auto-generated Javadoc
 /**
  *  Class Order - contains order details.
  *
@@ -10,20 +9,20 @@ package com.github.stai02.semestralka2.logic;
  */
 public class Order {
 
-	/** The id. */
+	/** The ID. */
 	private int ID;
 	
-	/** The miesto Z. */
-	private String miestoZ;
+	/** The place from which the ride will take place. */
+	private String placeFrom;
 	
-	/** The miesto kam. */
-	private String miestoKam;
+	/** The destination. */
+	private String placeTo;
 	
-	/** The ide klient. */
-	private boolean ideKlient;
+	/** Whether the client is also participating. */
+	private boolean clientGoes;
 	
-	/** The cas. */
-	private int cas;
+	/** The time. */
+	private int time;
 	
 	/** The car. */
 	private Car car;
@@ -37,24 +36,24 @@ public class Order {
 	/**
 	 *  Creates an order based on given parameters and writes created order to database.
 	 *
-	 * @param miestoZ the miesto Z
-	 * @param miestoKam the miesto kam
-	 * @param ideKlient the ide klient
-	 * @param cas the cas
+	 * @param placeFrom the miesto Z
+	 * @param placeTo the destination
+	 * @param clientGoes whether the client is also participating
+	 * @param time the time
 	 * @param car the car
 	 * @param driver the driver
 	 * @param client the client
 	 */	
-	public Order(String miestoZ, String miestoKam, boolean ideKlient, int cas, Car car, Driver driver, Client client) {
+	public Order(String placeFrom, String placeTo, boolean clientGoes, int time, Car car, Driver driver, Client client) {
 		/*
 		 * select posledneho id z DB
 		 */
 		int dbid = 0;
 		this.ID = dbid;
-		this.miestoZ = miestoZ;
-		this.miestoKam = miestoKam;
-		this.ideKlient = ideKlient;
-		this.cas = cas;
+		this.placeFrom = placeFrom;
+		this.placeTo = placeTo;
+		this.clientGoes = clientGoes;
+		this.time = time;
 		this.car = car;
 		this.driver = driver;
 		this.client = client;
@@ -62,7 +61,7 @@ public class Order {
 	}
 	
 	/**
-	 * This methods returns ID of an order. 
+	 * Gets the ID of an order. 
 	 * 
 	 * @return ID of an order
 	 */
@@ -71,48 +70,138 @@ public class Order {
 	}
 	
 	/**
-	 * This method assigns an ID to the order.
+	 * Sets an ID to the order.
 	 *
-	 * @param id the new id
+	 * @param id the new ID
 	 */
-	public void setID(int id) {
-		this.ID = id;
+	public void setID(int ID) {
+		this.ID = ID;
 	}
 
 	/**
 	 * This method returns the place from where the ride will take place.
 	 * 
-	 * @return miestoZ
+	 * @return placeFrom 
 	 */
-	public String getMiestoZ() {
-		return miestoZ;
+	public String getPlaceFrom() {
+		return placeFrom;
 	}
 
 	/**
-	 * This method returns t.
-	 *
-	 * @return miestoKam
+	 * Sets the place from where the ride will take place.
+	 * 
+	 * @param placeFrom the new place from where the ride will take place
 	 */
-	public String getMiestoKam() {
-		return miestoKam;
+	public void setPlaceFrom(String placeFrom) {
+		this.placeFrom= placeFrom ;
+	}
+	
+	/**
+	 * Gets the destination.
+	 *
+	 * @return placeTo
+	 */
+	public String getPlaceTo() {
+		return placeTo;
+	}
+	
+	/**
+	 * Sets the destination.
+	 *
+	 * @param placeTo the new destination
+	 */
+	public void getPlaceTo(String placeTo) {
+		this.placeTo=placeTo;
 	}
 
 	/**
-	 * Gets the ide klient.
+	 * Returns whether the client also participates in the ride or not.
 	 *
-	 * @return the ide klient
+	 * @return the clientGoes
 	 */
-	public boolean getIdeKlient() {
-		return ideKlient;
+	public boolean getClientGoes() {
+		return clientGoes;
 	}
 
 	/**
-	 * Gets the cas.
+	 * Sets whether the client also participates in the ride or not.
 	 *
-	 * @return the cas
+	 * @param clientGoes the new value of whether the client also participates in the ride or not
 	 */
-	public int getCas() {
-		return cas;
+	public void setClientGoes(boolean clientGoes) {
+		this.clientGoes=clientGoes;
+	}
+	
+	/**
+	 * Gets the time.
+	 *
+	 * @return the time
+	 */
+	public int getTime() {
+		return time;
+	}
+	
+	/**
+	 * Sets the time of the order.
+	 *
+	 * @param time the new time
+	 */
+	public void setTime(int time) {
+		this.time=time;
+	}
+	
+	/**
+	 * Gets the car.
+	 *
+	 * @return the car
+	 */
+	public Car getCar() {
+		return car;
+	}
+	
+	/**
+	 * Sets the car.
+	 *
+	 * @param car the new car
+	 */
+	public void setCar(Car car) {
+		this.car=car;
+	}
+	
+	/**
+	 * Gets the client.
+	 *
+	 * @return the client
+	 */
+	public Client getClient() {
+		return client;
+	}
+	
+	/**
+	 * Sets the client.
+	 *
+	 * @param client the new client
+	 */
+	public void setClient(Client client) {
+		this.client=client;
+	}
+	
+	/**
+	 * Gets the driver.
+	 *
+	 * @return the driver
+	 */
+	public Driver getDriver() {
+		return driver;
+	}
+	
+	/**
+	 * Sets the driver.
+	 *
+	 * @param driver the new driver
+	 */
+	public void setDriver(Driver driver) {
+		this.driver=driver;
 	}
 
 	/**
