@@ -1,4 +1,13 @@
 package com.github.stai02.semestralka2.ui;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.Optional;
 
 import javafx.fxml.FXML;
@@ -8,6 +17,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -100,7 +110,7 @@ public class HomeController1 extends GridPane {
 	@FXML private CheckBox driving;
 	
 	/** The driver box. */
-	@FXML private MenuButton driverBox;
+	@FXML private ComboBox<String> driverBox;
 	
 	
 	/**
@@ -129,13 +139,50 @@ public class HomeController1 extends GridPane {
 		
 		daytime1.getItems().addAll("AM","PM");
 		daytime2.getItems().addAll("AM","PM");
+		daytime1.getSelectionModel().select("AM");
+		daytime2.getSelectionModel().select("AM");
+		try {
+			Connection conn = dbConnection();
+			String query = "select driverid from drivers";
+			PreparedStatement pst = conn.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			driverBox.getItems().clear();
+			while(rs.next()) {
+				driverBox.getItems().add(rs.getString("driverid"));
+			}
+			conn.close();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
+	
+	public Connection dbConnection() throws ClassNotFoundException {
+	 	   Class.forName("org.sqlite.JDBC");
+	        Connection connection = null;
+	        try
+	        {
+	          // create a database connection
+	          connection = DriverManager.getConnection("jdbc:sqlite:./resources/main/java/com/github/stai02/semestralka2/main/db.db");
+	          System.out.println("connected");
+	        }
+	        catch(SQLException e)
+	        {
+	          // if the error message is "out of memory",
+	          // it probably means no database file is found
+	          System.err.println(e.getMessage());
+	        }
+	        return connection;
+	    }
+	
 	/**
 	 * Insert order.
 	 */
 	public void insertOrder() {
-		name.getText();
+		
 	}
 	
 	/**
@@ -182,6 +229,11 @@ public class HomeController1 extends GridPane {
 		edit.requestFocus();
 		driving.setDisable(true);
 		driverBox.setDisable(true);
+		addClient();
+		addCar();
+		addOrder();
+		Stage stage = (Stage) name.getScene().getWindow();
+	    stage.close();
 	}
 	
 	/**
@@ -198,15 +250,130 @@ public class HomeController1 extends GridPane {
 	}
 	
     
-	/*public void addCar() {
-		Car auto = new Car(carid.getText(),license.getText(),brand.getText(),model.getText());
+	public void addCar() {
+		try {
+			Connection conn = dbConnection();
+			String query = "INSERT INTO cars (brand,model,license,spz,clientid) VALUES (?,?,?,?,?)";
+			try {
+				PreparedStatement pst = conn.prepareStatement(query);
+				pst.setString(1,brand.getText());
+				pst.setString(2,model.getText());
+				pst.setString(3,license.getText());
+				pst.setString(4,carid.getText());
+				String query2 = "SELECT id FROM clients WHERE clientid = ?";
+				PreparedStatement pst2 = conn.prepareStatement(query2);
+				pst2.setString(1,clientid.getText());
+				ResultSet rs = pst2.executeQuery();
+				int id = 0;
+				while (rs.next()) {
+					id = rs.getInt("id");
+				}
+				pst.setInt(5,id);
+				pst.execute();
+				pst2.close();
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void addClient() {
-		
+		try {
+			Connection conn = dbConnection();
+			String query = "INSERT INTO clients (name,surname,telephone,clientid) VALUES (?,?,?,?)";
+			try {
+				PreparedStatement pst = conn.prepareStatement(query);
+				pst.setString(1,name.getText());
+				pst.setString(2,surname.getText());
+				pst.setString(3,telephone.getText());
+				pst.setString(4,clientid.getText());
+				pst.execute();
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void addOrder() {
-		
-	}*/
+		try {
+			Connection conn = dbConnection();
+			String query = "INSERT INTO orders (date,time_from,time_to,client_in_car,from_place,to_place,clientid,carid,driverid) VALUES (?,?,?,?,?,?,?,?,?)";
+			try {
+				PreparedStatement pst = conn.prepareStatement(query);
+				LocalDate localdate = date.getValue();
+				Instant instant = Instant.from(localdate.atStartOfDay(ZoneId.systemDefault()));
+				Date finalDate = Date.from(instant);
+				java.sql.Date sqlDate = new java.sql.Date(finalDate.getTime());
+				pst.setDate(1,sqlDate);
+				int hourf = Integer.parseInt(hourFrom.getValue());
+				if (daytime1.getValue() == "PM") {
+					hourf += 12;
+				}
+				int hourt = Integer.parseInt(hourTo.getValue());
+				if (daytime2.getValue() == "PM") {
+					hourt += 12;
+				}
+				String timef = hourf + ":" + minuteFrom.getValue();
+				String timet = hourt + ":" + minuteTo.getValue();
+ 				pst.setString(2,timef);
+				pst.setString(3,timet);
+				pst.setBoolean(4, driving.isSelected());
+				pst.setString(5,placefrom.getText());
+				pst.setString(6,placeto.getText());
+				
+				
+				String query2 = "SELECT id FROM clients WHERE clientid = ?";
+				PreparedStatement pst2 = conn.prepareStatement(query2);
+				pst2.setString(1,clientid.getText());
+				ResultSet rs = pst2.executeQuery();
+				int id = 0;
+				while (rs.next()) {
+					id = rs.getInt("id");
+				}
+				pst2.close();
+				pst.setInt(7,id);
+				
+				query2 = "SELECT id FROM cars WHERE spz = ?";
+				pst2 = conn.prepareStatement(query2);
+				pst2.setString(1,carid.getText());
+				rs = pst2.executeQuery();
+				int carid = 0;
+				while (rs.next()) {
+					carid = rs.getInt("id");
+				}
+				pst2.close();
+				pst.setInt(8,carid);
+				
+				query2 = "SELECT id FROM drivers WHERE driverid = ?";
+				pst2 = conn.prepareStatement(query2);
+				pst2.setString(1,driverBox.getValue());
+				rs = pst2.executeQuery();
+				int driverid = 0;
+				while (rs.next()) {
+					driverid = rs.getInt("id");
+				}
+				pst2.close();
+				pst.setInt(9,driverid);
+				
+				pst.execute();
+				pst.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 }
