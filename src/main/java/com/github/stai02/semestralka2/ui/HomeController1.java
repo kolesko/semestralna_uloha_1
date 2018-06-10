@@ -513,5 +513,6 @@ public class HomeController1 extends GridPane {
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		return true;
 	}
 }
