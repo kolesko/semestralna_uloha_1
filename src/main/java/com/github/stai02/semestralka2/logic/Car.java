@@ -1,23 +1,23 @@
 package com.github.stai02.semestralka2.logic;
 
 /**
- * Class Auto - trieda =auto
+ * Class Car - trieda =auto
  * 
  * Základné metoódy get a set.
  *
  * @author Lenka Šťastná
  * @version pro školní rok 2017/2018
  */
-public class Auto {
+public class Car {
 
 	private String SPZ;
 	private String typ;
 	private String znacka;
 	private String model;
-	private Klient klient;
-	private Odvoz odvoz;
+	private Client client;
+	private Order order;
 	
-	public Auto(String SPZ, String typ, String znacka, String model)
+	public Car(String SPZ, String typ, String znacka, String model)
     {
         this.SPZ = SPZ;
         this.typ = typ;
@@ -39,11 +39,11 @@ public class Auto {
 	public String getZnacka() {
 		return znacka;
 	}
-	public Klient getKlient() {
-		return klient;
+	public Client getKlient() {
+		return client;
 	}
-	public Odvoz getOdvoz() {
-		return odvoz;
+	public Order getOdvoz() {
+		return order;
 	}
 
 	public void setSPZ(String SPZ) {
@@ -60,11 +60,11 @@ public class Auto {
 	public void setZnacka(String znacka) {
 		this.znacka=znacka;
 	}
-	public void setKlient(Klient klient) {
-		this.klient=klient;
+	public void setKlient(Client client) {
+		this.client=client;
 	}
-	public void setOdvoz(Odvoz odvoz) {
-		this.odvoz=odvoz;
+	public void setOdvoz(Order order) {
+		this.order=order;
 	}
 	
 	public String vyhladat() {

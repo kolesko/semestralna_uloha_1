@@ -142,7 +142,7 @@ public class HomeController1 extends GridPane {
 	
     
 	/*public void addCar() {
-		Auto auto = new Auto(carid.getText(),license.getText(),brand.getText(),model.getText());
+		Car auto = new Car(carid.getText(),license.getText(),brand.getText(),model.getText());
 	}
 	
 	public void addClient() {

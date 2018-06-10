@@ -1,13 +1,13 @@
 package com.github.stai02.semestralka2.logic;
 
 
-public class Osoba {
+public class Person {
 
 	private int iD;
 	private String meno;
 	private String priezvisko;
 	private String kontakt;
-	private Osoba osoba;
+	private Person person;
 	
 	public int getID() {
 		return iD;

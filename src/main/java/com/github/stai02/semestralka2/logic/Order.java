@@ -7,16 +7,16 @@ package com.github.stai02.semestralka2.logic;
  *@version    1.0
  *@created    June 2018
  */
-public class Odvoz {
+public class Order {
 
 	private int ID;
 	private String miestoZ;
 	private String miestoKam;
 	private boolean ideKlient;
 	private int cas;
-	private Auto auto;
-	private Vodič vodič;
-	private Klient klient;
+	private Car car;
+	private Driver driver;
+	private Client client;
 	
 	/**
 	 *  Creates an order based on given parameters and writes created order to database.
@@ -25,11 +25,11 @@ public class Odvoz {
 	 * @param miestoKam
 	 * @param ideKlient
 	 * @param cas
-	 * @param auto
-	 * @param vodič
-	 * @param klient
+	 * @param car
+	 * @param driver
+	 * @param client
 	 */	
-	public Odvoz(String miestoZ, String miestoKam, boolean ideKlient, int cas, Auto auto, Vodič vodič, Klient klient) {
+	public Order(String miestoZ, String miestoKam, boolean ideKlient, int cas, Car car, Driver driver, Client client) {
 		/*
 		 * select posledneho id z DB
 		 */
@@ -39,9 +39,9 @@ public class Odvoz {
 		this.miestoKam = miestoKam;
 		this.ideKlient = ideKlient;
 		this.cas = cas;
-		this.auto = auto;
-		this.vodič = vodič;
-		this.klient = klient;
+		this.car = car;
+		this.driver = driver;
+		this.client = client;
 		zapisOdvozDoDb();
 	}
 	
@@ -63,7 +63,7 @@ public class Odvoz {
 	}
 
 	/**
-	 * This method returns the place 
+	 * This method returns the place from where the ride will take place.
 	 * 
 	 * @return miestoZ
 	 */
@@ -72,6 +72,7 @@ public class Odvoz {
 	}
 
 	/**
+	 * This method returns t
 	 * 
 	 * @return miestoKam
 	 */

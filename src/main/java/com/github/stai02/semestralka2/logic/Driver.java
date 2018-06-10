@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 /**
- * Class Vodič - trieda vodičov/poskytovateľov odvozu, dedia od osoby
+ * Class Driver - trieda vodičov/poskytovateľov odvozu, dedia od osoby
  * 
  * Táto trieda je tvorená základnými metódami get a set.
  *
@@ -12,13 +12,13 @@ import java.util.ArrayList;
  * @version pro školní rok 2017/2018
  */
 
-public class Vodič extends Osoba {
+public class Driver extends Person {
 
 	private char typVP;
 
 	private Rozvrh disponibilnyCas;
 
-	private Odvoz odvoz;
+	private Order order;
 
 	private Rozvrh rozvrh;
 

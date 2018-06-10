@@ -9,7 +9,7 @@ public class Rozvrh {
 
 	private Collection<Cas> cas;
 
-	private Collection<Vodič> vodič;
+	private Collection<Driver> driver;
 
 	public void setDen() {
 

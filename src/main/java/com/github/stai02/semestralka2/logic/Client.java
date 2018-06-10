@@ -5,7 +5,7 @@ import java.util.Collection;
 
 
 /**
- * Class Klient - trieda klientov, dedia od osoby
+ * Class Client - trieda klientov, dedia od osoby
  * 
  * Táto trieda je tvorená základnými metódami get a set.
  *
@@ -13,9 +13,9 @@ import java.util.Collection;
  * @version pro školní rok 2017/2018
  */
 
-public class Klient extends Osoba {
+public class Client extends Person {
 
-	private Collection<Auto> auto;
+	private Collection<Car> car;
 
 	public void zadajPoziadavku() {
 
