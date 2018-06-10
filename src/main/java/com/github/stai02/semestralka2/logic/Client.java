@@ -2,10 +2,8 @@ package com.github.stai02.semestralka2.logic;
 
 import java.util.Collection;
 
-
-//TODO
 /**
- * The Class Client - subclass of Person.
+ * The Class Client - contains client-specific details, subclass of Person.
  *
  * @author Lenka Šťastná, Matej Kolesár, Julia Loseeva, Ivana Stanová
  * @version June 2018

@@ -4,9 +4,9 @@ import java.util.Collection;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Rozvrh.
+ * The Class Timetable.
  */
-public class Rozvrh {
+public class Timetable {
 
 
 	/** The den. */

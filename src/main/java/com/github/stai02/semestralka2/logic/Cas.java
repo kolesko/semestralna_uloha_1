@@ -14,8 +14,8 @@ public class Cas {
 	/** The cas do. */
 	private int casDo;
 
-	/** The rozvrh. */
-	private Rozvrh rozvrh;
+	/** The timetable. */
+	private Timetable timetable;
 
 	/** The den. */
 	private Collection<Den> den;
