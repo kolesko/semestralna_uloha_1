@@ -112,18 +112,18 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Region prefHeight="46.0" prefWidth="43.0" />
-                        <ComboBox fx:id="hourFrom" prefHeight="26.0" prefWidth="70.0">
+                        <Region prefHeight="46.0" prefWidth="22.0" />
+                        <ComboBox fx:id="hourFrom" prefHeight="26.0" prefWidth="70.0" promptText="hh">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <ComboBox fx:id="minuteFrom" prefHeight="26.0" prefWidth="70.0">
+                        <ComboBox fx:id="minuteFrom" prefHeight="26.0" prefWidth="70.0" promptText="mm">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <ComboBox fx:id="daytime1" prefHeight="26.0" prefWidth="70.0">
+                        <ComboBox fx:id="daytime1" prefHeight="26.0" prefWidth="90.0" promptText="AM/PM">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                            </HBox.margin>
@@ -137,18 +137,18 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Region prefHeight="47.0" prefWidth="56.0" />
-                        <ComboBox fx:id="hourTo" prefHeight="26.0" prefWidth="70.0">
+                        <Region prefHeight="47.0" prefWidth="36.0" />
+                        <ComboBox fx:id="hourTo" prefHeight="26.0" prefWidth="70.0" promptText="hh">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <ComboBox fx:id="minuteTo" prefHeight="26.0" prefWidth="70.0">
+                        <ComboBox fx:id="minuteTo" prefHeight="26.0" prefWidth="70.0" promptText="mm">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <ComboBox fx:id="daytime2" prefHeight="26.0" prefWidth="70.0">
+                        <ComboBox fx:id="daytime2" prefHeight="26.0" prefWidth="90.0" promptText="AM/PM">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                            </HBox.margin>
