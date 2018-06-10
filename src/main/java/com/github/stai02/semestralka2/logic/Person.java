@@ -23,7 +23,7 @@ public class Person {
 	private String telephone;
 	
 	/** The constructor. */
-	private Person(int ID, String name, String surname, String telephone) {
+	protected Person(int ID, String name, String surname, String telephone) {
 		this.ID=ID;
 		this.name=name;
 		this.surname=surname;

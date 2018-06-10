@@ -24,9 +24,6 @@ public class Driver extends Person {
 
 	/** The timetable. */
 	private Timetable timetable;
-
-	
-	//public Driver(int ID, String name, String);
 	
 	/**
 	 * Gets the type of driving license.
