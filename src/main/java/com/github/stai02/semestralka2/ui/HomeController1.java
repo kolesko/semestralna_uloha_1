@@ -10,6 +10,8 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.Optional;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -207,9 +209,47 @@ public class HomeController1 extends GridPane {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				break;
+				break;				
 			}
 		}
+	}
+	
+	public void updateDriver() {
+		minuteTo.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			@Override public void changed(ObservableValue <? extends Number> observableValue, Number number, Number number2) {
+				try {
+					Connection conn = dbConnection();
+					String query = "select driverid from drivers where time_from > ? or time_to < ?";
+					PreparedStatement pst = conn.prepareStatement(query);
+					int hourf = Integer.parseInt(hourFrom.getValue());
+					if (daytime1.getValue() == "PM") {
+						hourf += 12;
+					}
+					int hourt = Integer.parseInt(hourTo.getValue());
+					if (daytime2.getValue() == "PM") {
+						hourt += 12;
+					}
+					String timef = hourf + ":" + minuteFrom.getValue();
+					String timet = hourt + ":" + minuteTo.getValue();
+					pst.setString(1, timet);
+					pst.setString(2, timef);
+					
+					ResultSet rs = pst.executeQuery();
+					driverBox.getItems().clear();
+					while(rs.next()) {
+						driverBox.getItems().add(rs.getString("driverid"));
+					}
+					conn.close();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} 
+		});
+		
 	}
 	
 	public void carType() {

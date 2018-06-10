@@ -12,8 +12,8 @@ public class Timetable {
 	/** The den. */
 	private Collection<Den> den;
 
-	/** The cas. */
-	private Collection<Cas> cas;
+	/** The time. */
+	private Collection<Time> time;
 
 	/** The driver. */
 	private Collection<Driver> driver;

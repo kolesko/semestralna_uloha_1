@@ -16,8 +16,8 @@ public class Den {
 	/** The timetable. */
 	private Collection<Timetable> timetable;
 
-	/** The cas. */
-	private Collection<Cas> cas;
+	/** The time. */
+	private Collection<Time> time;
 
 	/**
 	 * Gets the den V tydnu.
@@ -29,16 +29,16 @@ public class Den {
 	}
 
 	/**
-	 * Gets the cas.
+	 * Gets the time.
 	 *
-	 * @return the cas
+	 * @return the time
 	 */
-	public Cas getCas() {
+	public Time getCas() {
 		return null;
 	}
 
 	/**
-	 * Sets the cas.
+	 * Sets the time.
 	 */
 	public void setCas() {
 

@@ -4,9 +4,9 @@ import java.util.Collection;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Cas.
+ * The Class Time.
  */
-public class Cas {
+public class Time {
 
 	/** The cas od. */
 	private int casOd;

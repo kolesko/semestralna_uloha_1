@@ -61,7 +61,6 @@ public class HomeController2 extends GridPane{
 		show.setDisable(false); 
 		choice.setItems(choiceBoxItems);
 		choice.setTooltip(new Tooltip("Select what you want to find"));
-		
 		choice.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 	        @Override
 	        public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
