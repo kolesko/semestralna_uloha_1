@@ -13,25 +13,25 @@ public class Order {
 	private int ID;
 	
 	/** The place from which the ride will take place. */
-	private String placeFrom;
-	
-	/** The destination. */
-	private String placeTo;
+	private String place;
 	
 	/** Whether the client is also participating. */
-	private boolean clientGoes;
+	private String clientGoes;
+	
+	/** The date. */
+	private String date;
 	
 	/** The time. */
-	private int time;
+	private String time;
 	
 	/** The car. */
-	private Car car;
+	private String carid;
 	
 	/** The driver. */
-	private Driver driver;
+	private int driverid;
 	
 	/** The client. */
-	private Client client;
+	private int clientid;
 	
 	/**
 	 *  Creates an order based on given parameters and writes created order to database.
@@ -44,20 +44,17 @@ public class Order {
 	 * @param driver the driver
 	 * @param client the client
 	 */	
-	public Order(String placeFrom, String placeTo, boolean clientGoes, int time, Car car, Driver driver, Client client) {
-		/*
-		 * select posledneho id z DB
-		 */
-		int dbid = 0;
-		this.ID = dbid;
-		this.placeFrom = placeFrom;
-		this.placeTo = placeTo;
-		this.clientGoes = clientGoes;
-		this.time = time;
-		this.car = car;
-		this.driver = driver;
-		this.client = client;
-		zapisOdvozDoDb();
+	public Order(int id,String date, String placeFrom, String placeTo, boolean clientGoes, String timeFrom, String timeTo, String carid) {
+		this.ID = id;
+		this.date = date;
+		this.time = timeFrom + "-" + timeTo;
+		this.place = placeFrom + "-" + placeTo;
+		if (clientGoes == true) {
+			this.clientGoes = "Yes";
+		} else this.clientGoes = "No";
+		this.carid = carid;
+		//this.driverid = driverid;
+		//this.clientid = clientid;
 	}
 	
 	/**
@@ -83,146 +80,23 @@ public class Order {
 	 * 
 	 * @return placeFrom 
 	 */
-	public String getPlaceFrom() {
-		return placeFrom;
+	public String getPlace() {
+		return place;
 	}
 
-	/**
-	 * Sets the place from where the ride will take place.
-	 * 
-	 * @param placeFrom the new place from where the ride will take place
-	 */
-	public void setPlaceFrom(String placeFrom) {
-		this.placeFrom= placeFrom ;
-	}
-	
-	/**
-	 * Gets the destination.
-	 *
-	 * @return placeTo
-	 */
-	public String getPlaceTo() {
-		return placeTo;
-	}
-	
-	/**
-	 * Sets the destination.
-	 *
-	 * @param placeTo the new destination
-	 */
-	public void getPlaceTo(String placeTo) {
-		this.placeTo=placeTo;
-	}
-
-	/**
-	 * Returns whether the client also participates in the ride or not.
-	 *
-	 * @return the clientGoes
-	 */
-	public boolean getClientGoes() {
+	public String getClientGoes() {
 		return clientGoes;
 	}
 
-	/**
-	 * Sets whether the client also participates in the ride or not.
-	 *
-	 * @param clientGoes the new value of whether the client also participates in the ride or not
-	 */
-	public void setClientGoes(boolean clientGoes) {
-		this.clientGoes=clientGoes;
+	public String getDate() {
+		return date;
 	}
-	
-	/**
-	 * Gets the time.
-	 *
-	 * @return the time
-	 */
-	public int getTime() {
+
+	public String getTime() {
 		return time;
 	}
-	
-	/**
-	 * Sets the time of the order.
-	 *
-	 * @param time the new time
-	 */
-	public void setTime(int time) {
-		this.time=time;
-	}
-	
-	/**
-	 * Gets the car.
-	 *
-	 * @return the car
-	 */
-	public Car getCar() {
-		return car;
-	}
-	
-	/**
-	 * Sets the car.
-	 *
-	 * @param car the new car
-	 */
-	public void setCar(Car car) {
-		this.car=car;
-	}
-	
-	/**
-	 * Gets the client.
-	 *
-	 * @return the client
-	 */
-	public Client getClient() {
-		return client;
-	}
-	
-	/**
-	 * Sets the client.
-	 *
-	 * @param client the new client
-	 */
-	public void setClient(Client client) {
-		this.client=client;
-	}
-	
-	/**
-	 * Gets the driver.
-	 *
-	 * @return the driver
-	 */
-	public Driver getDriver() {
-		return driver;
-	}
-	
-	/**
-	 * Sets the driver.
-	 *
-	 * @param driver the new driver
-	 */
-	public void setDriver(Driver driver) {
-		this.driver=driver;
-	}
 
-	/**
-	 * Vyhladat.
-	 *
-	 * @param ID the id
-	 * @return the string
-	 */
-	public String vyhladat(int ID) {
-		/*
-		 * select do db cez ID
-		 */
-		return "vrateny string z DB";
-	}
-
-	/**
-	 * Zapis odvoz do db.
-	 */
-	private void zapisOdvozDoDb() {
-	     /*
-	      * insert vytvoreneho odvozu do db
-	      */
+	public String getCarid() {
+		return carid;
 	}
 }

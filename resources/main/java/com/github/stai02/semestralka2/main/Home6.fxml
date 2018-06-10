@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stai02.semestralka2.ui.HomeController6">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stai02.semestralka2.ui.HomeController6">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -42,19 +42,9 @@
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
-        <columns>
-          <TableColumn fx:id="id" prefWidth="41.600006103515625" text="#" />
-          <TableColumn fx:id="date" prefWidth="113.60000610351562" text="Date" />
-            <TableColumn fx:id="time" prefWidth="135.2000732421875" text="Time from - to" />
-            <TableColumn fx:id="place" prefWidth="127.199951171875" text="Place from - to" />
-            <TableColumn fx:id="client" prefWidth="53.60003662109375" text="Person" />
-            <TableColumn fx:id="car" prefWidth="130.4000244140625" text="Car" />
-        </columns>
-      </TableView>
       <VBox prefHeight="226.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
-            <Button fx:id="detail" mnemonicParsing="false" onAction="#showDetail" prefHeight="51.0" prefWidth="200.0" text="Details">
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#delete" prefHeight="51.0" prefWidth="200.0" text="Delete">
                <opaqueInsets>
                   <Insets left="10.0" />
                </opaqueInsets>
@@ -69,5 +59,15 @@
             <Region prefHeight="56.0" prefWidth="200.0" />
          </children>
       </VBox>
+      <TableView fx:id="tableview" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="41.600006103515625" text="#" />
+          <TableColumn fx:id="date" prefWidth="113.60000610351562" text="Date" />
+          <TableColumn fx:id="time" prefWidth="135.2000732421875" text="Time from - to" />
+          <TableColumn fx:id="place" prefWidth="127.199951171875" text="Place from - to" />
+          <TableColumn fx:id="client" prefWidth="53.60003662109375" text="Person" />
+          <TableColumn fx:id="car" prefWidth="130.4000244140625" text="Car" />
+        </columns>
+      </TableView>
    </children>
 </GridPane>
