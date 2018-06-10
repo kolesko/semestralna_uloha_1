@@ -472,6 +472,7 @@ public class HomeController1 extends GridPane {
 				}
 				rs = pst2.executeQuery();
 				int carid = 0;
+				String licenseC = "";
 				while (rs.next()) {
 					carid = rs.getInt("id");
 					licenseC = rs.getString("license");
@@ -484,6 +485,7 @@ public class HomeController1 extends GridPane {
 				pst2.setString(1,driverBox.getValue());
 				rs = pst2.executeQuery();
 				int driverid = 0;
+				String license = "";
 				while (rs.next()) {
 					driverid = rs.getInt("id");
 					license = rs.getString("license");
