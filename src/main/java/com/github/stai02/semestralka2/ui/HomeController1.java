@@ -112,6 +112,10 @@ public class HomeController1 extends GridPane {
 	/** The driver box. */
 	@FXML private ComboBox<String> driverBox;
 	
+	@FXML private ComboBox<String> clientType;
+	@FXML private ComboBox<String> carType;
+	@FXML private ComboBox<String> existingClientsBox;
+	@FXML private ComboBox<String> existingCarsBox;
 	
 	/**
 	 * Initialize.
@@ -141,6 +145,10 @@ public class HomeController1 extends GridPane {
 		daytime2.getItems().addAll("AM","PM");
 		daytime1.getSelectionModel().select("AM");
 		daytime2.getSelectionModel().select("AM");
+		
+		clientType.getItems().addAll("New","Existing");
+		carType.getItems().addAll("New","Existing");
+		
 		try {
 			Connection conn = dbConnection();
 			String query = "select driverid from drivers";
@@ -160,6 +168,103 @@ public class HomeController1 extends GridPane {
 		}
 	}
 	
+	public void clientType() {
+		String value = clientType.getValue();
+		switch(value) {
+			case "New" : {
+				carType.getItems().clear();
+				carType.getItems().add("New");
+				clientid.setVisible(true);
+				name.setVisible(true);
+				surname.setVisible(true);
+				telephone.setVisible(true);
+				existingClientsBox.setVisible(false);
+				break;
+			}
+			case "Existing" : {
+				carType.getItems().clear();
+				carType.getItems().addAll("New","Existing");
+				clientid.setVisible(false);
+				name.setVisible(false);
+				surname.setVisible(false);
+				telephone.setVisible(false);
+				existingClientsBox.setVisible(true);
+				try {
+					Connection conn = dbConnection();
+					String query = "select clientid from clients";
+					PreparedStatement pst = conn.prepareStatement(query);
+					ResultSet rs = pst.executeQuery();
+					existingClientsBox.getItems().clear();
+					while(rs.next()) {
+						existingClientsBox.getItems().add(rs.getString("clientid"));
+					}
+					pst.close();
+					conn.close();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			}
+		}
+	}
+	
+	public void carType() {
+		String value = carType.getValue();
+		switch(value) {
+			case "New" : {
+				brand.setVisible(true);
+				carid.setVisible(true);
+				model.setVisible(true);
+				license.setVisible(true);
+				existingCarsBox.setVisible(false);
+				break;
+			}
+			case "Existing" : {
+				brand.setVisible(false);
+				carid.setVisible(false);
+				model.setVisible(false);
+				license.setVisible(false);
+				existingCarsBox.setVisible(true);
+				existingCarsBox.setOnMouseClicked(event -> {
+					try {
+						Connection conn = dbConnection();
+						String query = "select carid from cars where clientid = ?";
+						PreparedStatement pst = conn.prepareStatement(query);
+							String query2 = "SELECT id FROM clients WHERE clientid = ?";
+							PreparedStatement pst2 = conn.prepareStatement(query2);
+							pst2.setString(1,existingClientsBox.getValue());
+							ResultSet rs = pst2.executeQuery();
+							int id = 0;
+							while (rs.next()) {
+								id = rs.getInt("id");
+							}
+							pst2.close();
+						pst.setInt(1,id);
+						rs = pst.executeQuery();
+						existingCarsBox.getItems().clear();
+						while(rs.next()) {
+							existingCarsBox.getItems().add(rs.getString("carid"));
+						}
+						pst.close();
+						conn.close();
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				});
+				
+				break;
+			}
+		}
+	}
+	
 	public Connection dbConnection() throws ClassNotFoundException {
 	 	   Class.forName("org.sqlite.JDBC");
 	        Connection connection = null;
@@ -167,7 +272,6 @@ public class HomeController1 extends GridPane {
 	        {
 	          // create a database connection
 	          connection = DriverManager.getConnection("jdbc:sqlite:./resources/main/java/com/github/stai02/semestralka2/main/db.db");
-	          System.out.println("connected");
 	        }
 	        catch(SQLException e)
 	        {
@@ -182,7 +286,15 @@ public class HomeController1 extends GridPane {
 	 * Insert order.
 	 */
 	public void insertOrder() {
-		
+		if (clientType.getValue().equals("New")) {
+			addClient();
+		}
+		if (carType.getValue().equals("New")) {
+			addCar();
+		}
+		addOrder();
+		Stage stage = (Stage) name.getScene().getWindow();
+	    stage.close();
 	}
 	
 	/**
@@ -205,7 +317,6 @@ public class HomeController1 extends GridPane {
 		driving.setDisable(false);
 		date.setDisable(false);
 		driverBox.setDisable(false);
-		
 	}
 	
 	/**
@@ -229,11 +340,7 @@ public class HomeController1 extends GridPane {
 		edit.requestFocus();
 		driving.setDisable(true);
 		driverBox.setDisable(true);
-		addClient();
-		addCar();
-		addOrder();
-		Stage stage = (Stage) name.getScene().getWindow();
-	    stage.close();
+		insertOrder();
 	}
 	
 	/**
@@ -253,7 +360,7 @@ public class HomeController1 extends GridPane {
 	public void addCar() {
 		try {
 			Connection conn = dbConnection();
-			String query = "INSERT INTO cars (brand,model,license,spz,clientid) VALUES (?,?,?,?,?)";
+			String query = "INSERT INTO cars (brand,model,license,carid,clientid) VALUES (?,?,?,?,?)";
 			try {
 				PreparedStatement pst = conn.prepareStatement(query);
 				pst.setString(1,brand.getText());
@@ -334,7 +441,11 @@ public class HomeController1 extends GridPane {
 				
 				String query2 = "SELECT id FROM clients WHERE clientid = ?";
 				PreparedStatement pst2 = conn.prepareStatement(query2);
-				pst2.setString(1,clientid.getText());
+				if (clientType.getValue().equals("New")) {
+					pst2.setString(1,clientid.getText());
+				} else {
+					pst2.setString(1,existingClientsBox.getValue());
+				}
 				ResultSet rs = pst2.executeQuery();
 				int id = 0;
 				while (rs.next()) {
@@ -343,9 +454,13 @@ public class HomeController1 extends GridPane {
 				pst2.close();
 				pst.setInt(7,id);
 				
-				query2 = "SELECT id FROM cars WHERE spz = ?";
+				query2 = "SELECT id FROM cars WHERE carid = ?";
 				pst2 = conn.prepareStatement(query2);
-				pst2.setString(1,carid.getText());
+				if (carType.getValue().equals("New")) {
+					pst2.setString(1,carid.getText());
+				} else {
+					pst2.setString(1,existingCarsBox.getValue());
+				}
 				rs = pst2.executeQuery();
 				int carid = 0;
 				while (rs.next()) {

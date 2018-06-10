@@ -12,11 +12,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stai02.semestralka2.ui.HomeController1">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stai02.semestralka2.ui.HomeController1">
 	<columnConstraints>
 		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
 		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -47,27 +48,43 @@
 		</HBox>
 		<VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
 			<children>
-				<Label text="CLIENT">
-					<VBox.margin>
-						<Insets left="10.0" right="10.0" top="10.0" />
-					</VBox.margin>
-				</Label>
-				<TextField fx:id="name" mouseTransparent="true" promptText="Name">
+            <HBox prefHeight="33.0" prefWidth="200.0">
+               <children>
+      				<Label text="CLIENT">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+      				</Label>
+                  <ComboBox fx:id="clientType" onAction="#clientType" prefHeight="25.0" prefWidth="119.0" promptText="New/Existing">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </HBox>
+            <StackPane maxWidth="180.0" prefHeight="36.0" prefWidth="180.0">
+               <children>
+                  <ComboBox fx:id="existingClientsBox" prefWidth="150.0" promptText="Select client" visible="false" />
+      				<TextField fx:id="name" maxWidth="180.0" mouseTransparent="true" prefWidth="180.0" promptText="Name" visible="false" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </StackPane>
+				<TextField fx:id="surname" mouseTransparent="true" promptText="Surname" visible="false">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</TextField>
-				<TextField fx:id="surname" mouseTransparent="true" promptText="Surname">
+				<TextField fx:id="telephone" mouseTransparent="true" promptText="Telephone" visible="false">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</TextField>
-				<TextField fx:id="telephone" mouseTransparent="true" promptText="Telephone">
-					<VBox.margin>
-						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-					</VBox.margin>
-				</TextField>
-				<TextField fx:id="clientid" mouseTransparent="true" promptText="ID">
+				<TextField fx:id="clientid" mouseTransparent="true" promptText="ID" visible="false">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
@@ -167,27 +184,40 @@
 		</HBox>
 		<VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
 			<children>
-				<Label text="VEHICLE">
-					<VBox.margin>
-						<Insets left="10.0" right="10.0" top="10.0" />
-					</VBox.margin>
-				</Label>
-				<TextField fx:id="brand" mouseTransparent="true" promptText="Brand">
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+      				<Label text="VEHICLE">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+      				</Label>
+                  <ComboBox fx:id="carType" onAction="#carType" prefHeight="25.0" prefWidth="119.0" promptText="New/Existing">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </HBox>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <children>
+      				<TextField fx:id="brand" maxWidth="180.0" mouseTransparent="true" prefWidth="180.0" promptText="Brand" visible="false" />
+                  <ComboBox fx:id="existingCarsBox" prefWidth="150.0" promptText="Select car" visible="false" />
+               </children>
+            </StackPane>
+				<TextField fx:id="model" mouseTransparent="true" promptText="Model" visible="false">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</TextField>
-				<TextField fx:id="model" mouseTransparent="true" promptText="Model">
+				<TextField fx:id="license" mouseTransparent="true" promptText="Type of license" visible="false">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</TextField>
-				<TextField fx:id="license" mouseTransparent="true" promptText="Type of license">
-					<VBox.margin>
-						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-					</VBox.margin>
-				</TextField>
-				<TextField fx:id="carid" mouseTransparent="true" promptText="ID">
+				<TextField fx:id="carid" mouseTransparent="true" promptText="ID" visible="false">
 					<VBox.margin>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
