@@ -14,10 +14,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.Button;
 
-
-// TODO: Auto-generated Javadoc
 /**
- * The Class HomeController4.
+ * The Class HomeController4 for control Home4.fxml. Window insert client.
  */
 public class HomeController4 {
 	
