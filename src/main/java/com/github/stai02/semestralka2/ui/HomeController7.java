@@ -6,9 +6,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class HomeController7.
+ * The Class HomeController7 for control Home7.fxml. Window search results.
  */
 public class HomeController7 {
 	
