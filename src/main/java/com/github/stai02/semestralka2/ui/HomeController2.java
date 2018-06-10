@@ -22,19 +22,41 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+// TODO: Auto-generated Javadoc
+
+/**
+ * The Class HomeController2.
+ */
 public class HomeController2 extends GridPane{
 
+	/** The border. */
 	@FXML public Button border;
+	
+	/** The bdriver. */
 	@FXML public Button bdriver;
+	
+	/** The borders. */
 	@FXML public Button borders;
+	
+	/** The end. */
 	@FXML public Button end;
+	
+	/** The show. */
 	@FXML public Button show;
+	
+	/** The choice. */
 	@FXML public ChoiceBox<String> choice;
+	
+	/** The select. */
 	@FXML public ChoiceBox<String> select;
 	
+	/** The choice box items. */
 	ObservableList<String> choiceBoxItems = FXCollections.observableArrayList("car","driver","order","client");
 	
 	
+	/**
+	 * Initialize.
+	 */
 	public void initialize() {
 		show.setDisable(false); 
 		choice.setItems(choiceBoxItems);
@@ -70,6 +92,12 @@ public class HomeController2 extends GridPane{
 	
     };
 	
+    /**
+     * Db connection.
+     *
+     * @return the connection
+     * @throws ClassNotFoundException the class not found exception
+     */
     public Connection dbConnection() throws ClassNotFoundException {
  	   Class.forName("org.sqlite.JDBC");
         Connection connection = null;
@@ -89,6 +117,9 @@ public class HomeController2 extends GridPane{
     }
     
     
+	/**
+	 * Insert order.
+	 */
 	public void insertOrder() {
 		try{
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home1.fxml"));
@@ -101,6 +132,10 @@ public class HomeController2 extends GridPane{
 		System.out.println("New window can´t be loaded.");
 	}
 }
+	
+	/**
+	 * Insert driver.
+	 */
 	public void insertDriver() {
 		try{
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home3.fxml"));
@@ -113,6 +148,10 @@ public class HomeController2 extends GridPane{
 		System.out.println("New window can´t be loaded.");
 	}
 }
+	
+	/**
+	 * Show orders.
+	 */
 	public void showOrders() {
 		try{
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home6.fxml"));
@@ -126,6 +165,9 @@ public class HomeController2 extends GridPane{
 	}
 }
 	
+	/**
+	 * Show results.
+	 */
 	public void showResults() {
 		try{
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home7.fxml"));
@@ -142,6 +184,9 @@ public class HomeController2 extends GridPane{
 	
 	
 	
+	/**
+	 * Koniec.
+	 */
 	public void koniec() {
 		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to close the application?");
 		al.setHeaderText("Ending");

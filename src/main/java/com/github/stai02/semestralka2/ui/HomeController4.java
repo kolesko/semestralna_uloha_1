@@ -15,29 +15,51 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.Button;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class HomeController4.
+ */
 public class HomeController4 {
 	
+	/** The name. */
 	@FXML
 	private TextField name;
+	
+	/** The surname. */
 	private TextField surname;
+	
+	/** The telephone. */
 	@FXML
 	private TextField telephone;
+	
+	/** The clientid. */
 	@FXML
 	private TextField clientid;
 	
+	/** The bedit. */
 	@FXML
 	private Button bedit;
+	
+	/** The bsave. */
 	@FXML
 	private Button bsave;
+	
+	/** The bdelete. */
 	@FXML
 	private Button bdelete;
 	
 	
+	/**
+	 * Initialize.
+	 */
 	public void initialize() {
        edit(); 
 		bdelete.setDisable(true);
 	}
 	
+	/**
+	 * Edits the.
+	 */
 	public void edit() {
 		bsave.setDisable(false);
 		bedit.setDisable(true);
@@ -49,6 +71,9 @@ public class HomeController4 {
 		
 	}
 	
+	/**
+	 * Save.
+	 */
 	public void save() {
 		bsave.setDisable(true);
 		bedit.setDisable(false);
@@ -61,6 +86,9 @@ public class HomeController4 {
 	}
 	
 	
+	/**
+	 * Delete.
+	 */
 	public void delete() { 
 		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to delete data?");
 		al.setHeaderText("Ending");

@@ -14,53 +14,100 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Ivana Stanová
+ * The Class HomeController1.
  *
+ * @author Ivana Stanová
  */
 public class HomeController1 extends GridPane {
 		
+	/** The brand. */
 	@FXML
 	private TextField brand;
+	
+	/** The clientid. */
 	@FXML
 	private TextField clientid;
+	
+	/** The name. */
 	@FXML
 	private TextField name;
+	
+	/** The surname. */
 	@FXML
 	private TextField surname;
+	
+	/** The telephone. */
 	@FXML
 	private TextField telephone;
+	
+	/** The carid. */
 	@FXML
 	private TextField carid;
+	
+	/** The license. */
 	@FXML
 	private TextField license;
+	
+	/** The model. */
 	@FXML
 	private TextField model;
+	
+	/** The hour from. */
 	@FXML
 	private ComboBox hourFrom;
+	
+	/** The placeto. */
 	@FXML
 	private TextField placeto;
+	
+	/** The daytime 1. */
 	@FXML
 	private ComboBox daytime1;
+	
+	/** The daytime 2. */
 	@FXML
 	private ComboBox daytime2;
+	
+	/** The minute from. */
 	@FXML
 	private ComboBox minuteFrom;
+	
+	/** The hour to. */
 	@FXML
 	private ComboBox hourTo;
+	
+	/** The minute to. */
 	@FXML
 	private ComboBox minuteTo;
+	
+	/** The placefrom. */
 	@FXML
 	private TextField placefrom;
 
+	/** The edit. */
 	@FXML public Button edit;
+	
+	/** The bdelete. */
 	@FXML public Button bdelete;
+	
+	/** The save. */
 	@FXML public Button save;
+	
+	/** The date. */
 	@FXML private DatePicker date;
+	
+	/** The driving. */
 	@FXML private CheckBox driving;
+	
+	/** The driver box. */
 	@FXML private MenuButton driverBox;
 	
 	
+	/**
+	 * Initialize.
+	 */
 	public void initialize() {
 		editOrder(); 
 		bdelete.setDisable(true);
@@ -86,10 +133,16 @@ public class HomeController1 extends GridPane {
 		daytime2.getItems().addAll("AM","PM");
 	}
 
+	/**
+	 * Insert order.
+	 */
 	public void insertOrder() {
 		name.getText();
 	}
 	
+	/**
+	 * Edits the order.
+	 */
 	public void editOrder() {
 		save.setDisable(false);
 		edit.setDisable(true);
@@ -103,11 +156,6 @@ public class HomeController1 extends GridPane {
 		clientid.mouseTransparentProperty().set(false);
 		placefrom.mouseTransparentProperty().set(false);
 		placeto.mouseTransparentProperty().set(false);
-<<<<<<< HEAD
-=======
-		/*timefrom.mouseTransparentProperty().set(false);
-		timeto.mouseTransparentProperty().set(false);*/
->>>>>>> branch 'dev' of https://github.com/kolesko/semestralna_uloha_2
 		license.mouseTransparentProperty().set(false);
 		driving.setDisable(false);
 		date.setDisable(false);
@@ -115,6 +163,9 @@ public class HomeController1 extends GridPane {
 		
 	}
 	
+	/**
+	 * Save order.
+	 */
 	public void saveOrder() {
 		save.setDisable(true);
 		edit.setDisable(false);
@@ -135,6 +186,9 @@ public class HomeController1 extends GridPane {
 		driverBox.setDisable(true);
 	}
 	
+	/**
+	 * Delete.
+	 */
 	public void delete() { 
 		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to delete data?");
 		al.setHeaderText("Ending");

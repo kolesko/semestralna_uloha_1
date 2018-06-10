@@ -4,6 +4,7 @@ import java.util.Collection;
 
 
 
+// TODO: Auto-generated Javadoc
 /**
  * Class Client - trieda klientov, dedia od osoby
  * 
@@ -15,8 +16,12 @@ import java.util.Collection;
 
 public class Client extends Person {
 
+	/** The car. */
 	private Collection<Car> car;
 
+	/**
+	 * Zadaj poziadavku.
+	 */
 	public void zadajPoziadavku() {
 
 	}

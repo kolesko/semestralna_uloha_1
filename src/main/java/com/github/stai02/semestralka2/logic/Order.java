@@ -1,5 +1,6 @@
 package com.github.stai02.semestralka2.logic;
 
+// TODO: Auto-generated Javadoc
 /**
  *  Class Order - contains order details.
  *
@@ -9,25 +10,40 @@ package com.github.stai02.semestralka2.logic;
  */
 public class Order {
 
+	/** The id. */
 	private int ID;
+	
+	/** The miesto Z. */
 	private String miestoZ;
+	
+	/** The miesto kam. */
 	private String miestoKam;
+	
+	/** The ide klient. */
 	private boolean ideKlient;
+	
+	/** The cas. */
 	private int cas;
+	
+	/** The car. */
 	private Car car;
+	
+	/** The driver. */
 	private Driver driver;
+	
+	/** The client. */
 	private Client client;
 	
 	/**
 	 *  Creates an order based on given parameters and writes created order to database.
-	 * 
-	 * @param miestoZ
-	 * @param miestoKam
-	 * @param ideKlient
-	 * @param cas
-	 * @param car
-	 * @param driver
-	 * @param client
+	 *
+	 * @param miestoZ the miesto Z
+	 * @param miestoKam the miesto kam
+	 * @param ideKlient the ide klient
+	 * @param cas the cas
+	 * @param car the car
+	 * @param driver the driver
+	 * @param client the client
 	 */	
 	public Order(String miestoZ, String miestoKam, boolean ideKlient, int cas, Car car, Driver driver, Client client) {
 		/*
@@ -56,7 +72,8 @@ public class Order {
 	
 	/**
 	 * This method assigns an ID to the order.
-	 * @param id
+	 *
+	 * @param id the new id
 	 */
 	public void setID(int id) {
 		this.ID = id;
@@ -72,8 +89,8 @@ public class Order {
 	}
 
 	/**
-	 * This method returns t
-	 * 
+	 * This method returns t.
+	 *
 	 * @return miestoKam
 	 */
 	public String getMiestoKam() {
@@ -81,25 +98,28 @@ public class Order {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Gets the ide klient.
+	 *
+	 * @return the ide klient
 	 */
 	public boolean getIdeKlient() {
 		return ideKlient;
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Gets the cas.
+	 *
+	 * @return the cas
 	 */
 	public int getCas() {
 		return cas;
 	}
 
 	/**
-	 * 
-	 * @param ID
-	 * @return
+	 * Vyhladat.
+	 *
+	 * @param ID the id
+	 * @return the string
 	 */
 	public String vyhladat(int ID) {
 		/*
@@ -109,7 +129,7 @@ public class Order {
 	}
 
 	/**
-	 * 
+	 * Zapis odvoz do db.
 	 */
 	private void zapisOdvozDoDb() {
 	     /*

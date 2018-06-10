@@ -14,31 +14,52 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Ivana Stanová
+ * The Class HomeController3.
  *
+ * @author Ivana Stanová
  */
 public class HomeController3 extends GridPane {
 		
 	
+	/** The name. */
 	@FXML
 	private TextField name;
+	
+	/** The surname. */
 	@FXML
 	private TextField surname;
+	
+	/** The telephone. */
 	@FXML
 	private TextField telephone;
+	
+	/** The license. */
 	@FXML
 	private TextField license;
+	
+	/** The driverid. */
 	@FXML
 	private TextField driverid;
 
+	/** The bedit. */
 	@FXML public Button bedit;
+	
+	/** The bsave. */
 	@FXML public Button bsave;
+	
+	/** The bdelete. */
 	@FXML public Button bdelete;
+	
+	/** The region. */
 	@FXML private ComboBox<String> region;
 	
 	
 	
+	/**
+	 * Initialize.
+	 */
 	public void initialize() {
 		edit(); 
 		bdelete.setDisable(true);
@@ -46,6 +67,12 @@ public class HomeController3 extends GridPane {
 		region.getItems().add("Brno");
 	}
 
+   /**
+    * Db connection.
+    *
+    * @return the connection
+    * @throws ClassNotFoundException the class not found exception
+    */
    public Connection dbConnection() throws ClassNotFoundException {
 	   Class.forName("org.sqlite.JDBC");
        Connection connection = null;
@@ -64,6 +91,9 @@ public class HomeController3 extends GridPane {
        return connection;
    }
 	
+	/**
+	 * Edits the.
+	 */
 	public void edit() {
 		bsave.setDisable(false);
 		bedit.setDisable(true);
@@ -75,6 +105,11 @@ public class HomeController3 extends GridPane {
 		
 	}
 	
+	/**
+	 * Save.
+	 *
+	 * @throws ClassNotFoundException the class not found exception
+	 */
 	public void save() throws ClassNotFoundException {
 		bsave.setDisable(true);
 		bedit.setDisable(false);
@@ -91,6 +126,9 @@ public class HomeController3 extends GridPane {
 	    stage.close();
 	}
 	
+	/**
+	 * Delete.
+	 */
 	public void delete() { 
 		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to delete data?");
 		al.setHeaderText("Ending");
@@ -101,6 +139,11 @@ public class HomeController3 extends GridPane {
 		al.close();
 	}
 		
+	/**
+	 * Insert data.
+	 *
+	 * @throws ClassNotFoundException the class not found exception
+	 */
 	public void insertData() throws ClassNotFoundException {
 		Connection conn = dbConnection();
 		try {
