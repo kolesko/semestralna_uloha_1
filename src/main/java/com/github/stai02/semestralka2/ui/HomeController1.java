@@ -21,7 +21,6 @@ import javafx.stage.Stage;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.MenuButton;
 
 /**
  * The Class HomeController1. Control Home1, scene for insert order.
@@ -485,12 +484,13 @@ public class HomeController1 extends GridPane {
 				pst2.setString(1,driverBox.getValue());
 				rs = pst2.executeQuery();
 				int driverid = 0;
+				String license = "";
 				while (rs.next()) {
 					driverid = rs.getInt("id");
-					license.setText(rs.getString("license"));
+					license = rs.getString("license");
 				}
 				pst2.close();
-				if (license.getText().equals(licenseC)) {
+				if (license.equals(licenseC)) {
 					pst.setInt(9,driverid);
 					pst.execute();
 					pst.close();
@@ -512,6 +512,6 @@ public class HomeController1 extends GridPane {
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return true;
 	}
 }
