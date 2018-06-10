@@ -18,12 +18,35 @@ public class HomeController6 {
 	/** The detail. */
 	@FXML
 	public Button detail;
+	@FXML TableColumn id;
+	@FXML TableColumn date;
+	@FXML TableColumn time;
+	@FXML TableColumn place;
+	@FXML TableColumn client;
+	@FXML TableColumn car;
 
 	/**
 	 * Initialize.
+	 * @throws ClassNotFoundException 
+	 * @throws SQLException 
 	 */
 	public void initialize() {
 		detail.setDisable(true);
+		Connection conn = dbConnection();
+		String query = "select date,clientid,time_from,time_to,from_place,to_place,carid from orders";
+		PreparedStatement pst = conn.prepareStatement(query);
+		ResultSet rs = pst.executeQuery();
+		//java.util.Date utilDate = new java.util.Date(sqlDate.getTime())
+		while (rs.next()) {
+			java.util.Date date = rs.getDate("date");
+			String from = rs.getString("from_place");
+			String to = rs.getString("to_place");
+			int clientid = rs.getInt("clientid");
+			int carid = rs.getInt("carid");
+			System.out.println(date+" "+from+" "+to+" "+clientid+" "+carid);
+			id.setCellValueFactory("1");
+			
+		}
 
 	}
 
