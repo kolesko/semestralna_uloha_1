@@ -62,11 +62,4 @@ public class HomeController5 {
 		}
 		al.close();
 	}
-<<<<<<< HEAD
 }
-=======
-
-}
->>>>>>> branch 'dev' 
- /** The https. */
- of https://github.com/kolesko/semestralna_uloha_2

@@ -14,9 +14,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class HomeController3.
+ * The Class HomeController3 for control Home3.fxml. Window insert driver.
  *
  * @author Ivana Stanová
  */

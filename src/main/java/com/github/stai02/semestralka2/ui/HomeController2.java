@@ -25,7 +25,7 @@ import javafx.collections.ObservableList;
 // TODO: Auto-generated Javadoc
 
 /**
- * The Class HomeController2.
+ * The Class HomeController2, for controle Home2.fxml. Main window.
  */
 public class HomeController2 extends GridPane{
 
