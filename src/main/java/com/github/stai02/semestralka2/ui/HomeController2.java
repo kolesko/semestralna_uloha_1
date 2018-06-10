@@ -40,67 +40,14 @@ public class HomeController2 extends GridPane{
 	
 	/** The end. */
 	@FXML public Button end;
+
 	
-	/** The show. */
-	@FXML public Button show;
-	
-	/** The choice. */
-	@FXML public ChoiceBox<String> choice;
-	
-	/** The select. */
-	@FXML public ChoiceBox<String> select;
-	
-	/** The choice box items. */
-	ObservableList<String> choiceBoxItems = FXCollections.observableArrayList("car","driver","order","client");
 	
 	
 	/**
 	 * Initialize.
 	 */
-	public void initialize() {
-		show.setDisable(false); 
-		choice.setItems(choiceBoxItems);
-		choice.setTooltip(new Tooltip("Select what you want to find"));
-		choice.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-	        @Override
-	        public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
-	          String value = choice.getItems().get((Integer) number2).toString();
-	          switch(value) {
-	          	case "driver" : {
-	          		select.getItems().clear();
-	          		select.getItems().add("driverid");
-	          		select.getItems().add("name");
-	          		select.getItems().add("surname");
-	          		select.getItems().add("telephone");
-	          		select.getItems().add("license");
-	          		select.getItems().add("region");
-	          		break;
-	          	}
-	          	case "client" : {
-	          		select.getItems().clear();
-	          		select.getItems().add("clientid");
-	          		select.getItems().add("name");
-	          		select.getItems().add("surname");
-	          		select.getItems().add("telephone");
-	          		break;
-	          	}
-	          	case "car" : {
-	          		select.getItems().clear();
-	          		select.getItems().add("brand");
-	          		select.getItems().add("model");
-	          		select.getItems().add("license");
-	          		select.getItems().add("carid");
-	          		break;
-	          	}
-	          	case "order" : {
-	          		select.getItems().clear();
-	          		select.getItems().add("date");
-	          		break;
-	          	}
-	          }
-	        }
-	      });
-	
+	public void initialize() 	
     };
 	
     /**
@@ -176,25 +123,7 @@ public class HomeController2 extends GridPane{
 	}
 }
 	
-	/**
-	 * Show results.
-	 */
-	public void showResults() {
-		try{
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home7.fxml"));
-			Parent root1 = (Parent) fxmlLoader.load();
-			Stage stage = new Stage();
-			stage.setTitle("Results");
-			stage.setScene(new Scene(root1));  
-			stage.show();
-	} catch (Exception e){
-		System.out.println("New window can´t be loaded.");
-	}
-}
-	
-	
-	
-	
+		
 	/**
 	 * Koniec.
 	 */
