@@ -1,11 +1,11 @@
 package com.github.stai02.semestralka2.ui;
 
-import java.awt.Button;
 import java.util.Optional;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
@@ -40,4 +40,9 @@ public class HomeController5 {
 		}
 		al.close();
 	}
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> branch 'dev' of https://github.com/kolesko/semestralna_uloha_2
