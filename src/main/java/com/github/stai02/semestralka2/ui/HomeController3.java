@@ -1,83 +1,133 @@
 package com.github.stai02.semestralka2.ui;
 import java.util.Optional;
-import com.github.stai02.semestralka2.logic.*;
+import java.sql.*;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
 
 /**
- * @author Ivana Stanová
+ * The Class HomeController3 for control Home3.fxml. Window insert driver.
  *
+ * @author Ivana Stanová
  */
-
 public class HomeController3 extends GridPane {
+		
 	
-	@FXML public TextField driverName;
-	@FXML public TextField driverSurname;
-	@FXML public TextField driverTelephone;
-	@FXML public TextField driverLicense;
-	@FXML public TextField driverID;
-	@FXML public Button driverSave;
-	@FXML public Button driverDelete;
-	@FXML public Button driverEdit;
-	@FXML public MenuButton driverRegion;
+	/** The name. */
+	@FXML
+	private TextField name;
 	
-	@FXML public void driverSetName() {
-		driverSetName(driverName.getText());
-	}
+	/** The surname. */
+	@FXML
+	private TextField surname;
 	
-	@FXML public void driverSetSurname() {
-		driverSetSurname(driverSurname.getText());
+	/** The telephone. */
+	@FXML
+	private TextField telephone;
+	
+	/** The license. */
+	@FXML
+	private TextField license;
+	
+	/** The driverid. */
+	@FXML
+	private TextField driverid;
+
+	/** The bedit. */
+	@FXML public Button bedit;
+	
+	/** The bsave. */
+	@FXML public Button bsave;
+	
+	/** The bdelete. */
+	@FXML public Button bdelete;
+	
+	/** The region. */
+	@FXML private ComboBox<String> region;
+	
+	
+	
+	/**
+	 * Initialize.
+	 */
+	public void initialize() {
+		edit(); 
+		bdelete.setDisable(true);
+		region.getItems().add("Praha");
+		region.getItems().add("Brno");
 	}
 
-
-	public void inicializuj() {
-	driverName.setDisable(false);
-	driverSurname.setEditable(true);
-	driverTelephone.setEditable(true);
-	driverLicense.setEditable(true);
-  edit();  
-	}
+   /**
+    * Db connection.
+    *
+    * @return the connection
+    * @throws ClassNotFoundException the class not found exception
+    */
+   public Connection dbConnection() throws ClassNotFoundException {
+	   Class.forName("org.sqlite.JDBC");
+       Connection connection = null;
+       try
+       {
+         // create a database connection
+         connection = DriverManager.getConnection("jdbc:sqlite:./resources/main/java/com/github/stai02/semestralka2/main/db.db");
+         System.out.println("connected");
+       }
+       catch(SQLException e)
+       {
+         // if the error message is "out of memory",
+         // it probably means no database file is found
+         System.err.println(e.getMessage());
+       }
+       return connection;
+   }
 	
-	public void driverSetName (String name) {
-	}
-
-	public void driverSetSurname(String text) {
-		// TODO Auto-generated method stub
-  }
-
+	/**
+	 * Edits the.
+	 */
 	public void edit() {
-		driverSave.setDisable(false);
-		driverEdit.setDisable(true);
-		driverDelete.setDisable(false);
-		driverRegion.setDisable(false);
-		driverName.mouseTransparentProperty().set(false);
-		driverSurname.mouseTransparentProperty().set(false);
-		driverID.mouseTransparentProperty().set(false);
+		bsave.setDisable(false);
+		bedit.setDisable(true);
+		bdelete.setDisable(false);
+		region.setDisable(false);
+		name.mouseTransparentProperty().set(false);
+		surname.mouseTransparentProperty().set(false);
+		driverid.mouseTransparentProperty().set(false);
 		
 	}
 	
-	public void save() {
-		driverSave.setDisable(true);
-		driverEdit.setDisable(false);
-		driverDelete.setDisable(true);
-		driverName.mouseTransparentProperty().set(true);
-		driverSurname.mouseTransparentProperty().set(true);
-		driverTelephone.mouseTransparentProperty().set(true);
-		driverLicense.mouseTransparentProperty().set(true);
-		driverRegion.setDisable(true);
-		driverID.mouseTransparentProperty().set(true);
-		driverEdit.requestFocus();
+	/**
+	 * Save.
+	 *
+	 * @throws ClassNotFoundException the class not found exception
+	 */
+	public void save() throws ClassNotFoundException {
+		bsave.setDisable(true);
+		bedit.setDisable(false);
+		bdelete.setDisable(true);
+		name.mouseTransparentProperty().set(true);
+		surname.mouseTransparentProperty().set(true);
+		telephone.mouseTransparentProperty().set(true);
+		license.mouseTransparentProperty().set(true);
+		region.setDisable(true);
+		driverid.mouseTransparentProperty().set(true);
+		bedit.requestFocus();
+		insertData();
+		Stage stage = (Stage) name.getScene().getWindow();
+	    stage.close();
 	}
 	
+	/**
+	 * Delete.
+	 */
 	public void delete() { 
 		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to delete data?");
 		al.setHeaderText("Ending");
@@ -88,6 +138,27 @@ public class HomeController3 extends GridPane {
 		al.close();
 	}
 		
-
+	/**
+	 * Insert data.
+	 *
+	 * @throws ClassNotFoundException the class not found exception
+	 */
+	public void insertData() throws ClassNotFoundException {
+		Connection conn = dbConnection();
+		try {
+			String query = "INSERT INTO drivers (name, surname, telephone, license, region, driverid) VALUES (?,?,?,?,?,?)";
+			PreparedStatement pst = conn.prepareStatement(query);
+			pst.setString(1, name.getText());
+			pst.setString(2, surname.getText());
+			pst.setString(3, telephone.getText());
+			pst.setString(4, license.getText());
+			pst.setString(5, region.getValue());
+			pst.setString(6, driverid.getText());
+			pst.execute();
+			conn.close();
+		} catch (Exception e) {
+			System.out.println("inserting data error " + e);
+		}
+	}
 
 }

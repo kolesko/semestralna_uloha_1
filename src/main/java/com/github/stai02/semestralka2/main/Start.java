@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+// TODO: Auto-generated Javadoc
 /****************************************************
  * Trieda {@code Start} je hlavnou triedou projektu.
  * 
@@ -22,12 +23,22 @@ import javafx.stage.Stage;
  */
 public class Start extends Application {
 
-	public static void main(String[] args) {
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws ClassNotFoundException the class not found exception
+	 */
+	public static void main(String[] args) throws ClassNotFoundException {
 		launch(args);
 	}
 
+	/* (non-Javadoc)
+	 * @see javafx.application.Application#start(javafx.stage.Stage)
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass()
 				.getResource("Home2.fxml"));

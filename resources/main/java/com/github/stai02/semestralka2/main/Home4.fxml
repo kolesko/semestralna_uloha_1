@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" >
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="245.3333740234375" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="160.66668701171875" />
@@ -46,22 +46,22 @@
             </HBox>
          </children>
       </VBox>
-      <TextField editable="false" promptText="Name" GridPane.rowIndex="1">
+      <TextField fx:id="name" editable="false" promptText="Name" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="8.0" />
          </GridPane.margin>
       </TextField>
-      <TextField editable="false" promptText="Surname" GridPane.rowIndex="2">
+      <TextField fx:id="surname" editable="false" promptText="Surname" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="8.0" />
          </GridPane.margin>
       </TextField>
-      <TextField editable="false" promptText="Phone number" GridPane.rowIndex="3">
+      <TextField fx:id="telephone" editable="false" promptText="Phone number" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="8.0" />
          </GridPane.margin>
       </TextField>
-      <TextField editable="false" promptText="ID" GridPane.rowIndex="4">
+      <TextField fx:id="clientid" editable="false" promptText="ID" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets left="8.0" />
          </GridPane.margin>
@@ -69,20 +69,20 @@
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6">
          <children>
             <Region prefHeight="84.0" prefWidth="99.0" />
-            <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="132.0" text="Delete" />
+            <Button fx:id="bdelete" mnemonicParsing="false" onAction="#delete" prefHeight="61.0" prefWidth="132.0" text="Delete" />
             <Region prefHeight="84.0" prefWidth="50.0" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <children>
-            <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="132.0" text="Edit" />
+            <Button fx:id="bedit" mnemonicParsing="false" onAction="#edit" prefHeight="61.0" prefWidth="132.0" text="Edit" />
             <Region prefHeight="84.0" prefWidth="50.0" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
          <children>
             <Region prefHeight="91.0" prefWidth="0.0" />
-            <Button disable="true" mnemonicParsing="false" prefHeight="61.0" prefWidth="132.0" text="Save" />
+            <Button fx:id="bsave" mnemonicParsing="false" onAction="#save" prefHeight="61.0" prefWidth="132.0" text="Save" />
             <Region prefHeight="84.0" prefWidth="99.0" />
          </children>
       </HBox>
