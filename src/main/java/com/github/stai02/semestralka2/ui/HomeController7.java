@@ -59,8 +59,12 @@ public class HomeController7 {
 			pst.setString(1, selectText);
 			ResultSet rs = pst.executeQuery();
 			ResultSetMetaData metadata = rs.getMetaData();
-		    int columnCount = metadata.getColumnCount();    
+		    int columnCount = metadata.getColumnCount();
 			String row = "";
+		    for (int i = 1; i < columnCount; i++) {
+		        row += metadata.getColumnName(i) + ", ";      
+		    }
+		    row += metadata.getColumnName(columnCount) + "\n";
 			while (rs.next()) {
 		        for (int i = 1; i < columnCount; i++) {
 		            row += rs.getString(i) + ", ";          
