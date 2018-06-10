@@ -188,6 +188,9 @@ public class HomeController1 extends GridPane {
 				surname.setVisible(false);
 				telephone.setVisible(false);
 				existingClientsBox.setVisible(true);
+				existingClientsBox.setOnMouseClicked(event -> {
+					existingCarsBox.getItems().clear();
+				});
 				try {
 					Connection conn = dbConnection();
 					String query = "select clientid from clients";
