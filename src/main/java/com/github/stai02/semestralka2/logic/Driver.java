@@ -20,8 +20,9 @@ public class Driver extends Person {
 	/** The the driver's disposable time. */
 	private Rozvrh disposableTime;
 
-	/** The order. */
-	private Order order;
+	//TODO
+	/** The list of orders assigned to this driver. */
+	private ArrayList<Order> order;
 
 	/** The rozvrh. */
 	private Rozvrh rozvrh;
@@ -54,31 +55,41 @@ public class Driver extends Person {
 	}
 
 	/**
+	 * Sets the type of driving license.
+	 *
+	 * @param type the new type of driving license 
+	 */
+	public void setType(char type) {
+		this.type = type;
+	}
+	
+	/**
+	 * Sets the driver's disposable time.
+	 *
+	 * @param disposableTime the new disposable time
+	 */
+	public void getDisposableTime(Rozvrh disposableTime) {
+		this.disposableTime = disposableTime;
+	}
+	
+	/**
+	 * Sets the driver's timetable
 	 * 
-	 * 
-	 * @param rozvrh
+	 * @param rozvrh the new timetable
 	 */
 	public void setRozvrh(Rozvrh rozvrh) {
 		this.rozvrh = rozvrh;
 	}
 	
+	//TODO list of orders assigned to the driver
 	/**
-	 * Gets the objednavky.
+	 * Gets the list of orders assigned to the driver.
 	 *
-	 * @param name the name
-	 * @return the objednavky
+	 * @param name the driver's name
+	 * @return the orders
 	 */
-	public ArrayList getObjednavky(String name) {
+	public ArrayList<Order> getObjednavky(String name) {
 		return null;
 	}
 	
-	/**
-	 * Prihlasenie.
-	 */
-	public void prihlasenie() {
-
-	}
-
-		
-
 }

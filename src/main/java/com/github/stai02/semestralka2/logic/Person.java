@@ -19,16 +19,16 @@ public class Person {
 	/** The surname. */
 	private String surname;
 	
-	/** The contact. */
+	/** The telephone number. */
 	private String telephone;
 	
 	/** The constructor. */
 	private Person person;
 	
 	/**
-	 * Gets the id.
+	 * Gets the ID.
 	 *
-	 * @return the id
+	 * @return the ID
 	 */
 	public int getID() {
 		return ID;
@@ -39,7 +39,7 @@ public class Person {
 	 *
 	 * @return the name
 	 */
-	public String getname() {
+	public String getName() {
 		return name;
 	}
 
@@ -48,16 +48,16 @@ public class Person {
 	 *
 	 * @return the surname
 	 */
-	public String getsurname() {
+	public String getSurname() {
 		return surname;
 	}
 
 	/**
-	 * Gets the contact.
+	 * Gets the telephone number.
 	 *
 	 * @return the telephone
 	 */
-	public String gettelephone() {
+	public String geTtelephone() {
 		return telephone;
 	}
 
@@ -86,7 +86,7 @@ public class Person {
 	 *
 	 * @param name the new name
 	 */
-	public void setname(String name) {
+	public void setName(String name) {
 		this.name=name;
 	}
 	
@@ -95,16 +95,16 @@ public class Person {
 	 *
 	 * @param surname the new surname
 	 */
-	public void setsurname(String surname) {
+	public void setSurname(String surname) {
 		this.surname=surname;
 	}
 	
 	/**
-	 * Sets the telephone.
+	 * Sets the telephone number.
 	 *
-	 * @param telephone the new telephone
+	 * @param telephone the new telephone number
 	 */
-	public void settelephone(String telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone=telephone;
 	}
 
