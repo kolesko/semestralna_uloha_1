@@ -1,21 +1,20 @@
 package com.github.stai02.semestralka2.logic;
 
-// TODO: Auto-generated Javadoc
 /**
- * Class Car - constains basic get and set methods for car details.
+ * The Class Car - constains basic get and set methods for car details.
  *
  * @author Lenka Šťastná, Matej Kolesár, Julia Loseeva, Ivana Stanová
  * @version June 2018
  */
 public class Car {
 
-	/** The spz. */
+	/** The license plate number. */
 	private String SPZ;
 	
-	/** The typ. */
+	/** The type of driving license required to drive this car. */
 	private String typ;
 	
-	/** The znacka. */
+	/** The brand/manufacturer. */
 	private String znacka;
 	
 	/** The model. */
@@ -44,7 +43,7 @@ public class Car {
     }
 	
 	/**
-	 * This method returns license plate number.
+	 * Gets the license plate number.
 	 * 
 	 * @return license plate number
 	 */
@@ -53,27 +52,27 @@ public class Car {
 	}
 
 	/**
-	 * Gets the typ.
+	 * Gets the type of driving license required to drive this car.
 	 *
-	 * @return the typ
+	 * @return driving license type required to drive this car
 	 */
 	public String getTyp() {
 		return typ;
 	}
 	
 	/**
-	 * Gets the model.
+	 * Gets the car model.
 	 *
-	 * @return the model
+	 * @return the car model
 	 */
 	public String getModel() {
 		return model;
 	}
 	
 	/**
-	 * Gets the znacka.
+	 * Gets the brand/manufacturer name.
 	 *
-	 * @return the znacka
+	 * @return the brand/manufacturer name
 	 */
 	public String getZnacka() {
 		return znacka;
@@ -88,35 +87,37 @@ public class Car {
 		return client;
 	}
 	
+	//TODO Zmenit na List of orders
+	
 	/**
-	 * Gets the odvoz.
+	 * Gets the order.
 	 *
-	 * @return the odvoz
+	 * @return the order
 	 */
 	public Order getOdvoz() {
 		return order;
 	}
 
 	/**
-	 * Sets the spz.
+	 * Sets the license plate number.
 	 *
-	 * @param SPZ the new spz
+	 * @param SPZ the new license plate number
 	 */
 	public void setSPZ(String SPZ) {
 		this.SPZ=SPZ;
 	}
 
 	/**
-	 * Sets the typ.
+	 * Sets the type of driving license required to drive this car.
 	 *
-	 * @param typ the new typ
+	 * @param typ the new type of driving license
 	 */
 	public void setTyp(String typ) {
 		this.typ=typ;
 	}
 	
 	/**
-	 * Sets the model.
+	 * Sets the car model.
 	 *
 	 * @param model the new model
 	 */
@@ -125,9 +126,9 @@ public class Car {
 	}
 	
 	/**
-	 * Sets the znacka.
+	 * Sets the brand/manufacturer name.
 	 *
-	 * @param znacka the new znacka
+	 * @param znacka the new brand/manufacturer
 	 */
 	public void setZnacka(String znacka) {
 		this.znacka=znacka;
@@ -142,15 +143,19 @@ public class Car {
 		this.client=client;
 	}
 	
+	// TODO Zmenit na list
 	/**
-	 * Sets the odvoz.
+	 * Assigns new list of orders.
 	 *
-	 * @param order the new odvoz
+	 * @param order the new list of orders 
 	 */
 	public void setOdvoz(Order order) {
 		this.order=order;
 	}
 	
+	
+	
+	// TODO 
 	/**
 	 * Vyhladat.
 	 *

@@ -3,9 +3,8 @@ package com.github.stai02.semestralka2.logic;
 import java.util.ArrayList;
 
 
-// TODO: Auto-generated Javadoc
 /**
- * Class Driver - trieda vodičov/poskytovateľov odvozu, dedia od osoby
+ * The Class Driver - trieda vodičov/poskytovateľov odvozu, subclass of Person
  * 
  * Táto trieda je tvorená základnými metódami get a set.
  *
@@ -15,11 +14,11 @@ import java.util.ArrayList;
 
 public class Driver extends Person {
 
-	/** The typ VP. */
-	private char typVP;
+	/** The type of driving license. */
+	private char type;
 
-	/** The disponibilny cas. */
-	private Rozvrh disponibilnyCas;
+	/** The the driver's disposable time. */
+	private Rozvrh disposableTime;
 
 	/** The order. */
 	private Order order;
@@ -28,38 +27,58 @@ public class Driver extends Person {
 	private Rozvrh rozvrh;
 
 	/**
+	 * Gets the type of driving license.
+	 *
+	 * @return the type of driving license
+	 */
+	public char getType() {
+		return this.type;
+	}
+	
+	/**
+	 * Gets the driver's disposable time.
+	 *
+	 * @return the disposable time
+	 */
+	public Rozvrh getDisposableTime() {
+		return this.disposableTime;
+	}
+	
+	/**
+	 * Gets the driver's timetable.
+	 * 
+	 * @return timetable
+	 */
+	public Rozvrh getRozvrh() {
+		return rozvrh;
+	}
+
+	/**
+	 * 
+	 * 
+	 * @param rozvrh
+	 */
+	public void setRozvrh(Rozvrh rozvrh) {
+		this.rozvrh = rozvrh;
+	}
+	
+	/**
+	 * Gets the objednavky.
+	 *
+	 * @param name the name
+	 * @return the objednavky
+	 */
+	public ArrayList getObjednavky(String name) {
+		return null;
+	}
+	
+	/**
 	 * Prihlasenie.
 	 */
 	public void prihlasenie() {
 
 	}
 
-	/**
-	 * Gets the objednavky.
-	 *
-	 * @param meno the meno
-	 * @return the objednavky
-	 */
-	public ArrayList getObjednavky(String meno) {
-		return null;
-	}
-
-	/**
-	 * Gets the typ VP.
-	 *
-	 * @return the typ VP
-	 */
-	public char getTypVP() {
-		return 0;
-	}
-
-	/**
-	 * Gets the disponibilny cas.
-	 *
-	 * @return the disponibilny cas
-	 */
-	public Rozvrh getDisponibilnyCas() {
-		return null;
-	}
+		
 
 }

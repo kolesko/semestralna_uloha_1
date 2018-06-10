@@ -3,15 +3,12 @@ package com.github.stai02.semestralka2.logic;
 import java.util.Collection;
 
 
-
-// TODO: Auto-generated Javadoc
+//TODO
 /**
- * Class Client - trieda klientov, dedia od osoby
- * 
- * Táto trieda je tvorená základnými metódami get a set.
+ * The Class Client - subclass of Person.
  *
- * @author Lenka Šťastná
- * @version pro školní rok 2017/2018
+ * @author Lenka Šťastná, Matej Kolesár, Julia Loseeva, Ivana Stanová
+ * @version June 2018
  */
 
 public class Client extends Person {

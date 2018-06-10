@@ -1,25 +1,28 @@
 package com.github.stai02.semestralka2.logic;
 
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Person.
+ * The Class Person - constains basic get and set methods for person details.
+ * Superclass of Driver and Client.
+ *
+ * @author Lenka Šťastná, Matej Kolesár, Julia Loseeva, Ivana Stanová
+ * @version June 2018
  */
 public class Person {
 
-	/** The i D. */
-	private int iD;
+	/** The ID. */
+	private int ID;
 	
-	/** The meno. */
-	private String meno;
+	/** The name. */
+	private String name;
 	
-	/** The priezvisko. */
-	private String priezvisko;
+	/** The surname. */
+	private String surname;
 	
-	/** The kontakt. */
-	private String kontakt;
+	/** The contact. */
+	private String telephone;
 	
-	/** The person. */
+	/** The constructor. */
 	private Person person;
 	
 	/**
@@ -28,34 +31,34 @@ public class Person {
 	 * @return the id
 	 */
 	public int getID() {
-		return iD;
+		return ID;
 	}
 
 	/**
-	 * Gets the meno.
+	 * Gets the name.
 	 *
-	 * @return the meno
+	 * @return the name
 	 */
-	public String getMeno() {
-		return meno;
+	public String getname() {
+		return name;
 	}
 
 	/**
-	 * Gets the priezvisko.
+	 * Gets the surname.
 	 *
-	 * @return the priezvisko
+	 * @return the surname
 	 */
-	public String getPriezvisko() {
-		return priezvisko;
+	public String getsurname() {
+		return surname;
 	}
 
 	/**
-	 * Gets the kontakt.
+	 * Gets the contact.
 	 *
-	 * @return the kontakt
+	 * @return the telephone
 	 */
-	public String getKontakt() {
-		return kontakt;
+	public String gettelephone() {
+		return telephone;
 	}
 
 	/**
@@ -66,43 +69,43 @@ public class Person {
 	 */
 	public String vyhladat(int ID) {
 		// TODO
-		return meno;
+		return name;
 	}
 	
 	/**
-	 * Sets the id.
+	 * Sets the ID.
 	 *
-	 * @param iD the new id
+	 * @param ID the new ID
 	 */
-	public void setID(int iD) {
-		this.iD=iD;
+	public void setID(int ID) {
+		this.ID=ID;
 	}
 	
 	/**
-	 * Sets the meno.
+	 * Sets the name.
 	 *
-	 * @param meno the new meno
+	 * @param name the new name
 	 */
-	public void setMeno(String meno) {
-		this.meno=meno;
+	public void setname(String name) {
+		this.name=name;
 	}
 	
 	/**
-	 * Sets the priezvisko.
+	 * Sets the surname.
 	 *
-	 * @param priezvisko the new priezvisko
+	 * @param surname the new surname
 	 */
-	public void setPriezvisko(String priezvisko) {
-		this.priezvisko=priezvisko;
+	public void setsurname(String surname) {
+		this.surname=surname;
 	}
 	
 	/**
-	 * Sets the kontakt.
+	 * Sets the telephone.
 	 *
-	 * @param kontakt the new kontakt
+	 * @param telephone the new telephone
 	 */
-	public void setKontakt(String kontakt) {
-		this.kontakt=kontakt;
+	public void settelephone(String telephone) {
+		this.telephone=telephone;
 	}
 
 }
