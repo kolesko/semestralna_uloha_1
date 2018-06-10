@@ -44,12 +44,12 @@
       </HBox>
       <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
         <columns>
-          <TableColumn prefWidth="41.600006103515625" text="#" />
-          <TableColumn prefWidth="113.60000610351562" text="Date" />
-            <TableColumn prefWidth="135.2000732421875" text="Time from - to" />
-            <TableColumn prefWidth="127.199951171875" text="Place from - to" />
-            <TableColumn prefWidth="53.60003662109375" text="Person" />
-            <TableColumn prefWidth="130.4000244140625" text="Car" />
+          <TableColumn fx:id="id" prefWidth="41.600006103515625" text="#" />
+          <TableColumn fx:id="date" prefWidth="113.60000610351562" text="Date" />
+            <TableColumn fx:id="time" prefWidth="135.2000732421875" text="Time from - to" />
+            <TableColumn fx:id="place" prefWidth="127.199951171875" text="Place from - to" />
+            <TableColumn fx:id="client" prefWidth="53.60003662109375" text="Person" />
+            <TableColumn fx:id="car" prefWidth="130.4000244140625" text="Car" />
         </columns>
       </TableView>
       <VBox prefHeight="226.0" prefWidth="200.0" GridPane.rowIndex="2">
