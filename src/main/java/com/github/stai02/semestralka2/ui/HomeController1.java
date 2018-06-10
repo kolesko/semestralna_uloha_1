@@ -214,6 +214,7 @@ public class HomeController1 extends GridPane {
 	
 	public void carType() {
 		String value = carType.getValue();
+		if (value != null) {
 		switch(value) {
 			case "New" : {
 				brand.setVisible(true);
@@ -262,6 +263,13 @@ public class HomeController1 extends GridPane {
 				
 				break;
 			}
+		} 
+		}else {
+			brand.setVisible(false);
+			carid.setVisible(false);
+			model.setVisible(false);
+			license.setVisible(false);
+			existingCarsBox.setVisible(false);
 		}
 	}
 	
