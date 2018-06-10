@@ -89,7 +89,7 @@ public class HomeController2 extends GridPane{
 	          		select.getItems().add("brand");
 	          		select.getItems().add("model");
 	          		select.getItems().add("license");
-	          		select.getItems().add("spz");
+	          		select.getItems().add("carid");
 	          		break;
 	          	}
 	          	case "order" : {

@@ -23,7 +23,6 @@ import javafx.stage.Stage;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.MenuButton;
 
 /**
  * The Class HomeController1. Control Home1, scene for insert order.
@@ -191,6 +190,9 @@ public class HomeController1 extends GridPane {
 				surname.setVisible(false);
 				telephone.setVisible(false);
 				existingClientsBox.setVisible(true);
+				existingClientsBox.setOnMouseClicked(event -> {
+					existingCarsBox.getItems().clear();
+				});
 				try {
 					Connection conn = dbConnection();
 					String query = "select clientid from clients";
@@ -340,9 +342,10 @@ public class HomeController1 extends GridPane {
 		if (carType.getValue().equals("New")) {
 			addCar();
 		}
-		addOrder();
-		Stage stage = (Stage) name.getScene().getWindow();
-	    stage.close();
+		if(addOrder()) {			
+			Stage stage = (Stage) name.getScene().getWindow();
+	      		stage.close();
+		}
 	}
 	
 	/**
@@ -351,7 +354,7 @@ public class HomeController1 extends GridPane {
 	public void editOrder() {
 		save.setDisable(false);
 		edit.setDisable(true);
-		bdelete.setDisable(false);
+		bdelete.setDisable(true);
 		name.mouseTransparentProperty().set(false);;
 		surname.mouseTransparentProperty().set(false);
 		model.mouseTransparentProperty().set(false);
@@ -459,7 +462,7 @@ public class HomeController1 extends GridPane {
 		}
 	}
 	
-	public void addOrder() {
+	public Boolean addOrder() {
 		try {
 			Connection conn = dbConnection();
 			String query = "INSERT INTO orders (date,time_from,time_to,client_in_car,from_place,to_place,clientid,carid,driverid) VALUES (?,?,?,?,?,?,?,?,?)";
@@ -502,7 +505,7 @@ public class HomeController1 extends GridPane {
 				pst2.close();
 				pst.setInt(7,id);
 				
-				query2 = "SELECT id FROM cars WHERE carid = ?";
+				query2 = "SELECT id,license FROM cars WHERE carid = ?";
 				pst2 = conn.prepareStatement(query2);
 				if (carType.getValue().equals("New")) {
 					pst2.setString(1,carid.getText());
@@ -511,26 +514,40 @@ public class HomeController1 extends GridPane {
 				}
 				rs = pst2.executeQuery();
 				int carid = 0;
+				String licenseC = "";
 				while (rs.next()) {
 					carid = rs.getInt("id");
+					licenseC = rs.getString("license");
 				}
 				pst2.close();
 				pst.setInt(8,carid);
 				
-				query2 = "SELECT id FROM drivers WHERE driverid = ?";
+				query2 = "SELECT id,license FROM drivers WHERE driverid = ?";
 				pst2 = conn.prepareStatement(query2);
 				pst2.setString(1,driverBox.getValue());
 				rs = pst2.executeQuery();
 				int driverid = 0;
+				String license = "";
 				while (rs.next()) {
 					driverid = rs.getInt("id");
+					license = rs.getString("license");
 				}
 				pst2.close();
-				pst.setInt(9,driverid);
-				
-				pst.execute();
-				pst.close();
-				conn.close();
+				if (license.equals(licenseC)) {
+					pst.setInt(9,driverid);
+					pst.execute();
+					pst.close();
+					conn.close();
+					return true;
+				}
+				else {
+					Alert al = new Alert(AlertType.INFORMATION, "Car license and driver license do not match, you should change driver.");
+					al.setHeaderText("Alert");
+					Optional<ButtonType> result = al.showAndWait();
+					al.close();	
+					editOrder();
+					return false;
+				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -538,5 +555,6 @@ public class HomeController1 extends GridPane {
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		return true;
 	}
 }
