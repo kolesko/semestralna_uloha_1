@@ -68,23 +68,35 @@ public class HomeController2 extends GridPane{
 	          String value = choice.getItems().get((Integer) number2).toString();
 	          switch(value) {
 	          	case "driver" : {
-	          		try {
-						Connection conn = dbConnection();
-						String query = "select driverid from drivers";
-						PreparedStatement pst = conn.prepareStatement(query);
-						ResultSet rs = pst.executeQuery();
-						select.getItems().clear();
-						while(rs.next()) {
-							select.getItems().add(rs.getString("driverid"));
-						}
-						conn.close();
-					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+	          		select.getItems().clear();
+	          		select.getItems().add("driverid");
+	          		select.getItems().add("name");
+	          		select.getItems().add("surname");
+	          		select.getItems().add("telephone");
+	          		select.getItems().add("license");
+	          		select.getItems().add("region");
+	          		break;
+	          	}
+	          	case "client" : {
+	          		select.getItems().clear();
+	          		select.getItems().add("clientid");
+	          		select.getItems().add("name");
+	          		select.getItems().add("surname");
+	          		select.getItems().add("telephone");
+	          		break;
+	          	}
+	          	case "car" : {
+	          		select.getItems().clear();
+	          		select.getItems().add("brand");
+	          		select.getItems().add("model");
+	          		select.getItems().add("license");
+	          		select.getItems().add("spz");
+	          		break;
+	          	}
+	          	case "order" : {
+	          		select.getItems().clear();
+	          		select.getItems().add("date");
+	          		break;
 	          	}
 	          }
 	        }
