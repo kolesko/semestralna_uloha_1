@@ -24,9 +24,6 @@ public class Driver extends Person {
 
 	/** The timetable. */
 	private Timetable timetable;
-<<<<<<< HEAD
-=======
-	
 	
 	public Driver(int ID, String name, String surname, String telephone, String type, Timetable disposableTime) {
 		super(ID, name, surname, telephone);
@@ -34,9 +31,6 @@ public class Driver extends Person {
 		this.disposableTime=disposableTime;
 		
 	}
-
-	
->>>>>>> branch 'dev' of https://github.com/kolesko/semestralna_uloha_2
 	
 	/**
 	 * Gets the type of driving license.
