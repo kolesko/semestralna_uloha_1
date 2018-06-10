@@ -10,7 +10,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
 
@@ -55,7 +54,7 @@ public class HomeController1 extends GridPane {
 	
 	/** The hour from. */
 	@FXML
-	private ComboBox hourFrom;
+	private ComboBox<String> hourFrom;
 	
 	/** The placeto. */
 	@FXML
@@ -63,23 +62,23 @@ public class HomeController1 extends GridPane {
 	
 	/** The daytime 1. */
 	@FXML
-	private ComboBox daytime1;
+	private ComboBox<String> daytime1;
 	
 	/** The daytime 2. */
 	@FXML
-	private ComboBox daytime2;
+	private ComboBox<String> daytime2;
 	
 	/** The minute from. */
 	@FXML
-	private ComboBox minuteFrom;
+	private ComboBox<String> minuteFrom;
 	
 	/** The hour to. */
 	@FXML
-	private ComboBox hourTo;
+	private ComboBox<String> hourTo;
 	
 	/** The minute to. */
 	@FXML
-	private ComboBox minuteTo;
+	private ComboBox<String> minuteTo;
 	
 	/** The placefrom. */
 	@FXML
