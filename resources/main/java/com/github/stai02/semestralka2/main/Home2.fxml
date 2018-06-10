@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -10,9 +9,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stai02.semestralka2.ui.HomeController2">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stai02.semestralka2.ui.HomeController2">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -56,6 +54,11 @@
             <VBox prefHeight="101.0" prefWidth="236.0">
                <children>
                   <Region prefHeight="46.0" prefWidth="132.0" />
+                  <TextArea prefHeight="112.0" prefWidth="200.0" text="Home">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </TextArea>
                </children>
             </VBox>
             <Region prefHeight="98.0" prefWidth="46.0" HBox.hgrow="ALWAYS" />
@@ -85,75 +88,6 @@
                </children>
             </VBox>
             <Region prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.columnIndex="1">
-         <children>
-            <Region minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="97.0" />
-            <VBox prefHeight="98.0" prefWidth="117.0">
-               <children>
-                  <Region prefHeight="29.0" prefWidth="110.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Find" wrappingWidth="90.13665771484375">
-                     <font>
-                        <Font size="42.0" />
-                     </font>
-                  </Text>
-                  <Region prefHeight="7.0" prefWidth="110.0" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <Region prefHeight="98.0" prefWidth="103.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <children>
-            <Region minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="67.0" />
-            <VBox prefHeight="101.0" prefWidth="197.0">
-               <children>
-                  <Region prefHeight="35.0" prefWidth="164.0" />
-                  <ChoiceBox fx:id="choice" accessibleRole="MENU_ITEM" prefHeight="44.0" prefWidth="154.0" />
-                  <Region prefHeight="4.0" prefWidth="132.0" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <Region prefHeight="101.0" prefWidth="123.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <children>
-            <Region minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="67.0" />
-            <VBox prefHeight="101.0" prefWidth="197.0">
-               <children>
-                  <Region prefHeight="35.0" prefWidth="154.0" />
-                  <ChoiceBox prefHeight="44.0" prefWidth="154.0" />
-                  <Region prefHeight="4.0" prefWidth="132.0" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <Region prefHeight="101.0" prefWidth="123.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-         <children>
-            <Region minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="67.0" />
-            <VBox prefHeight="101.0" prefWidth="197.0">
-               <children>
-                  <Region prefHeight="35.0" prefWidth="154.0" />
-                  <TextArea prefHeight="44.0" prefWidth="139.0" />
-                  <Region prefHeight="4.0" prefWidth="132.0" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <Region prefHeight="101.0" prefWidth="123.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-         <children>
-            <Region prefHeight="100.0" prefWidth="48.0" />
-            <VBox prefHeight="100.0" prefWidth="211.0">
-               <children>
-                  <Region prefHeight="45.0" prefWidth="136.0" />
-                  <Button fx:id="show" minHeight="-Infinity" mnemonicParsing="false" onAction="#showResults" prefHeight="39.0" prefWidth="212.0" text="Show" />
-                  <Region prefHeight="13.0" prefWidth="173.0" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <Region prefHeight="100.0" prefWidth="72.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
    </children>
