@@ -14,9 +14,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class HomeController1.
+ * The Class HomeController1. Control Home1, scene for insert order.
  *
  * @author Ivana Stanová
  */
