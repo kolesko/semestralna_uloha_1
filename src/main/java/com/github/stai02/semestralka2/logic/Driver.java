@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Driver extends Person {
 
 	/** The type of driving license. */
-	private char type;
+	private String type;
 
 	/** The the driver's disposable time. */
 	private Timetable disposableTime;
@@ -24,16 +24,24 @@ public class Driver extends Person {
 
 	/** The timetable. */
 	private Timetable timetable;
+	
+	
+	public Driver(int ID, String name, String surname, String telephone, String type, Timetable disposableTime) {
+		super(ID, name, surname, telephone);
+		this.type=type;
+		this.disposableTime=disposableTime;
+		
+	}
 
 	
-	//public Driver(int ID, String name, String);
 	
 	/**
 	 * Gets the type of driving license.
 	 *
 	 * @return the type of driving license
 	 */
-	public char getType() {
+	
+	public String getType() {
 		return this.type;
 	}
 	
@@ -60,7 +68,7 @@ public class Driver extends Person {
 	 *
 	 * @param type the new type of driving license 
 	 */
-	public void setType(char type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 	
@@ -89,7 +97,7 @@ public class Driver extends Person {
 	 * @param name the driver's name
 	 * @return the orders
 	 */
-	public ArrayList<Order> getObjednavky(String name) {
+	public ArrayList<Order> getOrders(String name) {
 		return orders;
 	}
 	
@@ -99,7 +107,7 @@ public class Driver extends Person {
 	 *
 	 * @param orders the new list of orders
 	 */
-	public void setObjednavky(ArrayList<Order> orders) {
+	public void setOrders(ArrayList<Order> orders) {
 		this.orders=orders;
 	}
 	
