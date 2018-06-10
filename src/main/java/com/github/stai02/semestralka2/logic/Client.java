@@ -11,6 +11,8 @@ import java.util.Collection;
 
 public class Client extends Person {
 
+	public Client
+	
 	/** The car. */
 	private Collection<Car> car;
 
