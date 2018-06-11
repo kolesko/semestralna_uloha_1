@@ -18,6 +18,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -45,13 +47,15 @@ public class HomeController2 extends GridPane{
 	@FXML public Button show;
 	
 	/** The choice. */
-	@FXML public ChoiceBox<String> choice;
+	@FXML public ComboBox<String> choice;
 	
 	/** The select. */
-	@FXML public ChoiceBox<String> select;
+	@FXML public ComboBox<String> select;
+	
+	@FXML public TextArea selectText;
 	
 	/** The choice box items. */
-	ObservableList<String> choiceBoxItems = FXCollections.observableArrayList("car","driver","order","client");
+	ObservableList<String> choiceBoxItems = FXCollections.observableArrayList("cars","drivers","orders","clients");
 	
 	
 	/**
@@ -66,7 +70,7 @@ public class HomeController2 extends GridPane{
 	        public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
 	          String value = choice.getItems().get((Integer) number2).toString();
 	          switch(value) {
-	          	case "driver" : {
+	          	case "drivers" : {
 	          		select.getItems().clear();
 	          		select.getItems().add("driverid");
 	          		select.getItems().add("name");
@@ -76,7 +80,7 @@ public class HomeController2 extends GridPane{
 	          		select.getItems().add("region");
 	          		break;
 	          	}
-	          	case "client" : {
+	          	case "clients" : {
 	          		select.getItems().clear();
 	          		select.getItems().add("clientid");
 	          		select.getItems().add("name");
@@ -84,7 +88,7 @@ public class HomeController2 extends GridPane{
 	          		select.getItems().add("telephone");
 	          		break;
 	          	}
-	          	case "car" : {
+	          	case "cars" : {
 	          		select.getItems().clear();
 	          		select.getItems().add("brand");
 	          		select.getItems().add("model");
@@ -92,7 +96,7 @@ public class HomeController2 extends GridPane{
 	          		select.getItems().add("carid");
 	          		break;
 	          	}
-	          	case "order" : {
+	          	case "orders" : {
 	          		select.getItems().clear();
 	          		select.getItems().add("date");
 	          		break;
@@ -183,6 +187,8 @@ public class HomeController2 extends GridPane{
 		try{
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home7.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
+			HomeController7 c = (HomeController7) fxmlLoader.getController();
+			c.result(choice.getValue(), select.getValue(), selectText.getText());
 			Stage stage = new Stage();
 			stage.setTitle("Results");
 			stage.setScene(new Scene(root1));  
