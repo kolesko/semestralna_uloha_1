@@ -1,7 +1,6 @@
 package com.github.stai02.semestralka2.main;
 
 import com.github.stai02.semestralka2.logic.*;
-import com.github.stai02.semestralka2.ui.HomeController2;
 import com.github.stai02.semestralka2.ui.HomeController8;
 
 import javafx.application.Application;

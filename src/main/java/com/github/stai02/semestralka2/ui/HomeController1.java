@@ -124,7 +124,6 @@ public class HomeController1 extends GridPane {
 	public void initialize() {
 		editOrder(); 
 		bdelete.setDisable(true);
-		
 		hourFrom.getItems().removeAll(hourFrom.getItems());
 		hourFrom.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12");
 		hourFrom.getSelectionModel().select("01");
