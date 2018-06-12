@@ -2,159 +2,69 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="840.0" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stai02.semestralka2.ui.HomeController2">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="840.0" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #0dccc0, #336e7b);" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stai02.semestralka2.ui.HomeController2">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.rowIndex="1">
+      <Button fx:id="border" alignment="BASELINE_LEFT" minHeight="-Infinity" mnemonicParsing="false" onAction="#insertOrder" prefHeight="50.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Insert order" textFill="WHITE" GridPane.rowIndex="1">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Button>
+      <HBox alignment="CENTER" prefHeight="98.0" prefWidth="321.0">
          <children>
-            <Region minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="90.0" />
-            <VBox prefHeight="101.0" prefWidth="170.0">
-               <children>
-                  <Region prefHeight="0.0" prefWidth="168.0" />
-                  <Button fx:id="border" minHeight="-Infinity" mnemonicParsing="false" onAction="#insertOrder" prefHeight="80.0" prefWidth="167.0" text="Insert order" />
-               </children>
-            </VBox>
-            <Region prefHeight="101.0" prefWidth="45.0" HBox.hgrow="ALWAYS" />
+            <Label text="Main menu" textFill="WHITE">
+               <font>
+                  <Font name="Verdana" size="22.0" />
+               </font>
+            </Label>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+      <HBox alignment="CENTER" prefHeight="98.0" prefWidth="321.0" GridPane.rowIndex="4">
          <children>
-            <Region prefHeight="98.0" prefWidth="90.0" />
-            <VBox prefHeight="101.0" prefWidth="169.0">
-               <children>
-                  <Region prefHeight="2.0" prefWidth="168.0" />
-                  <Button fx:id="bdriver" minHeight="-Infinity" mnemonicParsing="false" onAction="#insertDriver" prefHeight="80.0" prefWidth="167.0" text="Insert driver" />
-                  <Region prefHeight="0.0" prefWidth="111.0" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <Region prefHeight="101.0" prefWidth="45.0" />
+            <Button fx:id="end" minHeight="-Infinity" mnemonicParsing="false" onAction="#koniec" prefHeight="39.0" prefWidth="212.0" text="End" />
          </children>
       </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0">
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(255, 255, 255, 0.2);" GridPane.columnIndex="1" GridPane.rowSpan="4">
          <children>
-            <Region prefHeight="98.0" prefWidth="127.0" />
-            <VBox prefHeight="101.0" prefWidth="236.0">
+            <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Region prefHeight="46.0" prefWidth="132.0" />
-               </children>
-            </VBox>
-            <Region prefHeight="98.0" prefWidth="46.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.rowIndex="3">
-         <children>
-            <Region prefHeight="98.0" prefWidth="90.0" />
-            <VBox prefHeight="100.0" prefWidth="171.0">
-               <children>
-                  <Region prefHeight="1.0" prefWidth="169.0" />
-                  <Button fx:id="borders" minHeight="-Infinity" mnemonicParsing="false" onAction="#showOrders" prefHeight="80.0" prefWidth="167.0" text="Orders" />
-                  <Region prefHeight="0.0" prefWidth="111.0" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <Region prefHeight="100.0" prefWidth="45.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.rowIndex="4">
-         <children>
-            <Region prefHeight="100.0" prefWidth="72.0" />
-            <VBox prefHeight="100.0" prefWidth="209.0">
-               <children>
-                  <Region prefHeight="45.0" prefWidth="136.0" />
-                  <Button fx:id="end" minHeight="-Infinity" mnemonicParsing="false" onAction="#koniec" prefHeight="39.0" prefWidth="212.0" text="End" />
-                  <Region prefHeight="13.0" prefWidth="173.0" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <Region prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.columnIndex="1">
-         <children>
-            <Region minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="97.0" />
-            <VBox prefHeight="98.0" prefWidth="117.0">
-               <children>
-                  <Region prefHeight="29.0" prefWidth="110.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Find" wrappingWidth="90.13665771484375">
-                     <font>
-                        <Font size="42.0" />
-                     </font>
-                  </Text>
-                  <Region prefHeight="7.0" prefWidth="110.0" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <Region prefHeight="98.0" prefWidth="103.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <children>
-            <Region minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="67.0" />
-            <VBox prefHeight="101.0" prefWidth="197.0">
-               <children>
-                  <Region prefHeight="35.0" prefWidth="164.0" />
                   <ComboBox fx:id="choice" accessibleRole="MENU_ITEM" prefHeight="44.0" prefWidth="154.0" promptText="Select Table" />
-                  <Region prefHeight="4.0" prefWidth="132.0" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <Region prefHeight="101.0" prefWidth="123.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <children>
-            <Region minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="67.0" />
-            <VBox prefHeight="101.0" prefWidth="197.0">
-               <children>
-                  <Region prefHeight="35.0" prefWidth="154.0" />
                   <ComboBox fx:id="select" prefHeight="44.0" prefWidth="154.0" promptText="Select" />
-                  <Region prefHeight="4.0" prefWidth="132.0" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <Region prefHeight="101.0" prefWidth="123.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-         <children>
-            <Region minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="67.0" />
-            <VBox prefHeight="101.0" prefWidth="197.0">
-               <children>
-                  <Region prefHeight="35.0" prefWidth="154.0" />
                   <TextArea fx:id="selectText" prefHeight="44.0" prefWidth="139.0" />
-                  <Region prefHeight="4.0" prefWidth="132.0" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-            <Region prefHeight="101.0" prefWidth="123.0" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox prefHeight="98.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-         <children>
-            <Region prefHeight="100.0" prefWidth="48.0" />
-            <VBox prefHeight="100.0" prefWidth="211.0">
-               <children>
-                  <Region prefHeight="45.0" prefWidth="136.0" />
                   <Button fx:id="show" minHeight="-Infinity" mnemonicParsing="false" onAction="#showResults" prefHeight="39.0" prefWidth="212.0" text="Show" />
-                  <Region prefHeight="13.0" prefWidth="173.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
-            <Region prefHeight="100.0" prefWidth="72.0" HBox.hgrow="ALWAYS" />
          </children>
-      </HBox>
+      </Pane>
+      <Button fx:id="bdriver" alignment="BASELINE_LEFT" minHeight="-Infinity" mnemonicParsing="false" onAction="#insertDriver" prefHeight="50.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Insert driver" textFill="WHITE" GridPane.rowIndex="2">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="borders" alignment="BASELINE_LEFT" minHeight="-Infinity" mnemonicParsing="false" onAction="#showOrders" prefHeight="50.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Orders" textFill="WHITE" GridPane.rowIndex="3">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Button>
    </children>
 </GridPane>

@@ -51,7 +51,7 @@ public class HomeController8 {
 					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home2.fxml"));
 					Parent root = (Parent) fxmlLoader.load();
 					Stage stage = new Stage();
-					stage.setTitle("Insert Order");
+					stage.setTitle("Menu");
 					stage.setScene(new Scene(root));  
 					stage.show();	
 					Stage currentWindow = (Stage) username.getScene().getWindow();
