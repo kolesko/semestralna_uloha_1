@@ -1,13 +1,11 @@
 package com.github.stai02.semestralka2.main;
 
-import com.github.stai02.semestralka2.logic.*;
 import com.github.stai02.semestralka2.ui.HomeController8;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 // TODO: Auto-generated Javadoc
@@ -44,7 +42,7 @@ public class Start extends Application {
 		
 		c.initialize();
 		primaryStage.setResizable(true);
-		primaryStage.setTitle("Main screen");
+		primaryStage.setTitle("Log in");
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
 		
