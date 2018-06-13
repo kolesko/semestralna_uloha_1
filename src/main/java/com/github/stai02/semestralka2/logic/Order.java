@@ -79,29 +79,28 @@ public class Order {
 	}
 
 	/**
-	 * Get place 
-	 * This method returns the place from where the ride will take place.
+	 * Get place from and to the transportation is set
 	 * 
-	 * @return placeFrom 
+	 * @return place 
 	 */
 	public String getPlace() {
 		return place;
 	}
 
 	/**
-	 * Get place 
-	 * This method returns the place from where the ride will take place.
+	 * Get clientGoes, if client is transported
 	 * 
-	 * @return placeFrom 
+	 * 
+	 * @return clientGoes 
 	 */
 	public String getClientGoes() {
 		return clientGoes;
 	}
 
 	/**
-	 * Get Date 
+	 * Get Date of the transportation
 	 * 
-	 * @return Date 
+	 * @return Date of the transportation
 	 */
 	public Collection<Date> getDate() {
 		return date;
@@ -117,10 +116,9 @@ public class Order {
 	}
 
 	/**
-	 * Get place 
-	 * This method returns the place from where the ride will take place.
+	 * Get the car´s ID 
 	 * 
-	 * @return placeFrom 
+	 * @return carId 
 	 */
 	public String getCarid() {
 		return carid;
@@ -135,35 +133,35 @@ public class Order {
 		this.carid=carid;
 	}
 	/**
-	 * Sets the license plate number.
+	 * Sets the date of the transportation
 	 *
-	 * @param SPZ the new license plate number
+	 * @param Date the new date of transportation
 	 */
 	public void setDate(Collection<Date> date) {
 		this.date=date;
 	}
 	/**
-	 * Sets the time.
+	 * Sets the time of the trasportation
 	 *
-	 * @param time the new time
+	 * @param time the new time of transportation
 	 */
 	public void setTime(String time) {
 		this.time=time;
 	}
 	/**
-	 * Sets the license plate number.
+	 * Sets the place
 	 *
-	 * @param SPZ the new license plate number
+	 * @param place the new place from and to client wants to go
 	 */
 	public void setPlace(String place) {
 		this.place=place;
 	}
 	/**
-	 * Sets the license plate number.
+	 * Sets if the client goes in the car
 	 *
-	 * @param SPZ the new license plate number
+	 * @param clientGoes the new clientGoes
 	 */
-	public void setSPZ(String SPZ) {
-		this.SPZ=SPZ;
+	public void setClientGoes(String clientGoes) {
+		this.clientGoes=clientGoes;
 	}
-}
+	}
