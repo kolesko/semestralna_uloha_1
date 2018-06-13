@@ -11,19 +11,16 @@ import java.util.Collection;
 
 public class Client extends Person {
 
-	/** The constructor. */
+	/** The constructor. 
+	 * @param ID client´s ID
+	 * @param name name of the client
+	 * @param surname surname of the client
+	 * @param telephone client´s telehone number*/
 	public Client(int ID, String name, String surname, String telephone) {
 		super(ID, name, surname, telephone);		
 	}
 		
-	/** The car. */
+	/** The collection car. */
 	private Collection<Car> car;
-
-	/**
-	 * Zadaj poziadavku.
-	 */
-	public void zadajPoziadavku() {
-
-	}
 
 }
