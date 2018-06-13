@@ -1,5 +1,8 @@
 package com.github.stai02.semestralka2.logic;
 
+import java.sql.Date;
+import java.util.Collection;
+
 /**
  *  Class Order - contains order details.
  *
@@ -19,7 +22,7 @@ public class Order {
 	private String clientGoes;
 	
 	/** The date. */
-	private String date;
+	private  Collection<Date> date;
 	
 	/** The time. */
 	private String time;
@@ -44,7 +47,7 @@ public class Order {
 	 * @param driver the driver
 	 * @param client the client
 	 */	
-	public Order(int id,String date, String placeFrom, String placeTo, boolean clientGoes, String timeFrom, String timeTo, String carid) {
+	public Order(int id, Collection<Date> date, String placeFrom, String placeTo, boolean clientGoes, String timeFrom, String timeTo, String carid) {
 		this.ID = id;
 		this.date = date;
 		this.time = timeFrom + "-" + timeTo;
@@ -96,20 +99,18 @@ public class Order {
 	}
 
 	/**
-	 * Get place 
-	 * This method returns the place from where the ride will take place.
+	 * Get Date 
 	 * 
-	 * @return placeFrom 
+	 * @return Date 
 	 */
-	public String getDate() {
+	public Collection<Date> getDate() {
 		return date;
 	}
 
 	/**
-	 * Get place 
-	 * This method returns the place from where the ride will take place.
+	 * Get time 
 	 * 
-	 * @return placeFrom 
+	 * @return time 
 	 */
 	public String getTime() {
 		return time;
@@ -123,5 +124,46 @@ public class Order {
 	 */
 	public String getCarid() {
 		return carid;
+	}
+	
+	/**
+	 * Sets the car´sID
+	 *
+	 * @param Carid the new car´sId
+	 */
+	public void setCarid(String carid) {
+		this.carid=carid;
+	}
+	/**
+	 * Sets the license plate number.
+	 *
+	 * @param SPZ the new license plate number
+	 */
+	public void setDate(Collection<Date> date) {
+		this.date=date;
+	}
+	/**
+	 * Sets the time.
+	 *
+	 * @param time the new time
+	 */
+	public void setTime(String time) {
+		this.time=time;
+	}
+	/**
+	 * Sets the license plate number.
+	 *
+	 * @param SPZ the new license plate number
+	 */
+	public void setPlace(String place) {
+		this.place=place;
+	}
+	/**
+	 * Sets the license plate number.
+	 *
+	 * @param SPZ the new license plate number
+	 */
+	public void setSPZ(String SPZ) {
+		this.SPZ=SPZ;
 	}
 }
