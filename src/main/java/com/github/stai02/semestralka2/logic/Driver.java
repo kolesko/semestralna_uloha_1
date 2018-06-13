@@ -25,11 +25,21 @@ public class Driver extends Person {
 	/** The timetable. */
 	private Timetable timetable;
 	
+	
+	/**
+	 * Class driver constructor.
+	 * 
+	 * @param ID driver´s ID
+	 * @param name name of the driver
+	 * @param surname surname of the driver
+	 * @param telephone driver´s phone number
+	 * @param type type of driving license
+	 * @param disposableTime driver´s disposable time
+	 */
 	public Driver(int ID, String name, String surname, String telephone, String type, Timetable disposableTime) {
 		super(ID, name, surname, telephone);
 		this.type=type;
 		this.disposableTime=disposableTime;
-		
 	}
 	
 	/**

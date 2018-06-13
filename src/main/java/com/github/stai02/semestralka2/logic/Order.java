@@ -76,6 +76,7 @@ public class Order {
 	}
 
 	/**
+	 * Get place 
 	 * This method returns the place from where the ride will take place.
 	 * 
 	 * @return placeFrom 
@@ -84,18 +85,42 @@ public class Order {
 		return place;
 	}
 
+	/**
+	 * Get place 
+	 * This method returns the place from where the ride will take place.
+	 * 
+	 * @return placeFrom 
+	 */
 	public String getClientGoes() {
 		return clientGoes;
 	}
 
+	/**
+	 * Get place 
+	 * This method returns the place from where the ride will take place.
+	 * 
+	 * @return placeFrom 
+	 */
 	public String getDate() {
 		return date;
 	}
 
+	/**
+	 * Get place 
+	 * This method returns the place from where the ride will take place.
+	 * 
+	 * @return placeFrom 
+	 */
 	public String getTime() {
 		return time;
 	}
 
+	/**
+	 * Get place 
+	 * This method returns the place from where the ride will take place.
+	 * 
+	 * @return placeFrom 
+	 */
 	public String getCarid() {
 		return carid;
 	}

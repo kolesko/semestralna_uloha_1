@@ -1,6 +1,7 @@
 package com.github.stai02.semestralka2.ui;
 
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
@@ -29,6 +30,7 @@ public class HomeController8 {
 	@FXML private TextField username;
 	@FXML private PasswordField password;
 	@FXML private Button login;
+	@FXML private Tooltip tooltip;
 	
 	public void initialize() {
 		
@@ -41,6 +43,14 @@ public class HomeController8 {
 	
 	public void login() throws ClassNotFoundException {
 		Connection conn = dbConnection();
+		
+		Tooltip tooltip = new Tooltip();
+		tooltip.setText("Enter username");
+		username.setTooltip(tooltip);
+		Tooltip tooltip2 = new Tooltip();
+		tooltip2.setText("Enter password");
+		password.setTooltip(tooltip2);
+		
 		try {
 			String query = "select (SELECT EXISTS(SELECT * FROM users WHERE username = ?)), password from users where username=?";
 			PreparedStatement pst = conn.prepareStatement(query);
