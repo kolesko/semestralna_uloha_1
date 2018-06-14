@@ -24,7 +24,7 @@ public class Validation {
 			
 			case "namee":{
 				
-				String NAME_PATTERN="^[A-Za-z]$";
+				String NAME_PATTERN="^([A-Za-z])+$";
 				Pattern pattern = Pattern.compile(NAME_PATTERN);
 				Matcher matcher=pattern.matcher(co);
 				if(matcher.matches()){

@@ -173,7 +173,8 @@ public class HomeController3 extends GridPane {
 	public void vaidate() {
 		
 		String skutok = name.getText();
-		boolean status=Validation.validate("namee", skutok);
+		String namee= "namee";
+		boolean status=Validation.validate(namee, skutok);
 		if(status=false){
 			System.out.println("nepohoda");
 		}
