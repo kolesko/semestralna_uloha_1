@@ -3,6 +3,7 @@ import java.util.Optional;
 
 import javax.swing.JOptionPane;
 
+import java.awt.Color;
 import java.sql.*;
 import com.github.stai02.semestralka2.ui.Validation;
 
@@ -172,16 +173,16 @@ public class HomeController3 extends GridPane {
 	
 	public void vaidate() {
 		
-		String skutok = name.getText();
-		String namee= "namee";
+		String skutok = telephone.getText();
+		String namee= "telephonee";
 		boolean status=Validation.validate(namee, skutok);
-		if(status=false){
-			System.out.println("nepohoda");
-		}
-		else {System.out.println("pohoda");
-		}
+		
+		if(status=true) {
+			telephone.setStyle("-fx-text-fill: black; -fx-font-size: 12px;");
+		} else {
+			telephone.setStyle("-fx-text-fill: red; -fx-font-size: 12px;");
+		}}
 		
 		
-		
-	}
+	
 }

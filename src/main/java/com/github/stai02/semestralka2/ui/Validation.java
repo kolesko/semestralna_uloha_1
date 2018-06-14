@@ -12,30 +12,22 @@ public class Validation {
 		
 		switch(param) {
 			case "telephonee": {
-				String TELEPHONE_PATTERN="^\\+42\\d{10}$";
-				Pattern pattern = Pattern.compile(TELEPHONE_PATTERN);
-				Matcher matcher=pattern.matcher(co);
-				if(matcher.matches()){
-	           status=true;}
+				if(co.matches("^([0-9])+$")){
+					System.out.println("jj");
+	           status=true;
+	           break;
+	           }
 	       else{
-	           status=false;}
-				    
+	    	   System.out.println("bb");
+	           status=false;
+	           break;
+	           }	
+		}
 		}
 			
-			case "namee":{
-				
-				String NAME_PATTERN="^([A-Za-z])+$";
-				Pattern pattern = Pattern.compile(NAME_PATTERN);
-				Matcher matcher=pattern.matcher(co);
-				if(matcher.matches()){
-	           status=true;}
-	       else{
-	           status=false;}
-				
-			}
 		
-		}
+		return status;
 		
-	return status;
+		
 	}
 }
