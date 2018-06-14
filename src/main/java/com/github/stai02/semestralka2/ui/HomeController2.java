@@ -1,8 +1,6 @@
 package com.github.stai02.semestralka2.ui;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -14,12 +12,12 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -52,7 +50,10 @@ public class HomeController2 extends GridPane{
 	/** The select. */
 	@FXML public ComboBox<String> select;
 	
-	@FXML public TextArea selectText;
+	@FXML public TextField selectText;
+	
+	/** The pane. */
+	@FXML Pane pane;
 	
 	/** The choice box items. */
 	ObservableList<String> choiceBoxItems = FXCollections.observableArrayList("cars","drivers","orders","clients");
@@ -106,6 +107,20 @@ public class HomeController2 extends GridPane{
 	      });
 	
     };
+    
+    /**
+     * Search
+     */
+    public void search() {
+    	if (pane.isVisible()) {
+    		pane.setVisible(false);
+    	} else {
+    		pane.setVisible(true);
+    	}
+    	select.setValue(select.getPromptText());
+    	choice.setValue(choice.getPromptText());
+    	selectText.setText(null);
+    }
 	
     /**
      * Db connection.

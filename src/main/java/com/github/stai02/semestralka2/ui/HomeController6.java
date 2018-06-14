@@ -103,7 +103,7 @@ public class HomeController6 {
 					}
 					pst2.close();
 				//System.out.println(date+" "+from+" "+to+" "+client_in_car+" "+carids);
-				tableview.getItems().add(new Order(ido,date.toString(),from,to,client_in_car,timeFrom,timeTo,carids));
+			//	tableview.getItems().add(new Order(ido,date.toString(),from,to,client_in_car,timeFrom,timeTo,carids));
 			}
 			pst.close();
 			conn.close();

@@ -1,19 +1,19 @@
 package com.github.stai02.semestralka2.ui;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.Alert;
+
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextArea;
 
 /**
@@ -22,15 +22,21 @@ import javafx.scene.control.TextArea;
 public class HomeController7 {
 	
 	/** The detail. */
-	@FXML
-	public Button detail;
+	@FXML public Button detail;
+	
+	/** The text area. */
 	@FXML public TextArea results;
 
+	/** The table. */
+	@FXML public TableView table;
+	
 	/**
 	 * Initialize.
 	 */
 	public void initialize() {
 		detail.setDisable(true);
+		TableView table = new TableView();
+		table.setEditable(true);
 	}
 	
 	public Connection dbConnection() throws ClassNotFoundException {
@@ -60,18 +66,18 @@ public class HomeController7 {
 			ResultSet rs = pst.executeQuery();
 			ResultSetMetaData metadata = rs.getMetaData();
 		    int columnCount = metadata.getColumnCount();
-			String row = "";
+		    Map<Integer,String> columnNames = new HashMap<Integer,String>();
 		    for (int i = 1; i < columnCount; i++) {
-		        row += metadata.getColumnName(i) + ", ";      
+		        columnNames.put(i, metadata.getColumnName(i));
 		    }
-		    row += metadata.getColumnName(columnCount) + "\n";
+		    /*row += metadata.getColumnName(columnCount) + "\n";
 			while (rs.next()) {
 		        for (int i = 1; i < columnCount; i++) {
 		            row += rs.getString(i) + ", ";          
 		        } 
 		        row += rs.getString(columnCount) + "\n";
 			}
-			results.setText(row);
+			results.setText(row);*/
 			pst.close();
 			conn.close();
 		} catch (ClassNotFoundException e) {

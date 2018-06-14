@@ -9,6 +9,8 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -345,6 +347,13 @@ public class HomeController1 extends GridPane {
 			Stage stage = (Stage) name.getScene().getWindow();
 	      		stage.close();
 		}
+		boolean status=validateTelephone(telephone.getText());
+	       if(status=false){
+	    	   Alert alert = new Alert(AlertType.WARNING);
+				alert.setTitle("Warning Dialog");
+				alert.setContentText("Telephone Format is not correct.");
+				alert.showAndWait();
+	       }
 	}
 	
 	/**
@@ -555,5 +564,24 @@ public class HomeController1 extends GridPane {
 			e.printStackTrace();
 		}
 		return true;
-	}
+	}	
+	
+	static String telephonee=telephone.getText();
+	public static boolean validateTelephone(String telephone) {                 
+
+        
+	       boolean status=false;    
+	       String TELEPHONE_PATTERN="^\\+42\\d{10}$";
+	       Pattern pattern = Pattern.compile(TELEPHONE_PATTERN);
+	       Matcher matcher=pattern.matcher(telephonee);
+	       if(matcher.matches())
+	       {
+	           status=true;
+	       }
+	       else{
+	           status=false;
+	       }
+	           return status;
+	            
+	    }
 }
