@@ -229,6 +229,12 @@ public class HomeController2 extends GridPane{
 		al.close();
 	}
 	
+	
+	
+	
+	            
+	    }
+	
 
 
-}
+

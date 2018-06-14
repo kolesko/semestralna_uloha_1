@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="840.0" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stai02.semestralka2.ui.HomeController6">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="840.0" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #f75d59, #ec9706, #ffddd0);" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stai02.semestralka2.ui.HomeController6">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -42,13 +42,8 @@
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <VBox prefHeight="226.0" prefWidth="200.0" GridPane.rowIndex="2">
+      <VBox prefHeight="179.0" prefWidth="280.0" GridPane.rowIndex="2">
          <children>
-            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#delete" prefHeight="51.0" prefWidth="200.0" text="Delete">
-               <opaqueInsets>
-                  <Insets left="10.0" />
-               </opaqueInsets>
-            </Button>
             <Region prefHeight="0.0" prefWidth="200.0" />
             <HBox prefHeight="17.0" prefWidth="200.0">
                <children>
@@ -62,12 +57,20 @@
       <TableView fx:id="tableview" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
         <columns>
           <TableColumn fx:id="id" prefWidth="41.600006103515625" text="#" />
-          <TableColumn fx:id="date" prefWidth="113.60000610351562" text="Date" />
-          <TableColumn fx:id="time" prefWidth="135.2000732421875" text="Time from - to" />
-          <TableColumn fx:id="place" prefWidth="127.199951171875" text="Place from - to" />
-          <TableColumn fx:id="client" prefWidth="53.60003662109375" text="Person" />
-          <TableColumn fx:id="car" prefWidth="130.4000244140625" text="Car" />
+          <TableColumn fx:id="date" prefWidth="146.66665649414062" text="Date" />
+          <TableColumn fx:id="time" prefWidth="171.33334350585938" text="Time from - to" />
+          <TableColumn fx:id="place" prefWidth="162.0" text="Place from - to" />
+          <TableColumn fx:id="client" prefWidth="144.0" text="Person" />
+          <TableColumn fx:id="car" prefWidth="173.66668701171875" text="Car" />
         </columns>
       </TableView>
+      <Button fx:id="deleteButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="50.0" prefWidth="177.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Delete" textAlignment="CENTER" textFill="#f75d59" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <opaqueInsets>
+            <Insets left="15.0" />
+         </opaqueInsets>
+         <GridPane.margin>
+            <Insets left="55.0" />
+         </GridPane.margin>
+      </Button>
    </children>
 </GridPane>

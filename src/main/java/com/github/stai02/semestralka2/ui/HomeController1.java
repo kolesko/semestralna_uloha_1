@@ -12,6 +12,8 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.swing.JOptionPane;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -347,13 +349,7 @@ public class HomeController1 extends GridPane {
 			Stage stage = (Stage) name.getScene().getWindow();
 	      		stage.close();
 		}
-		boolean status=validateTelephone(telephone.getText());
-	       if(status=false){
-	    	   Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Warning Dialog");
-				alert.setContentText("Telephone Format is not correct.");
-				alert.showAndWait();
-	       }
+		
 	}
 	
 	/**
@@ -450,6 +446,8 @@ public class HomeController1 extends GridPane {
 	
 	public void addClient() {
 		try {
+			
+			
 			Connection conn = dbConnection();
 			String query = "INSERT INTO clients (name,surname,telephone,clientid) VALUES (?,?,?,?)";
 			try {
@@ -457,6 +455,7 @@ public class HomeController1 extends GridPane {
 				pst.setString(1,name.getText());
 				pst.setString(2,surname.getText());
 				pst.setString(3,telephone.getText());
+			       
 				pst.setString(4,clientid.getText());
 				pst.execute();
 				pst.close();
@@ -566,22 +565,5 @@ public class HomeController1 extends GridPane {
 		return true;
 	}	
 	
-	static String telephonee=telephone.getText();
-	public static boolean validateTelephone(String telephone) {                 
 
-        
-	       boolean status=false;    
-	       String TELEPHONE_PATTERN="^\\+42\\d{10}$";
-	       Pattern pattern = Pattern.compile(TELEPHONE_PATTERN);
-	       Matcher matcher=pattern.matcher(telephonee);
-	       if(matcher.matches())
-	       {
-	           status=true;
-	       }
-	       else{
-	           status=false;
-	       }
-	           return status;
-	            
-	    }
 }
