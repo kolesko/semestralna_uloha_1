@@ -30,6 +30,7 @@ public class HomeController7 {
 	/** The table. */
 	@FXML public TableView table;
 	
+	
 	/**
 	 * Initialize.
 	 */
@@ -39,6 +40,13 @@ public class HomeController7 {
 		table.setEditable(true);
 	}
 	
+	
+	 /**
+     * Db connection.
+     *
+     * @return the connection
+     * @throws ClassNotFoundException the class not found exception
+     */
 	public Connection dbConnection() throws ClassNotFoundException {
 	 	   Class.forName("org.sqlite.JDBC");
 	        Connection connection = null;
@@ -57,6 +65,10 @@ public class HomeController7 {
 	        return connection;
 	    }
 	
+	
+	/**
+	 * Show results of searching.
+     */
 	public void result(String choice, String select, String selectText) {
 		try {
 			Connection conn = dbConnection();
@@ -90,7 +102,7 @@ public class HomeController7 {
 	}
 
 	/**
-	 * Show detail.
+	 * Show detail of searched item.
 	 */
 	public void showDetail(){
 		

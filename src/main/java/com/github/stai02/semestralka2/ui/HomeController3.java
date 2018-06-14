@@ -91,7 +91,7 @@ public class HomeController3 extends GridPane {
    }
 	
 	/**
-	 * Edits the.
+	 * Edit driver.
 	 */
 	public void edit() {
 		bsave.setDisable(false);
@@ -105,7 +105,7 @@ public class HomeController3 extends GridPane {
 	}
 	
 	/**
-	 * Save.
+	 * Save driver.
 	 *
 	 * @throws ClassNotFoundException the class not found exception
 	 */
@@ -126,7 +126,7 @@ public class HomeController3 extends GridPane {
 	}
 	
 	/**
-	 * Delete.
+	 * Delete driver.
 	 */
 	public void delete() { 
 		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to delete data?");
@@ -139,7 +139,7 @@ public class HomeController3 extends GridPane {
 	}
 		
 	/**
-	 * Insert data.
+	 * Insert driver.
 	 *
 	 * @throws ClassNotFoundException the class not found exception
 	 */

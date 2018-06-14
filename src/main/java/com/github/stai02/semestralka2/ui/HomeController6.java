@@ -32,11 +32,10 @@ public class HomeController6 {
 	@FXML TableColumn<Order, String> place;
 	@FXML TableColumn<Order, String> client;
 	@FXML TableColumn<Order, String> car;
+	
 	/**
 	 * Initialize.
-	 * @throws ClassNotFoundException 
-	 * @throws SQLException 
-	 */
+     */
 	
 	//Order(int id,String date, String placeFrom, String placeTo, boolean clientGoes, String timeFrom, String timeTo, int carid)
 	public void initialize() {
@@ -49,6 +48,13 @@ public class HomeController6 {
 		addToTable();
 	}
 
+	
+	 /**
+     * Db connection.
+     *
+     * @return the connection
+     * @throws ClassNotFoundException the class not found exception
+     */
 	public Connection dbConnection() throws ClassNotFoundException {
 	 	   Class.forName("org.sqlite.JDBC");
 	        Connection connection = null;
@@ -76,6 +82,10 @@ public class HomeController6 {
 	 * tabulka drivers - id, name, surname, telephone, license, region, driverid(tiez nieco ako clientid takze "prihlasovacie meno")
 	 * 
 	 */
+	
+	/**
+	 * Show orders in a table.
+     */
 	
 	public void addToTable() {
 		try {
@@ -118,7 +128,7 @@ public class HomeController6 {
 	
 	
 	/**
-	 * Show detail.
+	 * Delete orders.
 	 */
 	public void delete(){
 		int idOrder = tableview.getSelectionModel().getSelectedItem().getID();

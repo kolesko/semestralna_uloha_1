@@ -172,6 +172,10 @@ public class HomeController1 extends GridPane {
 		}
 	}
 	
+	
+	/**
+	 * Entering the information about client
+	 */
 	public void clientType() {
 		String value = clientType.getValue();
 		switch(value) {
@@ -219,6 +223,10 @@ public class HomeController1 extends GridPane {
 		}
 	}
 	
+	
+	/**
+	 * Selecting client by conditions.
+	 */
 	public void updateDriver() {
 		minuteTo.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 			@Override public void changed(ObservableValue <? extends Number> observableValue, Number number, Number number2) {
@@ -257,6 +265,9 @@ public class HomeController1 extends GridPane {
 		
 	}
 	
+	/**
+	 * Entering car.
+	 */
 	public void carType() {
 		String value = carType.getValue();
 		if (value != null) {
@@ -318,6 +329,12 @@ public class HomeController1 extends GridPane {
 		}
 	}
 	
+	 /**
+     * Db connection.
+     *
+     * @return the connection
+     * @throws ClassNotFoundException the class not found exception
+     */
 	public Connection dbConnection() throws ClassNotFoundException {
 	 	   Class.forName("org.sqlite.JDBC");
 	        Connection connection = null;
@@ -353,7 +370,7 @@ public class HomeController1 extends GridPane {
 	}
 	
 	/**
-	 * Edits the order.
+	 * Edit the order.
 	 */
 	public void editOrder() {
 		save.setDisable(false);
@@ -399,7 +416,7 @@ public class HomeController1 extends GridPane {
 	}
 	
 	/**
-	 * Delete.
+	 * Delete order.
 	 */
 	public void delete() { 
 		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to delete data?");
@@ -411,7 +428,10 @@ public class HomeController1 extends GridPane {
 		al.close();
 	}
 	
-    
+	 /**
+     * Adding car to database.
+     *
+     */
 	public void addCar() {
 		try {
 			Connection conn = dbConnection();
@@ -444,6 +464,11 @@ public class HomeController1 extends GridPane {
 		}
 	}
 	
+	
+	/**
+     * Adding client to database.
+     *
+     */
 	public void addClient() {
 		try {
 			
@@ -469,6 +494,10 @@ public class HomeController1 extends GridPane {
 		}
 	}
 	
+	/**
+     * Adding order to database.
+     *
+     */
 	public Boolean addOrder() {
 		try {
 			Connection conn = dbConnection();

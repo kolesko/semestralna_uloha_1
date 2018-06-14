@@ -26,6 +26,8 @@ import javafx.collections.ObservableList;
 
 /**
  * The Class HomeController2, for controle Home2.fxml. Main window.
+ * 
+ * @author Lenka Šťastná, Julia Loseeva, Matej Kolesár, Ivana Stanová
  */
 public class HomeController2 extends GridPane{
 
@@ -60,7 +62,8 @@ public class HomeController2 extends GridPane{
 	
 	
 	/**
-	 * Initialize.
+	 * Initialize and change.
+	 * 
 	 */
 	public void initialize() {
 		show.setDisable(false); 
@@ -109,7 +112,8 @@ public class HomeController2 extends GridPane{
     };
     
     /**
-     * Search
+     * Showing the hidden pane after clicking on Search button.
+     * 
      */
     public void search() {
     	if (pane.isVisible()) {
@@ -149,6 +153,8 @@ public class HomeController2 extends GridPane{
     
 	/**
 	 * Insert order.
+	 * 
+	 * Connecting to Home1.
 	 */
 	public void insertOrder() {
 		try{
@@ -165,6 +171,8 @@ public class HomeController2 extends GridPane{
 	
 	/**
 	 * Insert driver.
+	 * 
+	 * Connecting to Home3.
 	 */
 	public void insertDriver() {
 		try{
@@ -181,6 +189,8 @@ public class HomeController2 extends GridPane{
 	
 	/**
 	 * Show orders.
+	 * 
+	 * COnnecting to Home6.
 	 */
 	public void showOrders() {
 		try{
@@ -196,7 +206,9 @@ public class HomeController2 extends GridPane{
 }
 	
 	/**
-	 * Show results.
+	 * Show results of searching.
+	 * 
+	 * Connecting to Home7
 	 */
 	public void showResults() {
 		try{
@@ -217,18 +229,18 @@ public class HomeController2 extends GridPane{
 	
 	
 	/**
-	 * Koniec.
+	 * Exiting the application
+	 * 
 	 */
 	public void koniec() {
 		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to close the application?");
-		al.setHeaderText("Ending");
+		al.setHeaderText("Exit");
 		Optional<ButtonType> result = al.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			System.exit(0);
 		}
 		al.close();
 	}
-	
 	
 	
 	

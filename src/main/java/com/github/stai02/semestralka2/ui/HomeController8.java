@@ -36,7 +36,7 @@ public class HomeController8 {
 		
 	}
 	
-	/**
+	/**Login into application
 	 * 
 	 * @throws ClassNotFoundException the class not found exception
 	 */

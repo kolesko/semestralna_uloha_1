@@ -44,14 +44,14 @@ public class HomeController5 {
 	
 	
 	/**
-	 * Inicializuj.
+	 * Initialize.
 	 */
 	public void inicializuj() {
      edit.setDisable(true);
 	}
 	
 	/**
-	 * Delete.
+	 * Delete the car
 	 */
 	public void delete() { 
 		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to delete data?");
