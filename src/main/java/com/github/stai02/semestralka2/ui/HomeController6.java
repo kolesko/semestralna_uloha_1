@@ -112,8 +112,8 @@ public class HomeController6 {
 						carids = rs2.getString("carid");
 					}
 					pst2.close();
-				System.out.println(date+" "+timeFrom+" "+timeTo+" "+from+" "+to+" "+client_in_car+" "+carids);
-			//	tableview.getItems().add(new Order(ido,date.toString(),from,to,client_in_car,timeFrom,timeTo,carids));
+				//System.out.println(date+" "+timeFrom+" "+timeTo+" "+from+" "+to+" "+client_in_car+" "+carids);
+				tableview.getItems().add(new Order(ido,date.toString(),from,to,client_in_car,timeFrom,timeTo,carids));
 			}
 			pst.close();
 			conn.close();
