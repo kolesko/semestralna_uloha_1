@@ -517,13 +517,31 @@ public class HomeController1 extends GridPane {
 				if (daytime2.getValue() == "PM") {
 					hourt += 12;
 				}
+				int minf = Integer.parseInt(minuteFrom.getValue());
+				int mint = Integer.parseInt(minuteTo.getValue());
+				if (hourf < hourt ) {
 				String timef = hourf + ":" + minuteFrom.getValue();
 				String timet = hourt + ":" + minuteTo.getValue();
  				pst.setString(2,timef);
 				pst.setString(3,timet);
+				}
+				else if (hourf==hourt && minf < mint) {
+					String timef = hourf + ":" + minuteFrom.getValue();
+					String timet = hourt + ":" + minuteTo.getValue();
+	 				pst.setString(2,timef);
+					pst.setString(3,timet);
+				}
+				else {
+					Alert al = new Alert(AlertType.INFORMATION, "Bad time, you should change time to or time from.");
+					al.setHeaderText("Alert");
+					Optional<ButtonType> result = al.showAndWait();
+					al.close();	
+					editOrder();
+					return false;
+				}
 				pst.setBoolean(4, driving.isSelected());
 				pst.setString(5,placefrom.getText());
-				pst.setString(6,placeto.getText());
+				pst.setString(6,placeto.getText()); 
 				
 				
 				String query2 = "SELECT id FROM clients WHERE clientid = ?";
