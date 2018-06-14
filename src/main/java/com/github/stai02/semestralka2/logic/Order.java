@@ -22,7 +22,7 @@ public class Order {
 	private String clientGoes;
 	
 	/** The date. */
-	private  Collection<Date> date;
+	private  String date;
 	
 	/** The time. */
 	private String time;
@@ -47,7 +47,7 @@ public class Order {
 	 * @param driver the driver
 	 * @param client the client
 	 */	
-	public Order(int id, Collection<Date> date, String placeFrom, String placeTo, boolean clientGoes, String timeFrom, String timeTo, String carid) {
+	public Order(int id, String date, String placeFrom, String placeTo, boolean clientGoes, String timeFrom, String timeTo, String carid) {
 		this.ID = id;
 		this.date = date;
 		this.time = timeFrom + "-" + timeTo;
@@ -102,7 +102,7 @@ public class Order {
 	 * 
 	 * @return Date of the transportation
 	 */
-	public Collection<Date> getDate() {
+	public String getDate() {
 		return date;
 	}
 
@@ -137,7 +137,7 @@ public class Order {
 	 *
 	 * @param Date the new date of transportation
 	 */
-	public void setDate(Collection<Date> date) {
+	public void setDate(String date) {
 		this.date=date;
 	}
 	/**
