@@ -165,5 +165,6 @@
             <Region prefHeight="200.0" prefWidth="200.0" />
          </children>
       </VBox>
+      <Button fx:id="valid" mnemonicParsing="false" onAction="#vaidate" text="Validate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
    </children>
 </GridPane>

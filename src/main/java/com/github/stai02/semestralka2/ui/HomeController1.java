@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.scene.control.Tooltip;
 
 import javax.swing.JOptionPane;
 
@@ -170,6 +171,19 @@ public class HomeController1 extends GridPane {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		Tooltip tooltip = new Tooltip();
+		tooltip.setText("Enter telehone as +42xxxxxxx");
+		telephone.setTooltip(tooltip);
+		Tooltip tooltip2 = new Tooltip();
+		tooltip2.setText("Transporation to city");
+		placeto.setTooltip(tooltip2);
+		Tooltip tooltip3 = new Tooltip();
+		tooltip3.setText("Transporation from city");
+		placefrom.setTooltip(tooltip3);
+		Tooltip tooltip4 = new Tooltip();
+		tooltip4.setText("Type of license car requires");
+		license.setTooltip(tooltip4);
 	}
 	
 	

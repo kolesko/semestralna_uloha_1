@@ -1,6 +1,10 @@
 package com.github.stai02.semestralka2.ui;
 import java.util.Optional;
+
+import javax.swing.JOptionPane;
+
 import java.sql.*;
+import com.github.stai02.semestralka2.ui.Validation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -54,6 +58,9 @@ public class HomeController3 extends GridPane {
 	/** The region. */
 	@FXML private ComboBox<String> region;
 	
+	/** The valid. */
+	@FXML public Button valid;
+	
 	
 	
 	/**
@@ -64,6 +71,7 @@ public class HomeController3 extends GridPane {
 		bdelete.setDisable(true);
 		region.getItems().add("Praha");
 		region.getItems().add("Brno");
+		
 	}
 
    /**
@@ -161,4 +169,18 @@ public class HomeController3 extends GridPane {
 		}
 	}
 
+	
+	public void vaidate() {
+		
+		String skutok = name.getText();
+		boolean status=Validation.validate("namee", skutok);
+		if(status=false){
+			System.out.println("nepohoda");
+		}
+		else {System.out.println("pohoda");
+		}
+		
+		
+		
+	}
 }
