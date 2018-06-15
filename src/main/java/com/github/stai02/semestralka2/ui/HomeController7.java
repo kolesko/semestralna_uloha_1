@@ -4,16 +4,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
+
 
 import javafx.fxml.FXML;
-
-import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.TableView;
+import javafx.util.Callback;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
 /**
@@ -27,6 +30,9 @@ public class HomeController7 {
 	/** The text area. */
 	@FXML public TextArea results;
 
+	//TODO
+ 	private ObservableList<ObservableList> data;
+	
 	/** The table. */
 	@FXML public TableView table;
 	
@@ -36,12 +42,79 @@ public class HomeController7 {
 	 */
 	public void initialize() {
 		detail.setDisable(true);
-		TableView table = new TableView();
 		table.setEditable(true);
 	}
 	
 	
-	 /**
+	/**
+	 * Show results of searching.
+     */
+	public void result(String choice, String select, String selectText) {
+		data = FXCollections.observableArrayList();
+		try {
+			Connection conn = dbConnection();
+			String query = "SELECT * FROM " + choice + " WHERE " + select + " = ?";
+			PreparedStatement pst = conn.prepareStatement(query);
+			pst.setString(1, selectText);
+			ResultSet rs = pst.executeQuery();
+		    for(int i=0 ; i<rs.getMetaData().getColumnCount(); i++){
+                final int j = i;                
+                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i+1));
+                col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList,String>,ObservableValue<String>>(){                    
+                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {                                                                                              
+                        return new SimpleStringProperty(param.getValue().get(j).toString());                        
+                    }                    
+                }
+            );
+                table.getColumns().addAll(col); 
+                System.out.println("Column ["+i+"] ");
+		    }
+                while(rs.next()){
+                    //Iterate Row
+                    ObservableList<String> row = FXCollections.observableArrayList();
+                    for(int i=1 ; i<=rs.getMetaData().getColumnCount(); i++){
+                        //Iterate Column
+                        row.add(rs.getString(i));
+                    }
+                    System.out.println("Row [1] added "+row );
+                    data.add(row);
+                }
+                //FINALLY ADDED TO TableView
+                table.setItems(data);
+              } catch(Exception e){
+                  e.printStackTrace();
+              }  
+		    
+		   
+		   /* for (int i = 1; i < columnCount; i++) {
+		        columnNames.put(i, metadata.getColumnName(i));
+		    }
+		    row += metadata.getColumnName(columnCount) + "\n";
+			while (rs.next()) {
+		        for (int i = 1; i < columnCount; i++) {
+		            row += rs.getString(i) + ", ";          
+		        } 
+		        row += rs.getString(columnCount) + "\n";
+			}
+			pst.close();
+			conn.close();
+		} }catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+	}
+
+	/**
+	 * Show detail of searched item.
+	 */
+	public void showDetail(){
+		
+	}
+	
+	/**
      * Db connection.
      *
      * @return the connection
@@ -64,47 +137,4 @@ public class HomeController7 {
 	        }
 	        return connection;
 	    }
-	
-	
-	/**
-	 * Show results of searching.
-     */
-	public void result(String choice, String select, String selectText) {
-		try {
-			Connection conn = dbConnection();
-			String query = "SELECT * FROM " + choice + " WHERE " + select + " = ?";
-			PreparedStatement pst = conn.prepareStatement(query);
-			pst.setString(1, selectText);
-			ResultSet rs = pst.executeQuery();
-			ResultSetMetaData metadata = rs.getMetaData();
-		    int columnCount = metadata.getColumnCount();
-		    Map<Integer,String> columnNames = new HashMap<Integer,String>();
-		    for (int i = 1; i < columnCount; i++) {
-		        columnNames.put(i, metadata.getColumnName(i));
-		    }
-		    /*row += metadata.getColumnName(columnCount) + "\n";
-			while (rs.next()) {
-		        for (int i = 1; i < columnCount; i++) {
-		            row += rs.getString(i) + ", ";          
-		        } 
-		        row += rs.getString(columnCount) + "\n";
-			}
-			results.setText(row);*/
-			pst.close();
-			conn.close();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Show detail of searched item.
-	 */
-	public void showDetail(){
-		
-	}
 }
