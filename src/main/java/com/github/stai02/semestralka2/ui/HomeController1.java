@@ -184,6 +184,12 @@ public class HomeController1 extends GridPane {
 		Tooltip tooltip4 = new Tooltip();
 		tooltip4.setText("Type of license car requires");
 		license.setTooltip(tooltip4);
+		Tooltip tooltip5 = new Tooltip();
+		tooltip5.setText("Select date of the transportation.");
+		date.setTooltip(tooltip5);
+		Tooltip tooltip6 = new Tooltip();
+		tooltip6.setText("Will the client be in the car?");
+		driving.setTooltip(tooltip6);
 	}
 	
 	

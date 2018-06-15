@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Tooltip;
 
 /**
  * The Class HomeController3 for control Home3.fxml. Window insert driver.
@@ -61,6 +62,12 @@ public class HomeController3 extends GridPane {
 	
 	/** The valid. */
 	@FXML public Button valid;
+	/** The time from available every day. */
+	@FXML
+	private TextField timeFrom;
+	/** The time to available every day. */
+	@FXML
+	private TextField timeTo;
 	
 	
 	
@@ -72,6 +79,29 @@ public class HomeController3 extends GridPane {
 		bdelete.setDisable(true);
 		region.getItems().add("Praha");
 		region.getItems().add("Brno");
+		region.getItems().add("Liberec");
+		region.getItems().add("Ostrava");
+		region.getItems().add("Pardubice");
+		region.getItems().add("Bratislava");
+		region.getItems().add("Košice");
+		region.getItems().add("Žilina");
+		region.getItems().add("Banská Bystrica");
+		
+		
+		Tooltip tooltip = new Tooltip();
+
+		tooltip.setText("Insert phone number as +42xxxxxxx");
+		telephone.setTooltip(tooltip);
+		Tooltip tooltip2 = new Tooltip();
+		tooltip2.setText("Insert type of driver´s license as A/B/C/..");
+		license.setTooltip(tooltip2);
+		Tooltip tooltip3 = new Tooltip();
+		tooltip3.setText("Insert from when the driver is available every day as hh:mm");
+		timeFrom.setTooltip(tooltip3);
+		Tooltip tooltip4 = new Tooltip();
+		tooltip4.setText("Insert until when the driver is available every day as hh:mm");
+		timeTo.setTooltip(tooltip4);
+		
 		
 	}
 
