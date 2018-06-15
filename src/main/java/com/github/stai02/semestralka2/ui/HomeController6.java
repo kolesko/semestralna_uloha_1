@@ -112,8 +112,13 @@ public class HomeController6 {
 						carids = rs2.getString("carid");
 					}
 					pst2.close();
+<<<<<<< HEAD
 				//System.out.println(date+" "+from+" "+to+" "+client_in_car+" "+carids);
 				tableview.getItems().add(new Order(id,date,from,to,client_in_car,timeFrom,timeTo,carids));
+=======
+				//System.out.println(date+" "+timeFrom+" "+timeTo+" "+from+" "+to+" "+client_in_car+" "+carids);
+				tableview.getItems().add(new Order(ido,date.toString(),from,to,client_in_car,timeFrom,timeTo,carids));
+>>>>>>> branch 'dev' of https://github.com/kolesko/semestralna_uloha_2.git
 			}
 			pst.close();
 			conn.close();

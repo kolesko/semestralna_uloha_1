@@ -44,13 +44,6 @@ public class HomeController8 {
 	public void login() throws ClassNotFoundException {
 		Connection conn = dbConnection();
 		
-		Tooltip tooltip = new Tooltip();
-		tooltip.setText("Enter username");
-		username.setTooltip(tooltip);
-		Tooltip tooltip2 = new Tooltip();
-		tooltip2.setText("Enter password");
-		password.setTooltip(tooltip2);
-		
 		try {
 			String query = "select (SELECT EXISTS(SELECT * FROM users WHERE username = ?)), password from users where username=?";
 			PreparedStatement pst = conn.prepareStatement(query);
