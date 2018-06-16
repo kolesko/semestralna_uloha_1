@@ -15,6 +15,7 @@ import javafx.scene.control.Tooltip;
 
 import javax.swing.JOptionPane;
 
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -72,9 +73,9 @@ public class HomeController1 extends GridPane {
 	@FXML
 	private ComboBox<String> hourFrom;
 	
-	/** The placeto. */
+	/** The destination. */
 	@FXML
-	private TextField placeto;
+	private ComboBox<String> placeto;
 	
 	/** The daytime 1. */
 	@FXML
@@ -96,9 +97,9 @@ public class HomeController1 extends GridPane {
 	@FXML
 	private ComboBox<String> minuteTo;
 	
-	/** The placefrom. */
+	/** The place from. */
 	@FXML
-	private TextField placefrom;
+	private ComboBox<String> placefrom;
 
 	/** The edit. */
 	@FXML public Button edit;
@@ -123,15 +124,16 @@ public class HomeController1 extends GridPane {
 	@FXML private ComboBox<String> existingClientsBox;
 	@FXML private ComboBox<String> existingCarsBox;
 	
+
 	/**
 	 * Initialize.
 	 */
 	public void initialize() {
 		editOrder(); 
-		bdelete.setDisable(true);
+		bdelete.setDisable(true);		
 		hourFrom.getItems().removeAll(hourFrom.getItems());
 		hourFrom.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12");
-		hourFrom.getSelectionModel().select("01");
+		hourFrom.getSelectionModel().select("Praha");
 	//	hourFrom.setPromptText(hourFrom.getSelectionModel().getSelectedItem().toString());
 		
 		minuteFrom.getItems().removeAll(hourFrom.getItems());
@@ -153,6 +155,26 @@ public class HomeController1 extends GridPane {
 		
 		clientType.getItems().addAll("New","Existing");
 		carType.getItems().addAll("New","Existing");
+		
+		try {
+			Connection conn = dbConnection();
+			String query = "select district_name from districts";
+			PreparedStatement pst = conn.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			placefrom.getItems().clear();
+			placeto.getItems().clear();
+			while(rs.next()) {
+				placeto.getItems().add(rs.getString("district_name"));
+				placefrom.getItems().add(rs.getString("district_name"));
+			}
+			conn.close();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		try {
 			Connection conn = dbConnection();
@@ -252,7 +274,8 @@ public class HomeController1 extends GridPane {
 			@Override public void changed(ObservableValue <? extends Number> observableValue, Number number, Number number2) {
 				try {
 					Connection conn = dbConnection();
-					String query = "select driverid from drivers where time_from > ? or time_to < ?";
+					String query = "select driverid from drivers where region in (select region from districts where district_name=?)";
+					//(time_from > ? or time_to < ?)
 					PreparedStatement pst = conn.prepareStatement(query);
 					int hourf = Integer.parseInt(hourFrom.getValue());
 					if (daytime1.getValue() == "PM") {
@@ -264,9 +287,11 @@ public class HomeController1 extends GridPane {
 					}
 					String timef = hourf + ":" + minuteFrom.getValue();
 					String timet = hourt + ":" + minuteTo.getValue();
-					pst.setString(1, timet);
-					pst.setString(2, timef);
-					
+					String place = placefrom.getValue().toString();
+					pst.setString(1, place);
+					//pst.setString(2, timef);
+					//pst.setString(3, place);
+
 					ResultSet rs = pst.executeQuery();
 					driverBox.getItems().clear();
 					while(rs.next()) {
@@ -552,7 +577,7 @@ public class HomeController1 extends GridPane {
 					pst.setString(3,timet);
 				}
 				else {
-					Alert al = new Alert(AlertType.INFORMATION, "Bad time, you should change time to or time from.");
+					Alert al = new Alert(AlertType.INFORMATION, "Wrong time, you should change the time to or time from.");
 					al.setHeaderText("Alert");
 					Optional<ButtonType> result = al.showAndWait();
 					al.close();	
@@ -560,8 +585,8 @@ public class HomeController1 extends GridPane {
 					return false;
 				}
 				pst.setBoolean(4, driving.isSelected());
-				pst.setString(5,placefrom.getText());
-				pst.setString(6,placeto.getText()); 
+				pst.setString(5,placefrom.getValue().toString());	
+				pst.setString(6,placeto.getValue().toString()); 
 				
 				
 				String query2 = "SELECT id FROM clients WHERE clientid = ?";

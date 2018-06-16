@@ -77,23 +77,26 @@ public class HomeController3 extends GridPane {
 	public void initialize() {
 		edit(); 
 		bdelete.setDisable(true);
+		region.getItems().add("Jihomoravský kraj");
+		region.getItems().add("Jihočeský kraj");
+		region.getItems().add("Karlovarský kraj");
+		region.getItems().add("Královéhradecký kraj");
+		region.getItems().add("Liberecký kraj");
+		region.getItems().add("Moravskoslezský kraj");
+		region.getItems().add("Olomoucký kraj");
+		region.getItems().add("Pardubický kraj");
+		region.getItems().add("Plzeňský kraj");
 		region.getItems().add("Praha");
-		region.getItems().add("Brno");
-		region.getItems().add("Liberec");
-		region.getItems().add("Ostrava");
-		region.getItems().add("Pardubice");
-		region.getItems().add("Bratislava");
-		region.getItems().add("Košice");
-		region.getItems().add("Žilina");
-		region.getItems().add("Banská Bystrica");
-		
-		
+		region.getItems().add("Středočeský kraj");
+		region.getItems().add("Vysočina");
+		region.getItems().add("Zlín");
+				
 		Tooltip tooltip = new Tooltip();
 
 		tooltip.setText("Insert phone number as +42xxxxxxx");
 		telephone.setTooltip(tooltip);
 		Tooltip tooltip2 = new Tooltip();
-		tooltip2.setText("Insert type of driver´s license as A/B/C/..");
+		tooltip2.setText("Insert type of driver''s license as A/B/C/..");
 		license.setTooltip(tooltip2);
 		Tooltip tooltip3 = new Tooltip();
 		tooltip3.setText("Insert from when the driver is available every day as hh:mm");
