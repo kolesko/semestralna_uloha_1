@@ -70,6 +70,11 @@ public class HomeController3 extends GridPane {
 	/** The time to available every day. */
 	@FXML
 	private TextField timeTo;
+	@FXML
+	private TextField validateError;
+	
+	
+	
 	
 	private String pomocna;
 	private String vysl;
@@ -254,7 +259,7 @@ public class HomeController3 extends GridPane {
 				
 			}
 		}
-		System.out.println(vysl);
+		validateError.setText(vysl);
 		
 	}
 	

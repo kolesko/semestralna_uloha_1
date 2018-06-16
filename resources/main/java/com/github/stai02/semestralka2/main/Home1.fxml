@@ -235,7 +235,7 @@
                      </VBox.margin>
                   </ComboBox>
                </children></VBox>
-            <TextField fx:id="validateError" maxWidth="-Infinity" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 5em;" />
+            <TextField fx:id="validateError" editable="false" maxWidth="-Infinity" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 5em;" />
 			</children>
 		</HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="3">
