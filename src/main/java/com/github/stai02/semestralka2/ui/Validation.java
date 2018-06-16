@@ -7,24 +7,84 @@ public class Validation {
 
 	public static boolean validate(String param, String co) {                 
 		boolean status=false;  
-		System.out.println(param);
-		System.out.println(co);
 		
 		switch(param) {
-			case "telephonee": {
-				if(co.matches("^([0-9])+$")){
-					System.out.println("jj");
+			case "telephone": {
+				if(co.matches("^0042\\d{10}$")){
 	           status=true;
 	           break;
 	           }
 	       else{
-	    	   System.out.println("bb");
 	           status=false;
 	           break;
 	           }	
 		}
+			case "name": {
+				if(co.matches("^[A-ZÁÄČĎÉĚÍĽĹŇÓÖŐÔŘŔŠŤÚŮÜŰÝŽ][a-záäčďéěíľĺňóöőôřŕšťúůüűýž]+$")){
+	           status=true;
+	           break;
+	           }
+	       else{
+	           status=false;
+	           break;
+	           }	
 		}
 			
+			case "surname": {
+				if(co.matches("^[A-ZÁÄČĎÉĚÍĽĹŇÓÖŐÔŘŔŠŤÚŮÜŰÝŽ][a-záäčďéěíľĺňóöőôřŕšťúůüűýž]+$")){
+	           status=true;
+	           break;
+	           }
+	       else{
+	           status=false;
+	           break;
+	           }	
+		}
+			case "timeFrom": {
+				if(co.matches("^[0-2]\\d:[0-5]\\d$")){
+	           status=true;
+	           break;
+	           }
+	       else{
+	           status=false;
+	           break;
+	           }	
+		}
+			case "timeTo": {
+				if(co.matches("[0-2]\\d:[0-5]\\d$")){
+	           status=true;
+	           break;
+	           }
+	       else{
+	           status=false;
+	           break;
+	           }	
+		}
+
+			case "brand": {
+				if(co.matches("^[A-ZÁÄČĎÉĚÍĽĹŇÓÖŐÔŘŔŠŤÚŮÜŰÝŽ][a-záäčďéěíľĺňóöőôřŕšťúůüűýž]+$")){
+	           status=true;
+	           break;
+	           }
+	       else{
+	           status=false;
+	           break;
+	           }	
+		}
+
+			case "model": {
+				if(co.matches("^[A-ZÁÄČĎÉĚÍĽĹŇÓÖŐÔŘŔŠŤÚŮÜŰÝŽ][a-záäčďéěíľĺňóöőôřŕšťúůüűýž]+$")){
+	           status=true;
+	           break;
+	           }
+	       else{
+	           status=false;
+	           break;
+	           }	
+		}
+					
+			
+		}
 		
 		return status;
 		

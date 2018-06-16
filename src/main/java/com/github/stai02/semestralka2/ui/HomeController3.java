@@ -1,4 +1,6 @@
 package com.github.stai02.semestralka2.ui;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.swing.JOptionPane;
@@ -69,6 +71,9 @@ public class HomeController3 extends GridPane {
 	@FXML
 	private TextField timeTo;
 	
+	private String pomocna;
+	private String vysl;
+	
 	
 	
 	/**
@@ -90,6 +95,7 @@ public class HomeController3 extends GridPane {
 		region.getItems().add("Středočeský kraj");
 		region.getItems().add("Vysočina");
 		region.getItems().add("Zlín");
+		bsave.setDisable(true);
 				
 		Tooltip tooltip = new Tooltip();
 
@@ -204,17 +210,54 @@ public class HomeController3 extends GridPane {
 	}
 	
 	public void vaidate() {
+		bsave.setDisable(false);
+		vysl = "";
+		List<String> list = new ArrayList<String>();
+		list.add("name");
+		list.add("surname");
+		list.add("telephone");
+		list.add("timeFrom");
+		list.add("timeTo");
 		
-		String skutok = telephone.getText();
-		String namee= "telephonee";
-		boolean status=Validation.validate(namee, skutok);
+		for (int i = 0; i < list.size(); i++) {
+			
+			String pom = list.get(i);
+			switch(pom){
+				case "name":{
+					 pomocna = name.getText();
+					 break;
+					 
+				}
+				case "surname":{
+					 pomocna = surname.getText();
+					 break;
+				}
+				case "telephone":{
+					 pomocna = telephone.getText();
+					 break;
+				}
+				case "timeFrom":{
+					 pomocna = timeFrom.getText();
+					 break;
+				}
+				case "timeTo":{
+					 pomocna = timeTo.getText();
+					 break;
+				}
+				
+			}
+			
+			
+			boolean status=Validation.validate(pom, pomocna);
+			if(!status){
+				vysl = vysl + " " + pom;
+				
+			}
+		}
+		System.out.println(vysl);
 		
-		if(status=true) {
-			telephone.setStyle("-fx-text-fill: black; -fx-font-size: 12px;");
-		} else {
-			telephone.setStyle("-fx-text-fill: red; -fx-font-size: 12px;");
-		}}
-		
+	}
+	
 		
 	
 }

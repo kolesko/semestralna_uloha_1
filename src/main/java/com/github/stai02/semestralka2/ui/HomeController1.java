@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -124,11 +126,15 @@ public class HomeController1 extends GridPane {
 	@FXML private ComboBox<String> existingClientsBox;
 	@FXML private ComboBox<String> existingCarsBox;
 	
+	private String vysl;
+	private String pom;
+	private String pomocna;
 
 	/**
 	 * Initialize.
 	 */
 	public void initialize() {
+		save.setDisable(true);
 		editOrder(); 
 		bdelete.setDisable(true);		
 		hourFrom.getItems().removeAll(hourFrom.getItems());
@@ -195,7 +201,7 @@ public class HomeController1 extends GridPane {
 		}
 		
 		Tooltip tooltip = new Tooltip();
-		tooltip.setText("Enter telehone as +42xxxxxxx");
+		tooltip.setText("Enter telephone as +42xxxxxxx");
 		telephone.setTooltip(tooltip);
 		Tooltip tooltip2 = new Tooltip();
 		tooltip2.setText("Transporation to city");
@@ -656,6 +662,56 @@ public class HomeController1 extends GridPane {
 		}
 		return true;
 	}	
+	
+	public void vaidate() {
+		save.setDisable(false);
+		vysl = "";
+		List<String> list = new ArrayList<String>();
+		list.add("model");
+		list.add("brand");
+		list.add("telephone");
+		list.add("name");
+		list.add("surname");
+		
+		for (int i = 0; i < list.size(); i++) {
+			
+			String pom = list.get(i);
+			switch(pom){
+				case "name":{
+					 pomocna = name.getText();
+					 break;
+					 
+				}
+				case "surname":{
+					 pomocna = surname.getText();
+					 break;
+				}
+				case "telephone":{
+					 pomocna = telephone.getText();
+					 break;
+				}
+				case "brand":{
+					 pomocna = brand.getText();
+					 break;
+				}
+				case "model":{
+					 pomocna = model.getText();
+					 break;
+				}
+				
+			}
+			
+			
+			boolean status=Validation.validate(pom, pomocna);
+			if(!status){
+				vysl = vysl + " " + pom;
+				
+			}
+		}
+		System.out.println(vysl);
+		
+	}
+	
 	
 
 }
