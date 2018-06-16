@@ -53,6 +53,7 @@ public class HomeController7 {
 		data = FXCollections.observableArrayList();
 		try {
 			Connection conn = dbConnection();
+			
 			String query = "SELECT * FROM " + choice + " WHERE " + select + " = ?";
 			PreparedStatement pst = conn.prepareStatement(query);
 			pst.setString(1, selectText);

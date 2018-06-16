@@ -81,14 +81,14 @@
          <children>
             <VBox alignment="CENTER" prefHeight="702.0" prefWidth="594.0">
                <children>
-                  <ComboBox fx:id="choice" accessibleRole="MENU_ITEM" nodeOrientation="LEFT_TO_RIGHT" prefHeight="44.0" prefWidth="167.0" promptText="Select Table" style="-fx-background-color: rgba(255, 255, 255, 0.2); -fx-background-radius: 5em; -fx-text-fill: white;">
+                  <ComboBox fx:id="choice" accessibleRole="MENU_ITEM" nodeOrientation="LEFT_TO_RIGHT" prefHeight="44.0" prefWidth="167.0" promptText="Select Category" style="-fx-background-color: rgba(255, 255, 255, 0.2); -fx-background-radius: 5em; -fx-text-fill: white;">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
                      <effect>
                         <ColorAdjust />
                      </effect></ComboBox>
-                  <ComboBox fx:id="select" nodeOrientation="LEFT_TO_RIGHT" prefHeight="44.0" prefWidth="167.0" promptText="Select" style="-fx-background-color: rgba(255, 255, 255, 0.2); -fx-background-radius: 5em; -fx-text-fill: white;">
+                  <ComboBox fx:id="select" nodeOrientation="LEFT_TO_RIGHT" prefHeight="44.0" prefWidth="167.0" promptText="Select Criterion" style="-fx-background-color: rgba(255, 255, 255, 0.2); -fx-background-radius: 5em; -fx-text-fill: white;">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin></ComboBox>

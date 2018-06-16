@@ -46,12 +46,16 @@ public class HomeController2 extends GridPane{
 	/** The show. */
 	@FXML public Button show;
 	
+	/** The advanced search. */
+	@FXML public Button advancedSearch;
+	
 	/** The choice. */
 	@FXML public ComboBox<String> choice;
 	
 	/** The select. */
 	@FXML public ComboBox<String> select;
 	
+	/** The select text. */
 	@FXML public TextField selectText;
 	
 	/** The pane. */
@@ -65,7 +69,7 @@ public class HomeController2 extends GridPane{
 	 * Initialize and change.
 	 * 
 	 */
-	public void initialize() {
+	public void initialize() {		
 		show.setDisable(false); 
 		choice.setItems(choiceBoxItems);
 		choice.setTooltip(new Tooltip("Select what you want to find"));
@@ -164,10 +168,10 @@ public class HomeController2 extends GridPane{
 			stage.setTitle("Insert Order");
 			stage.setScene(new Scene(root));  
 			stage.show();
-	} catch (Exception e){
-		System.out.println("New window can´t be loaded.");
+			} catch (Exception e){
+				System.out.println("New window can´t be loaded.");
+			}
 	}
-}
 	
 	/**
 	 * Insert driver.
@@ -182,15 +186,15 @@ public class HomeController2 extends GridPane{
 			stage.setTitle("Insert driver");
 			stage.setScene(new Scene(root1));  
 			stage.show();
-	} catch (Exception e){
-		System.out.println("New window can´t be loaded.");
+		} catch (Exception e){
+			System.out.println("New window can´t be loaded.");
+		}
 	}
-}
 	
 	/**
-	 * Show orders.
+	 * Show all orders.
 	 * 
-	 * COnnecting to Home6.
+	 * Connecting to Home6.
 	 */
 	public void showOrders() {
 		try{
@@ -200,13 +204,13 @@ public class HomeController2 extends GridPane{
 			stage.setTitle("Orders");
 			stage.setScene(new Scene(root1));  
 			stage.show();
-	} catch (Exception e){
-		System.out.println("New window can´t be loaded.");
+		} catch (Exception e){
+			System.out.println("New window can´t be loaded.");
+		}
 	}
-}
 	
 	/**
-	 * Show results of searching.
+	 * Show search results.
 	 * 
 	 * Connecting to Home7
 	 */
@@ -215,18 +219,17 @@ public class HomeController2 extends GridPane{
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home7.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
 			HomeController7 c = (HomeController7) fxmlLoader.getController();
+			if (!((choice.getValue().contains("Select Criterion")) || ((selectText.getText().isEmpty())))) {
 			c.result(choice.getValue(), select.getValue(), selectText.getText());
 			Stage stage = new Stage();
 			stage.setTitle("Results");
 			stage.setScene(new Scene(root1));  
 			stage.show();
-	} catch (Exception e){
-		System.out.println("New window can´t be loaded.");
+			}
+		} catch (Exception e){
+			System.out.println("New window can´t be loaded.");
+		}
 	}
-}
-	
-	
-	
 	
 	/**
 	 * Exiting the application
@@ -240,12 +243,8 @@ public class HomeController2 extends GridPane{
 			System.exit(0);
 		}
 		al.close();
-	}
-	
-	
-	
-	            
-	    }
+	}	            
+}
 	
 
 

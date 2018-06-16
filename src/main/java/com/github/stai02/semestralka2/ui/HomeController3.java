@@ -199,7 +199,6 @@ public class HomeController3 extends GridPane {
 			System.out.println("inserting data error " + e);
 		}
 	}
-
 	
 	public void vaidate() {
 		
