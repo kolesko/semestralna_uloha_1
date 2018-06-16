@@ -677,6 +677,13 @@ public class HomeController1 extends GridPane {
 		return true;
 	}	
 	
+	
+	/**
+     * Validate method - the validation of choosen fields
+     *
+     * @return the names wrong filled fields are written into a field.
+     */
+	
 	public void vaidate() {
 	 save.setDisable(false);
 		vysl = "";

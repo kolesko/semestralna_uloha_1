@@ -214,6 +214,13 @@ public class HomeController3 extends GridPane {
 		}
 	}
 	
+	
+	/**
+     * Validate method - the validation of choosen fields
+     *
+     * @return the names wrong filled fields are written into a field.
+     */
+	
 	public void vaidate() {
 		bsave.setDisable(false);
 		vysl = "";
