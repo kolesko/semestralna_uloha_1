@@ -222,9 +222,20 @@
 		</VBox>
 		<HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
 			<children>
-				<VBox prefHeight="226.0" prefWidth="200.0" />
-            <ComboBox fx:id="placefrom" prefWidth="150.0" promptText="Place from" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;" />
-            <ComboBox fx:id="placeto" prefWidth="150.0" promptText="Destination" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;" />
+				<VBox prefHeight="226.0" prefWidth="200.0">
+               <children>
+                  <ComboBox fx:id="placefrom" prefWidth="150.0" promptText="Place from" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="placeto" prefWidth="150.0" promptText="Destination" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
+               </children></VBox>
+            <TextField fx:id="validateError" maxWidth="-Infinity" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 5em;" />
 			</children>
 		</HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="3">
@@ -253,6 +264,14 @@
                   <Font name="Verdana" size="17.0" />
                </font>
 						</Button>
+            <Button fx:id="valid" maxHeight="44.0" maxWidth="167.0" mnemonicParsing="false" onAction="#vaidate" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Validate" textFill="#f75d59">
+               <font>
+                  <Font name="Verdana" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
 		<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3">

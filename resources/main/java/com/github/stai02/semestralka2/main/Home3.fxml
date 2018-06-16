@@ -108,17 +108,9 @@
                   </ComboBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="valid" maxHeight="25.0" maxWidth="100.0" mnemonicParsing="false" onAction="#vaidate" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Validate" textFill="#ec9706">
-                           <font>
-                              <Font name="Verdana" size="12.0" />
-                           </font>
+                        <TextField fx:id="validateError" maxWidth="-Infinity" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 5em;">
                            <HBox.margin>
-                              <Insets bottom="20.0" left="20.0" top="20.0" />
-                           </HBox.margin>
-                        </Button>
-                        <TextField fx:id="validateError" maxWidth="-Infinity" prefHeight="26.0" prefWidth="100.0" style="-fx-background-radius: 5em;">
-                           <HBox.margin>
-                              <Insets bottom="20.0" left="20.0" top="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </HBox.margin>
                         </TextField>
                      </children>
@@ -129,7 +121,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="3">
          <children>
-            <Button fx:id="bedit" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#edit" prefHeight="44.0" prefWidth="167.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Edit" textFill="#f75d59">
+            <Button fx:id="bedit" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#edit" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Edit" textFill="#f75d59">
             <font>
             <Font name="Verdana" size="17.0" />
          </font>
@@ -137,7 +129,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
       </Button>
-            <Button fx:id="bsave" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#save" prefHeight="44.0" prefWidth="167.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Save" textFill="#f75d59">
+            <Button fx:id="bsave" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#save" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Save" textFill="#f75d59">
             <font>
             <Font name="Verdana" size="17.0" />
          </font>
@@ -145,7 +137,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
       </Button>
-            <Button fx:id="bdelete" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#delete" prefHeight="44.0" prefWidth="167.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Delete" textFill="#f75d59">
+            <Button fx:id="bdelete" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#delete" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Delete" textFill="#f75d59">
             <font>
             <Font name="Verdana" size="17.0" />
          </font>
@@ -153,6 +145,14 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
       </Button>
+            <Button fx:id="valid" maxHeight="44.0" maxWidth="167.0" mnemonicParsing="false" onAction="#vaidate" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Validate" textFill="#f75d59">
+               <font>
+                  <Font name="Verdana" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </children>
