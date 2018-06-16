@@ -103,7 +103,7 @@
                            <children>
                               <ComboBox fx:id="driverBox" prefWidth="150.0" promptText="Driver" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
                                  <HBox.margin>
-                                    <Insets left="10.0" top="10.0" />
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </HBox.margin>
                               </ComboBox>
                               <CheckBox fx:id="driving" mnemonicParsing="false" prefHeight="0.0" prefWidth="22.0">
@@ -120,6 +120,9 @@
                                  </font>
                               </Label>
                            </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
                         </HBox>
                      </children>
                   </HBox>
@@ -235,7 +238,7 @@
                      </VBox.margin>
                   </ComboBox>
                </children></VBox>
-            <TextField fx:id="validateError" maxWidth="-Infinity" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 5em;" />
+            <TextField fx:id="validateError" editable="false" maxWidth="-Infinity" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 5em;" />
 			</children>
 		</HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="3">
