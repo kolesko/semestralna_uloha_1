@@ -112,6 +112,9 @@ public class HomeController1 extends GridPane {
 	/** The save. */
 	@FXML public Button save;
 	
+	/** The validate. */
+	@FXML public Button valid;
+	
 	/** The date. */
 	@FXML private DatePicker date;
 	
@@ -120,6 +123,9 @@ public class HomeController1 extends GridPane {
 	
 	/** The driver box. */
 	@FXML private ComboBox<String> driverBox;
+	/** The validation field. */
+	@FXML
+	private TextField validateError;
 	
 	@FXML private ComboBox<String> clientType;
 	@FXML private ComboBox<String> carType;
@@ -134,8 +140,10 @@ public class HomeController1 extends GridPane {
 	 * Initialize.
 	 */
 	public void initialize() {
-		save.setDisable(true);
+		
 		editOrder(); 
+		save.setDisable(true);
+		valid.setDisable(true);
 		bdelete.setDisable(true);		
 		hourFrom.getItems().removeAll(hourFrom.getItems());
 		hourFrom.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12");
@@ -218,6 +226,8 @@ public class HomeController1 extends GridPane {
 		Tooltip tooltip6 = new Tooltip();
 		tooltip6.setText("Will the client be in the car?");
 		driving.setTooltip(tooltip6);
+		
+		
 	}
 	
 	
@@ -235,6 +245,7 @@ public class HomeController1 extends GridPane {
 				surname.setVisible(true);
 				telephone.setVisible(true);
 				existingClientsBox.setVisible(false);
+				valid.setDisable(false);
 				break;
 			}
 			case "Existing" : {
@@ -333,6 +344,8 @@ public class HomeController1 extends GridPane {
 			}
 			case "Existing" : {
 				brand.setVisible(false);
+				valid.setDisable(true);
+				save.setDisable(false);
 				carid.setVisible(false);
 				model.setVisible(false);
 				license.setVisible(false);
@@ -417,6 +430,7 @@ public class HomeController1 extends GridPane {
 			Stage stage = (Stage) name.getScene().getWindow();
 	      		stage.close();
 		}
+		
 		
 	}
 	
@@ -663,16 +677,27 @@ public class HomeController1 extends GridPane {
 		return true;
 	}	
 	
+	
+	/**
+     * Validate method - the validation of choosen fields
+     *
+     * @return the names wrong filled fields are written into a field.
+     */
+	
 	public void vaidate() {
-		save.setDisable(false);
+	 save.setDisable(false);
 		vysl = "";
 		List<String> list = new ArrayList<String>();
+	
+		if (carType.getValue().equals("New")) {
 		list.add("model");
 		list.add("brand");
+		} else {return;}
+		if (clientType.getValue().equals("New")) {
 		list.add("telephone");
 		list.add("name");
 		list.add("surname");
-		
+		}
 		for (int i = 0; i < list.size(); i++) {
 			
 			String pom = list.get(i);
@@ -708,7 +733,7 @@ public class HomeController1 extends GridPane {
 				
 			}
 		}
-		System.out.println(vysl);
+		validateError.setText(vysl);
 		
 	}
 	

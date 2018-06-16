@@ -3,6 +3,15 @@ package com.github.stai02.semestralka2.ui;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+
+
+/**
+ * The Class Validation - constains the regular expressions of choosen fields.
+ *
+ * @author Lenka Šťastná, Matej Kolesár, Julia Loseeva, Ivana Stanová
+ * @version June 2018
+ */
 public class Validation {
 
 	public static boolean validate(String param, String co) {                 
