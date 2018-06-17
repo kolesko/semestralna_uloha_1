@@ -56,7 +56,7 @@ public class HomeController4 {
 	}
 	
 	/**
-	 * Edits the.
+	 * Edits the client.
 	 */
 	public void edit() {
 		bsave.setDisable(false);
@@ -70,7 +70,7 @@ public class HomeController4 {
 	}
 	
 	/**
-	 * Save.
+	 * Save the client.
 	 */
 	public void save() {
 		bsave.setDisable(true);
@@ -85,7 +85,7 @@ public class HomeController4 {
 	
 	
 	/**
-	 * Delete.
+	 * Delete the client.
 	 */
 	public void delete() { 
 		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to delete data?");

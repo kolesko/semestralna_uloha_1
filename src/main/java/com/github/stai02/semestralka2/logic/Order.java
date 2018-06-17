@@ -1,5 +1,8 @@
 package com.github.stai02.semestralka2.logic;
 
+import java.sql.Date;
+import java.util.Collection;
+
 /**
  *  Class Order - contains order details.
  *
@@ -19,7 +22,7 @@ public class Order {
 	private String clientGoes;
 	
 	/** The date. */
-	private String date;
+	private  String date;
 	
 	/** The time. */
 	private String time;
@@ -44,7 +47,7 @@ public class Order {
 	 * @param driver the driver
 	 * @param client the client
 	 */	
-	public Order(int id,String date, String placeFrom, String placeTo, boolean clientGoes, String timeFrom, String timeTo, String carid) {
+	public Order(int id, String date, String placeFrom, String placeTo, boolean clientGoes, String timeFrom, String timeTo, String carid) {
 		this.ID = id;
 		this.date = date;
 		this.time = timeFrom + "-" + timeTo;
@@ -76,27 +79,89 @@ public class Order {
 	}
 
 	/**
-	 * This method returns the place from where the ride will take place.
+	 * Get place from and to the transportation is set
 	 * 
-	 * @return placeFrom 
+	 * @return place 
 	 */
 	public String getPlace() {
 		return place;
 	}
 
+	/**
+	 * Get clientGoes, if client is transported
+	 * 
+	 * 
+	 * @return clientGoes 
+	 */
 	public String getClientGoes() {
 		return clientGoes;
 	}
 
+	/**
+	 * Get Date of the transportation
+	 * 
+	 * @return Date of the transportation
+	 */
 	public String getDate() {
 		return date;
 	}
 
+	/**
+	 * Get time 
+	 * 
+	 * @return time 
+	 */
 	public String getTime() {
 		return time;
 	}
 
+	/**
+	 * Get the car´s ID 
+	 * 
+	 * @return carId 
+	 */
 	public String getCarid() {
 		return carid;
 	}
-}
+	
+	/**
+	 * Sets the car´sID
+	 *
+	 * @param Carid the new car´sId
+	 */
+	public void setCarid(String carid) {
+		this.carid=carid;
+	}
+	/**
+	 * Sets the date of the transportation
+	 *
+	 * @param Date the new date of transportation
+	 */
+	public void setDate(String date) {
+		this.date=date;
+	}
+	/**
+	 * Sets the time of the trasportation
+	 *
+	 * @param time the new time of transportation
+	 */
+	public void setTime(String time) {
+		this.time=time;
+	}
+	/**
+	 * Sets the place
+	 *
+	 * @param place the new place from and to client wants to go
+	 */
+	public void setPlace(String place) {
+		this.place=place;
+	}
+	/**
+	 * Sets if the client goes in the car
+	 *
+	 * @param clientGoes the new clientGoes
+	 */
+	public void setClientGoes(String clientGoes) {
+		this.clientGoes=clientGoes;
+	}
+	}

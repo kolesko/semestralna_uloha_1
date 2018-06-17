@@ -9,10 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -32,11 +29,10 @@ public class HomeController6 {
 	@FXML TableColumn<Order, String> place;
 	@FXML TableColumn<Order, String> client;
 	@FXML TableColumn<Order, String> car;
+	
 	/**
 	 * Initialize.
-	 * @throws ClassNotFoundException 
-	 * @throws SQLException 
-	 */
+     */
 	
 	//Order(int id,String date, String placeFrom, String placeTo, boolean clientGoes, String timeFrom, String timeTo, int carid)
 	public void initialize() {
@@ -49,6 +45,13 @@ public class HomeController6 {
 		addToTable();
 	}
 
+	
+	 /**
+     * Db connection.
+     *
+     * @return the connection
+     * @throws ClassNotFoundException the class not found exception
+     */
 	public Connection dbConnection() throws ClassNotFoundException {
 	 	   Class.forName("org.sqlite.JDBC");
 	        Connection connection = null;
@@ -77,6 +80,10 @@ public class HomeController6 {
 	 * 
 	 */
 	
+	/**
+	 * Show orders in a table.
+     */
+	
 	public void addToTable() {
 		try {
 			Connection conn = dbConnection();
@@ -85,8 +92,8 @@ public class HomeController6 {
 			ResultSet rs = pst.executeQuery();
 			//java.util.Date utilDate = new java.util.Date(sqlDate.getTime())
 			while (rs.next()) {
-				int ido = rs.getInt("id");
-				java.util.Date date = rs.getDate("date");
+				int id = rs.getInt("id");
+				String date = rs.getString("date");
 				boolean client_in_car = rs.getBoolean("client_in_car");
 				String timeFrom = rs.getString("time_from");
 				String timeTo = rs.getString("time_to");
@@ -102,8 +109,10 @@ public class HomeController6 {
 						carids = rs2.getString("carid");
 					}
 					pst2.close();
-				//System.out.println(date+" "+from+" "+to+" "+client_in_car+" "+carids);
-				tableview.getItems().add(new Order(ido,date.toString(),from,to,client_in_car,timeFrom,timeTo,carids));
+
+				//System.out.println(date+" "+timeFrom+" "+timeTo+" "+from+" "+to+" "+client_in_car+" "+carids);
+				tableview.getItems().add(new Order(id,date.toString(),from,to,client_in_car,timeFrom,timeTo,carids));
+
 			}
 			pst.close();
 			conn.close();
@@ -118,7 +127,7 @@ public class HomeController6 {
 	
 	
 	/**
-	 * Show detail.
+	 * Delete orders.
 	 */
 	public void delete(){
 		int idOrder = tableview.getSelectionModel().getSelectedItem().getID();

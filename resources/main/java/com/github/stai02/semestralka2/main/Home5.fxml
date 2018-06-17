@@ -6,85 +6,79 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="840.0" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #f75d59, #ec9706, #ffddd0);" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="245.3333740234375" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="160.66668701171875" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.33331298828125" minWidth="10.0" prefWidth="193.33331298828125" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="350.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="490.0" minWidth="0.0" prefWidth="490.0" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints maxHeight="86.33332824707031" minHeight="10.0" prefHeight="85.66667175292969" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="56.33331298828125" minHeight="10.0" prefHeight="56.33331298828125" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="60.666656494140625" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="69.33334350585938" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="51.666656494140625" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="118.66665649414062" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="114.6666259765625" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="50.33331298828125" minHeight="10.0" prefHeight="18.3333740234375" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="400.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox prefHeight="86.0" prefWidth="250.0">
+      <HBox alignment="CENTER" prefHeight="51.0" prefWidth="300.0" GridPane.columnSpan="2">
          <children>
-            <Region prefHeight="26.0" prefWidth="250.0" />
-            <HBox prefHeight="51.0" prefWidth="300.0">
-               <children>
-                  <Region prefHeight="39.0" prefWidth="185.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CAR" wrappingWidth="158.13668823242188">
-                     <font>
-                        <Font size="42.0" />
-                     </font>
-                  </Text>
-                  <Region prefHeight="39.0" prefWidth="128.0" />
-                  <Region prefHeight="39.0" prefWidth="100.0" />
-               </children>
-            </HBox>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Car" wrappingWidth="75.7366714477539">
+               <font>
+                  <Font name="Verdana" size="42.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="167.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Delete" textFill="#f75d59">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Verdana" size="17.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="167.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Edit" textFill="#f75d59">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Verdana" size="17.0" />
+               </font></Button>
+            <Button disable="true" mnemonicParsing="false" prefHeight="44.0" prefWidth="167.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Save" textFill="#f75d59">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Verdana" size="17.0" />
+               </font></Button>
+         </children>
+      </HBox>
+      <VBox prefHeight="337.0" prefWidth="312.0" GridPane.rowIndex="1">
+         <children>
+            <TextField fx:id="brand" editable="false" promptText="Brand">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="model" editable="false" promptText="Model">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="license" editable="false" promptText="Driver´s licence">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="carId" editable="false" promptText="ID">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
          </children>
       </VBox>
-      <TextField fx:id="brand" editable="false" promptText="Brand" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets left="8.0" />
-         </GridPane.margin>
-      </TextField>
-      <TextField fx:id="model" editable="false" promptText="Model" GridPane.rowIndex="2">
-         <GridPane.margin>
-            <Insets left="8.0" />
-         </GridPane.margin>
-      </TextField>
-      <TextField fx:id="license" editable="false" promptText="Driver´s licence" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets left="8.0" />
-         </GridPane.margin>
-      </TextField>
-      <TextField fx:id="carId" editable="false" promptText="ID" GridPane.rowIndex="4">
-         <GridPane.margin>
-            <Insets left="8.0" />
-         </GridPane.margin>
-      </TextField>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6">
-         <children>
-            <Region prefHeight="84.0" prefWidth="99.0" />
-            <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="132.0" text="Delete" />
-            <Region prefHeight="84.0" prefWidth="50.0" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="132.0" text="Edit" />
-            <Region prefHeight="84.0" prefWidth="50.0" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
-         <children>
-            <Region prefHeight="91.0" prefWidth="0.0" />
-            <Button disable="true" mnemonicParsing="false" prefHeight="61.0" prefWidth="132.0" text="Save" />
-            <Region prefHeight="84.0" prefWidth="99.0" />
-         </children>
-      </HBox>
    </children>
 </GridPane>

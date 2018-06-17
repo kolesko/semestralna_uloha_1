@@ -1,6 +1,13 @@
 package com.github.stai02.semestralka2.ui;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+
+import javax.swing.JOptionPane;
+
+import java.awt.Color;
 import java.sql.*;
+import com.github.stai02.semestralka2.ui.Validation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -13,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Tooltip;
 
 /**
  * The Class HomeController3 for control Home3.fxml. Window insert driver.
@@ -54,6 +62,23 @@ public class HomeController3 extends GridPane {
 	/** The region. */
 	@FXML private ComboBox<String> region;
 	
+	/** The valid. */
+	@FXML public Button valid;
+	/** The time from available every day. */
+	@FXML
+	private TextField timeFrom;
+	/** The time to available every day. */
+	@FXML
+	private TextField timeTo;
+	@FXML
+	private TextField validateError;
+	
+	
+	
+	
+	private String pomocna;
+	private String vysl;
+	
 	
 	
 	/**
@@ -62,8 +87,39 @@ public class HomeController3 extends GridPane {
 	public void initialize() {
 		edit(); 
 		bdelete.setDisable(true);
+		region.getItems().add("Jihomoravský kraj");
+		region.getItems().add("Jihočeský kraj");
+		region.getItems().add("Karlovarský kraj");
+		region.getItems().add("Královéhradecký kraj");
+		region.getItems().add("Liberecký kraj");
+		region.getItems().add("Moravskoslezský kraj");
+		region.getItems().add("Olomoucký kraj");
+		region.getItems().add("Pardubický kraj");
+		region.getItems().add("Plzeňský kraj");
 		region.getItems().add("Praha");
-		region.getItems().add("Brno");
+		region.getItems().add("Středočeský kraj");
+		region.getItems().add("Vysočina");
+		region.getItems().add("Zlín");
+		bsave.setDisable(true);
+				
+		Tooltip tooltip = new Tooltip();
+
+		tooltip.setText("Insert phone number as +42xxxxxxx");
+		telephone.setTooltip(tooltip);
+		Tooltip tooltip2 = new Tooltip();
+		tooltip2.setText("Insert type of driver''s license as A/B/C/..");
+		license.setTooltip(tooltip2);
+		Tooltip tooltip3 = new Tooltip();
+		tooltip3.setText("Insert from when the driver is available every day as hh:mm");
+		timeFrom.setTooltip(tooltip3);
+		Tooltip tooltip4 = new Tooltip();
+		tooltip4.setText("Insert until when the driver is available every day as hh:mm");
+		timeTo.setTooltip(tooltip4);
+		Tooltip tooltip7 = new Tooltip();
+		tooltip7.setText("Validation errors:");
+		validateError.setTooltip(tooltip7);
+		
+		
 	}
 
    /**
@@ -91,7 +147,7 @@ public class HomeController3 extends GridPane {
    }
 	
 	/**
-	 * Edits the.
+	 * Edit driver.
 	 */
 	public void edit() {
 		bsave.setDisable(false);
@@ -105,7 +161,7 @@ public class HomeController3 extends GridPane {
 	}
 	
 	/**
-	 * Save.
+	 * Save driver.
 	 *
 	 * @throws ClassNotFoundException the class not found exception
 	 */
@@ -126,7 +182,7 @@ public class HomeController3 extends GridPane {
 	}
 	
 	/**
-	 * Delete.
+	 * Delete driver.
 	 */
 	public void delete() { 
 		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to delete data?");
@@ -139,7 +195,7 @@ public class HomeController3 extends GridPane {
 	}
 		
 	/**
-	 * Insert data.
+	 * Insert driver.
 	 *
 	 * @throws ClassNotFoundException the class not found exception
 	 */
@@ -160,5 +216,63 @@ public class HomeController3 extends GridPane {
 			System.out.println("inserting data error " + e);
 		}
 	}
-
+	
+	
+	/**
+     * Validate method - the validation of choosen fields
+     *
+     * @return the names wrong filled fields are written into a field.
+     */
+	
+	public void vaidate() {
+		bsave.setDisable(false);
+		vysl = "";
+		List<String> list = new ArrayList<String>();
+		list.add("name");
+		list.add("surname");
+		list.add("telephone");
+		list.add("timeFrom");
+		list.add("timeTo");
+		
+		for (int i = 0; i < list.size(); i++) {
+			
+			String pom = list.get(i);
+			switch(pom){
+				case "name":{
+					 pomocna = name.getText();
+					 break;
+					 
+				}
+				case "surname":{
+					 pomocna = surname.getText();
+					 break;
+				}
+				case "telephone":{
+					 pomocna = telephone.getText();
+					 break;
+				}
+				case "timeFrom":{
+					 pomocna = timeFrom.getText();
+					 break;
+				}
+				case "timeTo":{
+					 pomocna = timeTo.getText();
+					 break;
+				}
+				
+			}
+			
+			
+			boolean status=Validation.validate(pom, pomocna);
+			if(!status){
+				vysl = vysl + " " + pom;
+				
+			}
+		}
+		validateError.setText(vysl);
+		
+	}
+	
+		
+	
 }

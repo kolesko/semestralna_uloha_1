@@ -22,7 +22,13 @@ public class Person {
 	/** The telephone number. */
 	private String telephone;
 	
-	/** The constructor. */
+	
+	/** The constructor. 
+	 * 
+	 * @param ID person´s ID
+	 * @param name name of the person
+	 * @param surname surname of the person
+	 * @param telephone telephone number*/
 	protected Person(int ID, String name, String surname, String telephone) {
 		this.ID=ID;
 		this.name=name;
@@ -67,7 +73,7 @@ public class Person {
 	}
 
 	/**
-	 * Vyhladat.
+	 * Vyhladat searches for a person´s name using ID.
 	 *
 	 * @param ID the id
 	 * @return the string

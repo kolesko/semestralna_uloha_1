@@ -7,8 +7,16 @@ import java.sql.SQLException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javafx.scene.control.Tooltip;
+
+import javax.swing.JOptionPane;
+
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -67,9 +75,9 @@ public class HomeController1 extends GridPane {
 	@FXML
 	private ComboBox<String> hourFrom;
 	
-	/** The placeto. */
+	/** The destination. */
 	@FXML
-	private TextField placeto;
+	private ComboBox<String> placeto;
 	
 	/** The daytime 1. */
 	@FXML
@@ -91,9 +99,9 @@ public class HomeController1 extends GridPane {
 	@FXML
 	private ComboBox<String> minuteTo;
 	
-	/** The placefrom. */
+	/** The place from. */
 	@FXML
-	private TextField placefrom;
+	private ComboBox<String> placefrom;
 
 	/** The edit. */
 	@FXML public Button edit;
@@ -104,6 +112,9 @@ public class HomeController1 extends GridPane {
 	/** The save. */
 	@FXML public Button save;
 	
+	/** The validate. */
+	@FXML public Button valid;
+	
 	/** The date. */
 	@FXML private DatePicker date;
 	
@@ -112,22 +123,31 @@ public class HomeController1 extends GridPane {
 	
 	/** The driver box. */
 	@FXML private ComboBox<String> driverBox;
+	/** The validation field. */
+	@FXML
+	private TextField validateError;
 	
 	@FXML private ComboBox<String> clientType;
 	@FXML private ComboBox<String> carType;
 	@FXML private ComboBox<String> existingClientsBox;
 	@FXML private ComboBox<String> existingCarsBox;
 	
+	private String vysl;
+	private String pom;
+	private String pomocna;
+
 	/**
 	 * Initialize.
 	 */
 	public void initialize() {
-		editOrder(); 
-		bdelete.setDisable(true);
 		
+		editOrder(); 
+		save.setDisable(true);
+		valid.setDisable(true);
+		bdelete.setDisable(true);		
 		hourFrom.getItems().removeAll(hourFrom.getItems());
 		hourFrom.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12");
-		hourFrom.getSelectionModel().select("01");
+		hourFrom.getSelectionModel().select("Praha");
 	//	hourFrom.setPromptText(hourFrom.getSelectionModel().getSelectedItem().toString());
 		
 		minuteFrom.getItems().removeAll(hourFrom.getItems());
@@ -152,6 +172,26 @@ public class HomeController1 extends GridPane {
 		
 		try {
 			Connection conn = dbConnection();
+			String query = "select district_name from districts";
+			PreparedStatement pst = conn.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			placefrom.getItems().clear();
+			placeto.getItems().clear();
+			while(rs.next()) {
+				placeto.getItems().add(rs.getString("district_name"));
+				placefrom.getItems().add(rs.getString("district_name"));
+			}
+			conn.close();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			Connection conn = dbConnection();
 			String query = "select driverid from drivers";
 			PreparedStatement pst = conn.prepareStatement(query);
 			ResultSet rs = pst.executeQuery();
@@ -167,8 +207,36 @@ public class HomeController1 extends GridPane {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		Tooltip tooltip = new Tooltip();
+		tooltip.setText("Enter telephone as +42xxxxxxx");
+		telephone.setTooltip(tooltip);
+		Tooltip tooltip2 = new Tooltip();
+		tooltip2.setText("Transporation to city");
+		placeto.setTooltip(tooltip2);
+		Tooltip tooltip3 = new Tooltip();
+		tooltip3.setText("Transporation from city");
+		placefrom.setTooltip(tooltip3);
+		Tooltip tooltip4 = new Tooltip();
+		tooltip4.setText("Type of license car requires");
+		license.setTooltip(tooltip4);
+		Tooltip tooltip5 = new Tooltip();
+		tooltip5.setText("Select date of the transportation.");
+		date.setTooltip(tooltip5);
+		Tooltip tooltip6 = new Tooltip();
+		tooltip6.setText("Will the client be in the car?");
+		driving.setTooltip(tooltip6);
+		Tooltip tooltip7 = new Tooltip();
+		tooltip7.setText("Validation errors:");
+		validateError.setTooltip(tooltip7);
+		
+		
 	}
 	
+	
+	/**
+	 * Entering the information about client
+	 */
 	public void clientType() {
 		String value = clientType.getValue();
 		switch(value) {
@@ -180,6 +248,7 @@ public class HomeController1 extends GridPane {
 				surname.setVisible(true);
 				telephone.setVisible(true);
 				existingClientsBox.setVisible(false);
+				valid.setDisable(false);
 				break;
 			}
 			case "Existing" : {
@@ -216,12 +285,17 @@ public class HomeController1 extends GridPane {
 		}
 	}
 	
+	
+	/**
+	 * Selecting client by conditions.
+	 */
 	public void updateDriver() {
 		minuteTo.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 			@Override public void changed(ObservableValue <? extends Number> observableValue, Number number, Number number2) {
 				try {
 					Connection conn = dbConnection();
-					String query = "select driverid from drivers where time_from > ? or time_to < ?";
+					String query = "select driverid from drivers where region in (select region from districts where district_name=?)";
+					//(time_from > ? or time_to < ?)
 					PreparedStatement pst = conn.prepareStatement(query);
 					int hourf = Integer.parseInt(hourFrom.getValue());
 					if (daytime1.getValue() == "PM") {
@@ -233,9 +307,11 @@ public class HomeController1 extends GridPane {
 					}
 					String timef = hourf + ":" + minuteFrom.getValue();
 					String timet = hourt + ":" + minuteTo.getValue();
-					pst.setString(1, timet);
-					pst.setString(2, timef);
-					
+					String place = placefrom.getValue().toString();
+					pst.setString(1, place);
+					//pst.setString(2, timef);
+					//pst.setString(3, place);
+
 					ResultSet rs = pst.executeQuery();
 					driverBox.getItems().clear();
 					while(rs.next()) {
@@ -254,6 +330,9 @@ public class HomeController1 extends GridPane {
 		
 	}
 	
+	/**
+	 * Entering car.
+	 */
 	public void carType() {
 		String value = carType.getValue();
 		if (value != null) {
@@ -268,6 +347,8 @@ public class HomeController1 extends GridPane {
 			}
 			case "Existing" : {
 				brand.setVisible(false);
+				valid.setDisable(true);
+				save.setDisable(false);
 				carid.setVisible(false);
 				model.setVisible(false);
 				license.setVisible(false);
@@ -315,6 +396,12 @@ public class HomeController1 extends GridPane {
 		}
 	}
 	
+	 /**
+     * Db connection.
+     *
+     * @return the connection
+     * @throws ClassNotFoundException the class not found exception
+     */
 	public Connection dbConnection() throws ClassNotFoundException {
 	 	   Class.forName("org.sqlite.JDBC");
 	        Connection connection = null;
@@ -346,10 +433,12 @@ public class HomeController1 extends GridPane {
 			Stage stage = (Stage) name.getScene().getWindow();
 	      		stage.close();
 		}
+		
+		
 	}
 	
 	/**
-	 * Edits the order.
+	 * Edit the order.
 	 */
 	public void editOrder() {
 		save.setDisable(false);
@@ -395,7 +484,7 @@ public class HomeController1 extends GridPane {
 	}
 	
 	/**
-	 * Delete.
+	 * Delete order.
 	 */
 	public void delete() { 
 		Alert al = new Alert(AlertType.CONFIRMATION, "Do you really want to delete data?");
@@ -407,7 +496,10 @@ public class HomeController1 extends GridPane {
 		al.close();
 	}
 	
-    
+	 /**
+     * Adding car to database.
+     *
+     */
 	public void addCar() {
 		try {
 			Connection conn = dbConnection();
@@ -440,8 +532,15 @@ public class HomeController1 extends GridPane {
 		}
 	}
 	
+	
+	/**
+     * Adding client to database.
+     *
+     */
 	public void addClient() {
 		try {
+			
+			
 			Connection conn = dbConnection();
 			String query = "INSERT INTO clients (name,surname,telephone,clientid) VALUES (?,?,?,?)";
 			try {
@@ -449,6 +548,7 @@ public class HomeController1 extends GridPane {
 				pst.setString(1,name.getText());
 				pst.setString(2,surname.getText());
 				pst.setString(3,telephone.getText());
+			       
 				pst.setString(4,clientid.getText());
 				pst.execute();
 				pst.close();
@@ -462,6 +562,10 @@ public class HomeController1 extends GridPane {
 		}
 	}
 	
+	/**
+     * Adding order to database.
+     *
+     */
 	public Boolean addOrder() {
 		try {
 			Connection conn = dbConnection();
@@ -481,13 +585,31 @@ public class HomeController1 extends GridPane {
 				if (daytime2.getValue() == "PM") {
 					hourt += 12;
 				}
+				int minf = Integer.parseInt(minuteFrom.getValue());
+				int mint = Integer.parseInt(minuteTo.getValue());
+				if (hourf < hourt ) {
 				String timef = hourf + ":" + minuteFrom.getValue();
 				String timet = hourt + ":" + minuteTo.getValue();
  				pst.setString(2,timef);
 				pst.setString(3,timet);
+				}
+				else if (hourf==hourt && minf < mint) {
+					String timef = hourf + ":" + minuteFrom.getValue();
+					String timet = hourt + ":" + minuteTo.getValue();
+	 				pst.setString(2,timef);
+					pst.setString(3,timet);
+				}
+				else {
+					Alert al = new Alert(AlertType.INFORMATION, "Wrong time, you should change the time to or time from.");
+					al.setHeaderText("Alert");
+					Optional<ButtonType> result = al.showAndWait();
+					al.close();	
+					editOrder();
+					return false;
+				}
 				pst.setBoolean(4, driving.isSelected());
-				pst.setString(5,placefrom.getText());
-				pst.setString(6,placeto.getText());
+				pst.setString(5,placefrom.getValue().toString());	
+				pst.setString(6,placeto.getValue().toString()); 
 				
 				
 				String query2 = "SELECT id FROM clients WHERE clientid = ?";
@@ -556,5 +678,68 @@ public class HomeController1 extends GridPane {
 			e.printStackTrace();
 		}
 		return true;
+	}	
+	
+	
+	/**
+     * Validate method - the validation of choosen fields
+     *
+     * @return the names wrong filled fields are written into a field.
+     */
+	
+	public void vaidate() {
+	 save.setDisable(false);
+		vysl = "";
+		List<String> list = new ArrayList<String>();
+	
+		if (carType.getValue().equals("New")) {
+		list.add("model");
+		list.add("brand");
+		} else {return;}
+		if (clientType.getValue().equals("New")) {
+		list.add("telephone");
+		list.add("name");
+		list.add("surname");
+		}
+		for (int i = 0; i < list.size(); i++) {
+			
+			String pom = list.get(i);
+			switch(pom){
+				case "name":{
+					 pomocna = name.getText();
+					 break;
+					 
+				}
+				case "surname":{
+					 pomocna = surname.getText();
+					 break;
+				}
+				case "telephone":{
+					 pomocna = telephone.getText();
+					 break;
+				}
+				case "brand":{
+					 pomocna = brand.getText();
+					 break;
+				}
+				case "model":{
+					 pomocna = model.getText();
+					 break;
+				}
+				
+			}
+			
+			
+			boolean status=Validation.validate(pom, pomocna);
+			if(!status){
+				vysl = vysl + " " + pom;
+				
+			}
+		}
+		validateError.setText(vysl);
+		
 	}
+	
+	
+
 }
