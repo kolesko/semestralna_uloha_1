@@ -41,7 +41,7 @@ public class HomeController7 {
 	 * Initialize.
 	 */
 	public void initialize() {
-		detail.setDisable(true);
+//		detail.setDisable(true);
 		table.setEditable(true);
 	}
 	
@@ -52,8 +52,7 @@ public class HomeController7 {
 	public void result(String choice, String select, String selectText) {
 		data = FXCollections.observableArrayList();
 		try {
-			Connection conn = dbConnection();
-			
+			Connection conn = dbConnection();			
 			String query = "SELECT * FROM " + choice + " WHERE " + select + " = ?";
 			PreparedStatement pst = conn.prepareStatement(query);
 			pst.setString(1, selectText);
@@ -82,38 +81,13 @@ public class HomeController7 {
                 }
                 //FINALLY ADDED TO TableView
                 table.setItems(data);
+                conn.close();
               } catch(Exception e){
                   e.printStackTrace();
-              }  
-		    
-		   
-		   /* for (int i = 1; i < columnCount; i++) {
-		        columnNames.put(i, metadata.getColumnName(i));
-		    }
-		    row += metadata.getColumnName(columnCount) + "\n";
-			while (rs.next()) {
-		        for (int i = 1; i < columnCount; i++) {
-		            row += rs.getString(i) + ", ";          
-		        } 
-		        row += rs.getString(columnCount) + "\n";
-			}
-			pst.close();
-			conn.close();
-		} }catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
+              }  		  
 	}
 
-	/**
-	 * Show detail of searched item.
-	 */
-	public void showDetail(){
-		
-	}
+	
 	
 	/**
      * Db connection.

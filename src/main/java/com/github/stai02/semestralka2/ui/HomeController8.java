@@ -34,7 +34,7 @@ public class HomeController8 {
 	@FXML private Tooltip tooltip;
 	
 	public void initialize() {
-		
+
 	}
 	
 	/** 
@@ -44,7 +44,6 @@ public class HomeController8 {
 	 */	
 	public void login() throws ClassNotFoundException {
 		Connection conn = dbConnection();
-		
 		try {
 			String query = "select (SELECT EXISTS(SELECT * FROM users WHERE username = ?)), password, role from users where username=?";
 			PreparedStatement pst = conn.prepareStatement(query);

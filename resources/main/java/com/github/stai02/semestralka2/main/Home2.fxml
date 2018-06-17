@@ -71,6 +71,9 @@
                <font>
                   <Font name="Verdana" size="17.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
             </Button>
             <Button fx:id="end" alignment="CENTER" minHeight="-Infinity" mnemonicParsing="false" onAction="#koniec" prefHeight="39.0" prefWidth="167.0" style="-fx-background-color: white; -fx-background-radius: 5em;" text="Close" textFill="#336e7b">
                <font>
