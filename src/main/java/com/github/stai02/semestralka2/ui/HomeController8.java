@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -55,6 +56,9 @@ public class HomeController8 {
 				if (rs.getString(3).equals("driver")) {
 					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/github/stai02/semestralka2/main/Home3.fxml"));
 					Parent root = (Parent) fxmlLoader.load();
+					HomeController3 c = (HomeController3) fxmlLoader.getController();
+					c.displayDriver(username.getText());
+					Platform.runLater( () -> root.requestFocus() );
 					Stage stage = new Stage();
 					stage.setTitle("Driver details");
 					stage.setScene(new Scene(root));  
