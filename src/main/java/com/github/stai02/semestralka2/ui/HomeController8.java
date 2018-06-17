@@ -74,14 +74,14 @@ public class HomeController8 {
 					stage.show();	
 					Stage currentWindow = (Stage) username.getScene().getWindow();
 					currentWindow.close();
+				} 
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("Warning Dialog");
 				alert.setContentText("Enter a valid username and password.");
 				alert.showAndWait();
 			}
-			conn.close();
-		} 
+			conn.close(); 
 			} catch (Exception e) {
 			System.out.println("select data error " + e);
 		}

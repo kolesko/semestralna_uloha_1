@@ -11,12 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javafx.scene.control.Tooltip;
-
-import javax.swing.JOptionPane;
-
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -99,7 +94,7 @@ public class HomeController1 extends GridPane {
 	@FXML
 	private ComboBox<String> minuteTo;
 	
-	/** The place from. */
+	/** The starting location. */
 	@FXML
 	private ComboBox<String> placefrom;
 
@@ -123,32 +118,38 @@ public class HomeController1 extends GridPane {
 	
 	/** The driver box. */
 	@FXML private ComboBox<String> driverBox;
+	
 	/** The validation field. */
 	@FXML
 	private TextField validateError;
 	
+	/** The validation field. */
 	@FXML private ComboBox<String> clientType;
+	
+	/** The car type. */
 	@FXML private ComboBox<String> carType;
+	
+	/** The existing clients. */
 	@FXML private ComboBox<String> existingClientsBox;
+	
+	/** The cars available. */
 	@FXML private ComboBox<String> existingCarsBox;
 	
 	private String vysl;
-	private String pom;
 	private String pomocna;
 
 	/**
 	 * Initialize.
 	 */
 	public void initialize() {
-		
 		editOrder(); 
 		save.setDisable(true);
-		valid.setDisable(true);
+		valid.setDisable(false);
 		bdelete.setDisable(true);		
 		hourFrom.getItems().removeAll(hourFrom.getItems());
 		hourFrom.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12");
 		hourFrom.getSelectionModel().select("Praha");
-	//	hourFrom.setPromptText(hourFrom.getSelectionModel().getSelectedItem().toString());
+		hourFrom.setPromptText("hh");
 		
 		minuteFrom.getItems().removeAll(hourFrom.getItems());
 		minuteFrom.getItems().addAll("00","15","30","45");
@@ -183,10 +184,8 @@ public class HomeController1 extends GridPane {
 			}
 			conn.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -201,10 +200,8 @@ public class HomeController1 extends GridPane {
 			}
 			conn.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -252,6 +249,7 @@ public class HomeController1 extends GridPane {
 				break;
 			}
 			case "Existing" : {
+				valid.setDisable(true);
 				carType.getItems().clear();
 				carType.getItems().addAll("New","Existing");
 				clientid.setVisible(false);
@@ -274,10 +272,8 @@ public class HomeController1 extends GridPane {
 					pst.close();
 					conn.close();
 				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				break;				
@@ -290,45 +286,40 @@ public class HomeController1 extends GridPane {
 	 * Selecting client by conditions.
 	 */
 	public void updateDriver() {
-		minuteTo.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-			@Override public void changed(ObservableValue <? extends Number> observableValue, Number number, Number number2) {
+		placeto.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+			@Override public void changed(ObservableValue <? extends String> observableValue, String string, String string2) {
+				Connection conn;
 				try {
-					Connection conn = dbConnection();
-					String query = "select driverid from drivers where region in (select region from districts where district_name=?)";
-					//(time_from > ? or time_to < ?)
-					PreparedStatement pst = conn.prepareStatement(query);
-					int hourf = Integer.parseInt(hourFrom.getValue());
-					if (daytime1.getValue() == "PM") {
-						hourf += 12;
-					}
-					int hourt = Integer.parseInt(hourTo.getValue());
-					if (daytime2.getValue() == "PM") {
-						hourt += 12;
-					}
-					String timef = hourf + ":" + minuteFrom.getValue();
-					String timet = hourt + ":" + minuteTo.getValue();
-					String place = placefrom.getValue().toString();
-					pst.setString(1, place);
-					//pst.setString(2, timef);
-					//pst.setString(3, place);
-
-					ResultSet rs = pst.executeQuery();
-					driverBox.getItems().clear();
-					while(rs.next()) {
-						driverBox.getItems().add(rs.getString("driverid"));
-					}
-					conn.close();
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				conn = dbConnection();
+				String query = "select driverid from drivers where time_from <= ? and time_to >= ? and region in (select region from districts where district_name=?)";
+				PreparedStatement pst = conn.prepareStatement(query);
+				int hourf = Integer.parseInt(hourFrom.getValue());
+				if (daytime1.getValue() == "PM") {
+					hourf += 12;
 				}
-			} 
-		});
-		
-	}
+				int hourt = Integer.parseInt(hourTo.getValue());
+				if (daytime2.getValue() == "PM") {
+					hourt += 12;
+				}
+				String timef = hourf + ":" + minuteFrom.getValue();
+				String timet = hourt + ":" + minuteTo.getValue();
+				String place = placefrom.getValue().toString();
+				pst.setString(1, timef);
+				pst.setString(2, timet);
+				pst.setString(3, place);
+					ResultSet rs = pst.executeQuery();
+				driverBox.getItems().clear();
+				while(rs.next()) {
+					driverBox.getItems().add(rs.getString("driverid"));
+				}
+				conn.close();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			}
+	});}
 	
 	/**
 	 * Entering car.
@@ -338,6 +329,7 @@ public class HomeController1 extends GridPane {
 		if (value != null) {
 		switch(value) {
 			case "New" : {
+				valid.setDisable(false);
 				brand.setVisible(true);
 				carid.setVisible(true);
 				model.setVisible(true);
@@ -376,10 +368,8 @@ public class HomeController1 extends GridPane {
 						pst.close();
 						conn.close();
 					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				});
@@ -524,7 +514,6 @@ public class HomeController1 extends GridPane {
 				pst.close();
 				conn.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} catch(ClassNotFoundException e) {
@@ -554,7 +543,6 @@ public class HomeController1 extends GridPane {
 				pst.close();
 				conn.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} catch(ClassNotFoundException e) {
@@ -671,7 +659,6 @@ public class HomeController1 extends GridPane {
 					return false;
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} catch(ClassNotFoundException e) {
@@ -688,7 +675,7 @@ public class HomeController1 extends GridPane {
      */
 	
 	public void vaidate() {
-	 save.setDisable(false);
+	 save.setDisable(true);
 		vysl = "";
 		List<String> list = new ArrayList<String>();
 	
@@ -740,6 +727,6 @@ public class HomeController1 extends GridPane {
 		
 	}
 	
-	
+			
 
 }
