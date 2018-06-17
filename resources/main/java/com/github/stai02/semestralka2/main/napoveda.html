@@ -1,0 +1,43 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<link type="text/css" href="styly.css" rel="StyleSheet" >
+	<meta charset="utf-8">
+	<title>4SA313</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>$(document).ready(function(){ $("h2").click(function(){ $(this).next("ol").toggle(1000); }); }); </script>
+</head>
+
+<body style="background:linear-gradient(#0dccc0, #336e7b); font-family:verdana;">
+  <h1 style="color:white;">Help</h1>
+	<h2 style="color:white;">Insert order</h2>
+	<ol>
+		This button uses for insert new order to the database.
+		<li><h4 style="color:white;">Choose client</h4> You can add new client for this you should add all information about client. Telephone write in format 00420XXXXXX, name, surname, model and brand should start from capital letter, license is one capital letter. Then after you safe order this client will be added to clients database.</li>
+		<li><h4 style="color:white;">Choose vehicle</h4> You can add new vehicle to existing client. If you chose new client before you should add new vehicle.</li>
+		<li><h4 style="color:white;">Choose date</h4> Choose only date in the future.</li>
+		<li><h4 style="color:white;">Choose time from and time to</h4>Time to should be later than time from.</li>
+		<li><h4 style="color:white;">Choose driver</h4>The driver license should compare with vehicle license, otherwise you couldn't save order.</li>
+		<li><h4 style="color:white;">Choose driving a person</h4> Make the check if in car will be someone else except driver.</li>
+		<li><h4 style="color:white;">Choose place from and place to</h4></li>
+		<li><h4 style="color:white;">Write some comments</h4></li>
+
+	</ol>
+	<h2 style="color:white;">Insert driver</h2>
+	<ol>
+	Write all information about driver. Telephone write in format 00420XXXXXX, name and surname should start from capital letter, license is one capital letter, time from and time to is time when driver has time for work.
+	</ol>
+	<h2 style="color:white;">Show orders</h2>
+	<ol>
+		In this table will be all existing order. You can choose one and delete it.
+	</ol>
+	
+	<h2 style="color:white;">Search</h2>
+	<ol>
+		<li>Choose the table you want to search</li>
+		<li>Choose the category</li>
+		<li>Write search criteria</li>
+	</ol>
+</body>
+</html>
