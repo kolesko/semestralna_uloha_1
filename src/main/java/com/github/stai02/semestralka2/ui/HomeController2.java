@@ -24,7 +24,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-// TODO: Auto-generated Javadoc
 
 /**
  * The Class HomeController2, for controle Home2.fxml. Main window.

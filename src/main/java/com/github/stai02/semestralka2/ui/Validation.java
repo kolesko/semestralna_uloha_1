@@ -19,7 +19,7 @@ public class Validation {
 		
 		switch(param) {
 			case "telephone": {
-				if(co.matches("^0042\\d{10}$")){
+				if(co.matches("^42\\d{10}$")){
 	           status=true;
 	           break;
 	           }

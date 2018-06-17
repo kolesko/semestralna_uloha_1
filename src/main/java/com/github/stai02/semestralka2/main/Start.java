@@ -8,13 +8,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-// TODO: Auto-generated Javadoc
 /****************************************************
- * Trieda {@code Start} je hlavnou triedou projektu.
+ * The Class Start is the main class of the project.
  * 
  * 
- * @author Ivana Stanová
- *
+ * @author Ivana Stanová, Matej Kolesár, Lenka Šťastná, Julia Loseeva
+ * @version June 2018
  */
 public class Start extends Application {
 

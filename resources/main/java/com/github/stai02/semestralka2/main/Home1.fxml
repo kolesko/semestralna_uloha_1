@@ -32,11 +32,11 @@
 	<children>
 		<HBox prefHeight="206.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
 			<children>
-				<VBox prefHeight="215.0" prefWidth="406.0">
+				<VBox prefHeight="206.0" prefWidth="558.0">
 					<children>
 						<Label text="Details" textFill="WHITE">
 							<VBox.margin>
-								<Insets left="10.0" right="10.0" top="15.0" />
+								<Insets left="10.0" right="10.0" />
 							</VBox.margin>
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -55,17 +55,17 @@
                            </HBox.margin>
                         </Label>
                         <Region prefHeight="46.0" prefWidth="22.0" />
-                        <ComboBox fx:id="hourFrom" prefHeight="26.0" prefWidth="70.0" promptText="hh">
+                        <ComboBox fx:id="hourFrom" minWidth="90.0" onAction="#updateDriver" prefHeight="26.0" prefWidth="90.0" promptText="hh" style="-fx-background-color: white; -fx-background-radius: 5em;">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <ComboBox fx:id="minuteFrom" prefHeight="26.0" prefWidth="70.0" promptText="mm">
+                        <ComboBox fx:id="minuteFrom" minWidth="90.0" onAction="#updateDriver" prefHeight="26.0" prefWidth="90.0" promptText="mm" style="-fx-background-color: white; -fx-background-radius: 5em;">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <ComboBox fx:id="daytime1" prefHeight="26.0" prefWidth="90.0" promptText="AM/PM">
+                        <ComboBox fx:id="daytime1" minWidth="90.0" onAction="#updateDriver" prefHeight="26.0" prefWidth="90.0" promptText="AM/PM" style="-fx-background-color: white; -fx-background-radius: 5em;">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                            </HBox.margin>
@@ -80,32 +80,144 @@
                            </HBox.margin>
                         </Label>
                         <Region prefHeight="47.0" prefWidth="36.0" />
-                        <ComboBox fx:id="hourTo" prefHeight="26.0" prefWidth="70.0" promptText="hh">
+                        <ComboBox fx:id="hourTo" minWidth="90.0" onAction="#updateDriver" prefHeight="26.0" prefWidth="90.0" promptText="hh" style="-fx-background-color: white; -fx-background-radius: 5em;">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <ComboBox fx:id="minuteTo" prefHeight="26.0" prefWidth="70.0" promptText="mm">
+                        <ComboBox fx:id="minuteTo" minWidth="90.0" onAction="#updateDriver" prefHeight="26.0" prefWidth="90.0" promptText="mm" style="-fx-background-color: white; -fx-background-radius: 5em;">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <ComboBox fx:id="daytime2" prefHeight="26.0" prefWidth="90.0" promptText="AM/PM">
+                        <ComboBox fx:id="daytime2" minWidth="90.0" onAction="#updateDriver" prefHeight="26.0" prefWidth="90.0" promptText="AM/PM" style="-fx-background-color: white; -fx-background-radius: 5em;">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                            </HBox.margin>
                         </ComboBox>
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+					</children>
+				</VBox>
+			</children>
+		</HBox>
+		<VBox prefHeight="171.0" prefWidth="200.0" GridPane.rowIndex="1">
+			<children>
+            <HBox prefHeight="33.0" prefWidth="200.0">
+               <children>
+      				<Label text="Client" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+      				</Label>
+                  <ComboBox fx:id="clientType" onAction="#clientType" prefHeight="25.0" prefWidth="119.0" promptText="New/Existing" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </HBox>
+            <StackPane maxWidth="180.0" prefHeight="36.0" prefWidth="180.0">
+               <children>
+                  <ComboBox fx:id="existingClientsBox" prefWidth="150.0" promptText="Select client" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding></ComboBox>
+      				<TextField fx:id="name" maxWidth="180.0" mouseTransparent="true" prefWidth="180.0" promptText="Name" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding></TextField>
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </StackPane>
+				<TextField fx:id="surname" mouseTransparent="true" promptText="Surname" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false">
+					<VBox.margin>
+						<Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+				</TextField>
+				<TextField fx:id="telephone" mouseTransparent="true" promptText="Telephone" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false">
+					<VBox.margin>
+						<Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+				</TextField>
+				<TextField fx:id="clientid" mouseTransparent="true" promptText="ID" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false">
+					<VBox.margin>
+						<Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+				</TextField>
+			</children>
+		</VBox>
+		<VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+			<children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+      				<Label text="Vehicle" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="10.0" top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+      				</Label>
+                  <ComboBox fx:id="carType" onAction="#carType" prefHeight="25.0" prefWidth="119.0" promptText="New/Existing" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="20.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </HBox>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <children>
+      				<TextField fx:id="brand" maxWidth="180.0" mouseTransparent="true" prefWidth="180.0" promptText="Brand" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false" />
+                  <ComboBox fx:id="existingCarsBox" prefWidth="150.0" promptText="Select car" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false" />
+               </children>
+            </StackPane>
+				<TextField fx:id="model" mouseTransparent="true" promptText="Model" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false">
+					<VBox.margin>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</VBox.margin>
+				</TextField>
+				<TextField fx:id="license" mouseTransparent="true" promptText="Type of license" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false">
+					<VBox.margin>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</VBox.margin>
+				</TextField>
+				<TextField fx:id="carid" mouseTransparent="true" promptText="ID" style="-fx-background-color: white; -fx-background-radius: 5em;" visible="false">
+					<VBox.margin>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</VBox.margin>
+				</TextField>
+			</children>
+		</VBox>
+		<HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+			<children>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="217.0" prefWidth="561.0">
+               <children>
+      				<VBox prefHeight="217.0" prefWidth="352.0">
                      <children>
                         <HBox prefHeight="49.0" prefWidth="400.0">
                            <children>
-                              <ComboBox fx:id="driverBox" prefWidth="150.0" promptText="Driver" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
-                                 <HBox.margin>
-                                    <Insets left="10.0" top="10.0" />
-                                 </HBox.margin>
-                              </ComboBox>
                               <CheckBox fx:id="driving" mnemonicParsing="false" prefHeight="0.0" prefWidth="22.0">
                                  <HBox.margin>
                                     <Insets bottom="11.0" left="11.0" right="11.0" top="11.0" />
@@ -121,121 +233,30 @@
                               </Label>
                            </children>
                         </HBox>
+                        <ComboBox fx:id="placefrom" onAction="#updateDriver" prefWidth="150.0" promptText="Place from" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                        <ComboBox fx:id="placeto" onAction="#updateDriver" prefWidth="150.0" promptText="Destination" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                        <ComboBox fx:id="driverBox" prefWidth="150.0" promptText="Driver" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </ComboBox>
                      </children>
-                  </HBox>
-					</children>
-				</VBox>
-			</children>
-		</HBox>
-		<VBox prefHeight="171.0" prefWidth="200.0" GridPane.rowIndex="1">
-			<children>
-            <HBox prefHeight="33.0" prefWidth="200.0">
-               <children>
-      				<Label text="Client" textFill="WHITE">
+                  </VBox>
+                  <TextField fx:id="validateError" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="257.0" style="-fx-background-radius: 5em;">
                      <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-      				</Label>
-                  <ComboBox fx:id="clientType" onAction="#clientType" prefHeight="25.0" prefWidth="119.0" promptText="New/Existing" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                  </ComboBox>
+                  </TextField>
                </children>
-               <VBox.margin>
-                  <Insets top="8.0" />
-               </VBox.margin>
             </HBox>
-            <StackPane maxWidth="180.0" prefHeight="36.0" prefWidth="180.0">
-               <children>
-                  <ComboBox fx:id="existingClientsBox" prefWidth="150.0" promptText="Select client" visible="false" />
-      				<TextField fx:id="name" maxWidth="180.0" mouseTransparent="true" prefWidth="180.0" promptText="Name" visible="false" />
-               </children>
-               <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin>
-            </StackPane>
-				<TextField fx:id="surname" mouseTransparent="true" promptText="Surname" visible="false">
-					<VBox.margin>
-						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-					</VBox.margin>
-				</TextField>
-				<TextField fx:id="telephone" mouseTransparent="true" promptText="Telephone" visible="false">
-					<VBox.margin>
-						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-					</VBox.margin>
-				</TextField>
-				<TextField fx:id="clientid" mouseTransparent="true" promptText="ID" visible="false">
-					<VBox.margin>
-						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-					</VBox.margin>
-				</TextField>
-			</children>
-		</VBox>
-		<VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
-			<children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-      				<Label text="Vehicle" textFill="WHITE">
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-      				</Label>
-                  <ComboBox fx:id="carType" onAction="#carType" prefHeight="25.0" prefWidth="119.0" promptText="New/Existing" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
-                     <HBox.margin>
-                        <Insets bottom="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                  </ComboBox>
-               </children>
-               <VBox.margin>
-                  <Insets top="8.0" />
-               </VBox.margin>
-            </HBox>
-            <StackPane prefHeight="150.0" prefWidth="200.0">
-               <children>
-      				<TextField fx:id="brand" maxWidth="180.0" mouseTransparent="true" prefWidth="180.0" promptText="Brand" visible="false" />
-                  <ComboBox fx:id="existingCarsBox" prefWidth="150.0" promptText="Select car" visible="false" />
-               </children>
-            </StackPane>
-				<TextField fx:id="model" mouseTransparent="true" promptText="Model" visible="false">
-					<VBox.margin>
-						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-					</VBox.margin>
-				</TextField>
-				<TextField fx:id="license" mouseTransparent="true" promptText="Type of license" visible="false">
-					<VBox.margin>
-						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-					</VBox.margin>
-				</TextField>
-				<TextField fx:id="carid" mouseTransparent="true" promptText="ID" visible="false">
-					<VBox.margin>
-						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-					</VBox.margin>
-				</TextField>
-			</children>
-		</VBox>
-		<HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
-			<children>
-				<VBox prefHeight="226.0" prefWidth="200.0">
-               <children>
-                  <ComboBox fx:id="placefrom" prefWidth="150.0" promptText="Place from" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                  </ComboBox>
-                  <ComboBox fx:id="placeto" prefWidth="150.0" promptText="Destination" style="-fx-background-radius: 5em; -fx-background-color: #fdfefe; -fx-text-fill: #D64541;">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                  </ComboBox>
-               </children></VBox>
-            <TextField fx:id="validateError" editable="false" maxWidth="-Infinity" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 5em;" />
 			</children>
 		</HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="3">
