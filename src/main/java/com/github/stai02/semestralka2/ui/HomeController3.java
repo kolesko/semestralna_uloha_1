@@ -115,6 +115,9 @@ public class HomeController3 extends GridPane {
 		Tooltip tooltip4 = new Tooltip();
 		tooltip4.setText("Insert until when the driver is available every day as hh:mm");
 		timeTo.setTooltip(tooltip4);
+		Tooltip tooltip7 = new Tooltip();
+		tooltip7.setText("Validation errors:");
+		validateError.setTooltip(tooltip7);
 		
 		
 	}
