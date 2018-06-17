@@ -226,6 +226,9 @@ public class HomeController1 extends GridPane {
 		Tooltip tooltip6 = new Tooltip();
 		tooltip6.setText("Will the client be in the car?");
 		driving.setTooltip(tooltip6);
+		Tooltip tooltip7 = new Tooltip();
+		tooltip7.setText("Validation errors:");
+		validateError.setTooltip(tooltip7);
 		
 		
 	}
