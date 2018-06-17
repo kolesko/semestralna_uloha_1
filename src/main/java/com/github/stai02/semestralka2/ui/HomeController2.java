@@ -13,6 +13,8 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -42,7 +44,9 @@ public class HomeController2 extends GridPane{
 	
 	/** The end. */
 	@FXML public Button end;
-
+	
+	/** Help.*/
+	@FXML public Button help;
 
 	/** The show. */
 	@FXML public Button show;
@@ -232,6 +236,18 @@ public class HomeController2 extends GridPane{
 		}
 	}	
 
+	public void help() {
+		String url = getClass().getResource("/com/github/stai02/semestralka2/main/napoveda.html").toExternalForm();
+		WebView webView = new WebView();
+		WebEngine engine = webView.getEngine();
+		engine.load(url);
+		Scene scene = new Scene(webView, 1000, 3000);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.setTitle("Nápoveda");
+		stage.show();
+	}
+	
 	/**
 	 * Exiting the application
 	 * 
