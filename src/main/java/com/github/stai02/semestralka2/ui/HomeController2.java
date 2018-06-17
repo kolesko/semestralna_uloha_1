@@ -42,7 +42,8 @@ public class HomeController2 extends GridPane{
 	
 	/** The end. */
 	@FXML public Button end;
-	
+
+
 	/** The show. */
 	@FXML public Button show;
 	
@@ -63,6 +64,7 @@ public class HomeController2 extends GridPane{
 	
 	/** The choice box items. */
 	ObservableList<String> choiceBoxItems = FXCollections.observableArrayList("cars","drivers","orders","clients");
+
 	
 	
 	/**
@@ -112,7 +114,6 @@ public class HomeController2 extends GridPane{
 	          }
 	        }
 	      });
-	
     };
     
     /**
@@ -229,8 +230,8 @@ public class HomeController2 extends GridPane{
 		} catch (Exception e){
 			System.out.println("New window can´t be loaded.");
 		}
-	}
-	
+	}	
+
 	/**
 	 * Exiting the application
 	 * 

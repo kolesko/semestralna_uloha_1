@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+
 <GridPane fx:id="gridpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="840.0" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #0dccc0, #336e7b);" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stai02.semestralka2.ui.HomeController2">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="415.20001220703125" minWidth="10.0" prefWidth="245.6000518798828" />
